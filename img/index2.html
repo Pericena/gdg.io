@@ -1,0 +1,178 @@
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bgPrimary: '#000000',
+            bgSecondary: '#1E0024',
+            bgTertiary: '#26353C',
+            accent: '#09281E',
+            primary: '#00FF88',
+            secondary: '#00CCFF',
+          },
+          fontFamily: {
+            orbitron: ['Orbitron', 'sans-serif'],
+            rajdhani: ['Rajdhani', 'sans-serif'],
+          },
+          animation: {
+            'pulse-glow': 'pulse-glow 2s infinite',
+            'float': 'float 15s infinite ease-in-out',
+            'float-reverse': 'float 12s infinite ease-in-out reverse',
+            'float-delayed': 'float 10s infinite ease-in-out 2s',
+          },
+          keyframes: {
+            'pulse-glow': {
+              '0%': { boxShadow: '0 0 0 0 rgba(0, 255, 136, 0.4)' },
+              '70%': { boxShadow: '0 0 0 10px rgba(0, 255, 136, 0)' },
+              '100%': { boxShadow: '0 0 0 0 rgba(0, 255, 136, 0)' },
+            },
+            'float': {
+              '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+              '50%': { transform: 'translateY(-20px) rotate(10deg)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style type="text/tailwindcss">
+    @layer utilities {
+            .text-gradient {
+                background: linear-gradient(to right, #FFFFFF, #00FF88);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .text-gradient-date {
+                background: linear-gradient(to right, #00FF88, #00CCFF);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .bg-hero-pattern::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: 
+                    radial-gradient(circle at 20% 30%, rgba(37, 103, 131, 0.2) 0%, transparent 40%),
+                    radial-gradient(circle at 80% 70%, rgba(9, 40, 30, 0.3) 0%, transparent 40%);
+                z-index: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-rajdhani bg-bgPrimary text-white overflow-x-hidden">
+  <!-- HERO SECTION -->
+  <section id="inicio"
+    class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-bgPrimary via-bgSecondary to-bgTertiary bg-hero-pattern">
+    <!-- Floating elements -->
+    <div class="absolute w-full h-full top-0 left-0 pointer-events-none z-10">
+      <div class="absolute w-20 h-20 top-1/5 left-1/10 bg-primary/5 border border-primary/10 rounded-lg animate-float">
+      </div>
+      <div
+        class="absolute w-16 h-16 bottom-30% right-15% bg-primary/5 border border-primary/10 rounded-lg animate-float-reverse">
+      </div>
+      <div
+        class="absolute w-10 h-10 top-1/2 left-1/5 bg-primary/5 border border-primary/10 rounded-lg animate-float-delayed">
+      </div>
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+      <div class="text-center py-16">
+        <!-- Location badge -->
+        <span
+          class="inline-flex items-center gap-2 bg-gradient-to-r from-bgTertiary to-accent px-5 py-2 rounded-full text-xs font-semibold mb-10 backdrop-blur-sm border border-white/10 animate-pulse-glow">
+          <i class='bx bx-map-pin'></i> Santa Cruz · Bolivia
+        </span>
+
+        <!-- Main title -->
+        <h1 class="font-orbitron font-black uppercase leading-tight mb-4">
+          <span class="block text-5xl sm:text-6xl lg:text-7xl text-gradient">BLOCKCHAIN</span>
+          <span
+            class="block text-5xl sm:text-6xl lg:text-7xl text-primary mt-2 text-shadow-lg shadow-primary/70">BOOTCAMP</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <div
+          class="font-mono text-secondary text-xl sm:text-2xl tracking-widest uppercase font-semibold mb-10 text-shadow shadow-secondary/50">
+          INNOVACIÓN EN CADENA
+        </div>
+
+        <!-- Date section -->
+        <div class="my-12">
+          <div class="text-primary text-3xl sm:text-4xl font-bold mb-4 text-shadow shadow-primary/50">SAVE THE DATE
+          </div>
+          <div
+            class="font-orbitron font-black text-5xl sm:text-6xl lg:text-7xl text-gradient-date mt-6 text-shadow shadow-primary/50">
+            SEP <span class="text-white">19-20</span>
+          </div>
+        </div>
+
+        <!-- Countdown -->
+        <div class="mt-12">
+          <div
+            class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-md mx-auto bg-black/30 backdrop-blur-lg p-4 rounded-2xl text-center border border-white/10 shadow-lg">
+            <div class="py-4 rounded-lg">
+              <div id="cdDays" class="font-orbitron font-bold text-3xl text-primary">00</div>
+              <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Días</div>
+            </div>
+            <div class="py-4 rounded-lg">
+              <div id="cdHours" class="font-orbitron font-bold text-3xl text-primary">00</div>
+              <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Horas</div>
+            </div>
+            <div class="py-4 rounded-lg">
+              <div id="cdMinutes" class="font-orbitron font-bold text-3xl text-primary">00</div>
+              <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Minutos</div>
+            </div>
+            <div class="py-4 rounded-lg">
+              <div id="cdSeconds" class="font-orbitron font-bold text-3xl text-primary">00</div>
+              <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Segundos</div>
+            </div>
+          </div>
+          <p class="mt-3 text-sm text-white/60">19-20 de septiembre, 2025</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Countdown functionality
+    function updateCountdown() {
+      const eventDate = new Date('September 19, 2025 09:00:00').getTime();
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance < 0) {
+        document.getElementById("cdDays").innerText = "00";
+        document.getElementById("cdHours").innerText = "00";
+        document.getElementById("cdMinutes").innerText = "00";
+        document.getElementById("cdSeconds").innerText = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("cdDays").innerText = days.toString().padStart(2, '0');
+      document.getElementById("cdHours").innerText = hours.toString().padStart(2, '0');
+      document.getElementById("cdMinutes").innerText = minutes.toString().padStart(2, '0');
+      document.getElementById("cdSeconds").innerText = seconds.toString().padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+  
+</body>
+
+</html>

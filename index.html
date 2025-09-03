@@ -11,47 +11,56 @@
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Tailwind config: fuentes, colores blockchain (azules/verdes tecnológicos)
+    // Tailwind config: fuentes, colores blockchain
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-            mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular']
+            orbitron: ['Orbitron', 'ui-sans-serif', 'system-ui'],
+            rajdhani: ['Rajdhani', 'ui-sans-serif', 'system-ui'],
           },
           colors: {
+            bgPrimary: '#000000',
+            bgSecondary: '#1E0024',
+            bgTertiary: '#26353C',
+            accent: '#09281E',
+            primary: '#00FF88',
+            secondary: '#00CCFF',
             blockchain: {
               50: '#f0f9ff',
               100: '#e0f2fe',
               200: '#bae6fd',
               300: '#7dd3fc',
               400: '#38bdf8',
-              500: '#0ea5e9', /* azul principal */
+              500: '#0ea5e9',
               600: '#0284c7',
               700: '#0369a1',
               800: '#075985',
               900: '#0c4a6e'
-            },
-            crypto: {
-              blue: '#2775CA',
-              green: '#00FF00',
-              orange: '#F7931A',
-              purple: '#627EEA'
             }
           },
           boxShadow: {
-            soft: '0 6px 24px rgba(8,15,24,0.6)',
-            glow: '0 6px 30px rgba(14,165,233,0.15)',
-            'glow-green': '0 6px 30px rgba(0,255,0,0.15)'
-          },
-          keyframes: {
-            float: { '0%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' }, '100%': { transform: 'translateY(0)' } },
-            pulse: { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0.7 } }
+            'glow-primary': '0 0 20px rgba(0, 255, 136, 0.3)',
+            'glow-secondary': '0 0 20px rgba(0, 204, 255, 0.3)',
+            'soft': '0 6px 24px rgba(8,15,24,0.6)'
           },
           animation: {
-            float: 'float 4s ease-in-out infinite',
-            pulse: 'pulse 2s ease-in-out infinite'
+            'pulse-glow': 'pulse-glow 2s infinite',
+            'float': 'float 15s infinite ease-in-out',
+            'float-reverse': 'float 12s infinite ease-in-out reverse',
+            'float-delayed': 'float 10s infinite ease-in-out 2s',
+          },
+          keyframes: {
+            'pulse-glow': {
+              '0%': { boxShadow: '0 0 0 0 rgba(0, 255, 136, 0.4)' },
+              '70%': { boxShadow: '0 0 0 10px rgba(0, 255, 136, 0)' },
+              '100%': { boxShadow: '0 0 0 0 rgba(0, 255, 136, 0)' },
+            },
+            'float': {
+              '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+              '50%': { transform: 'translateY(-20px) rotate(10deg)' },
+            }
           }
         }
       }
@@ -63,19 +72,36 @@
 
   <!-- Google Fonts -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
 
   <style>
-    /* Patrón de fondo con elementos blockchain */
-    .blockchain-pattern {
-      background:
-        radial-gradient(circle at 25% 25%, rgba(39, 117, 202, 0.08), transparent 25%),
-        radial-gradient(circle at 75% 75%, rgba(0, 255, 0, 0.08), transparent 25%),
-        linear-gradient(135deg, rgba(12, 74, 110, 0.8) 0%, rgba(7, 89, 133, 0.9) 100%);
+    /* Estilos personalizados */
+    .text-gradient {
+      background: linear-gradient(to right, #FFFFFF, #00FF88);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    /* Elementos decorativos tipo cadena de bloques */
+    .text-gradient-date {
+      background: linear-gradient(to right, #00FF88, #00CCFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .bg-hero-pattern::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(37, 103, 131, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(9, 40, 30, 0.3) 0%, transparent 40%);
+      z-index: 1;
+    }
+
     .block-element {
       position: absolute;
       width: 80px;
@@ -98,7 +124,6 @@
       border-radius: 2px;
     }
 
-    /* Efecto de conexión entre bloques */
     .connector {
       position: absolute;
       height: 2px;
@@ -108,7 +133,7 @@
   </style>
 </head>
 
-<body class="min-h-screen bg-gradient-to-b from-[#07101a] to-[#052226] text-white antialiased">
+<body class="min-h-screen bg-gradient-to-b from-bgPrimary to-bgSecondary text-white font-rajdhani antialiased">
   <!-- Elementos decorativos de fondo -->
   <div class="block-element top-1/4 left-1/4 animate-pulse"></div>
   <div class="block-element top-1/3 right-1/4"></div>
@@ -122,8 +147,9 @@
       <div class="flex items-center justify-between h-16">
         <a href="#inicio" class="flex items-center gap-3">
           <div
-            class="flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-blockchain-500 to-crypto-green text-white font-bold shadow-glow">
-            BC</div>
+            class="flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-primary to-secondary text-bgPrimary font-bold shadow-glow-primary">
+            BC
+          </div>
           <div class="text-sm">
             <div class="font-semibold">Blockchain Bootcamp</div>
             <div class="text-xs text-white/60">Innovación en Cadena · 2025</div>
@@ -131,67 +157,91 @@
         </a>
 
         <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="#agenda" class="hover:text-blockchain-200 transition">Agenda</a>
-          <a href="#speakers" class="hover:text-blockchain-200 transition">Speakers</a>
-          <a href="#tickets" class="hover:text-blockchain-200 transition">Tickets</a>
-          <a href="#galeria" class="hover:text-blockchain-200 transition">Galería</a>
-          <a href="#contacto" class="hover:text-blockchain-200 transition">Contacto</a>
+          <a href="#acerca" class="hover:text-primary transition">Acerca</a>
+          <a href="#agenda" class="hover:text-primary transition">Agenda</a>
+          <a href="#speakers" class="hover:text-primary transition">Speakers</a>
+          <a href="#tickets" class="hover:text-primary transition">Tickets</a>
+          <a href="#contacto" class="hover:text-primary transition">Contacto</a>
         </nav>
 
         <div class="flex items-center gap-3">
           <a href="#tickets"
-            class="hidden sm:inline-flex items-center gap-2 bg-blockchain-500 hover:bg-blockchain-600 text-white px-4 py-2 rounded-lg font-semibold shadow">Consigue
-            tu ticket <i class='bx bx-ticket text-base'></i></a>
-          <button id="themeBtn" class="p-2 rounded-md border border-white/8 hover:bg-white/5"><i id="themeIcon"
-              class='bx bx-moon'></i></button>
-          <button id="menuBtn" class="md:hidden p-2"><i class='bx bx-menu text-2xl'></i></button>
+            class="hidden sm:inline-flex items-center gap-2 bg-primary hover:bg-secondary text-bgPrimary px-4 py-2 rounded-lg font-semibold shadow-glow-primary transition">
+            Consigue tu ticket <i class='bx bx-ticket text-base'></i>
+          </a>
+          <button id="themeBtn" class="p-2 rounded-md border border-white/8 hover:bg-white/5">
+            <i id="themeIcon" class='bx bx-moon'></i>
+          </button>
+          <button id="menuBtn" class="md:hidden p-2">
+            <i class='bx bx-menu text-2xl'></i>
+          </button>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section id="inicio" class="blockchain-pattern relative overflow-hidden min-h-screen flex items-center">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 w-full">
-      <div class="flex flex-col items-center text-center">
-        <span
-          class="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-white/80 mb-8"><i
-            class='bx bx-map-pin'></i> Santa Cruz · Bolivia</span>
+  <!-- HERO SECTION -->
+  <section id="inicio"
+    class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-bgPrimary via-bgSecondary to-bgTertiary bg-hero-pattern">
+    <!-- Floating elements -->
+    <div class="absolute w-full h-full top-0 left-0 pointer-events-none z-10">
+      <div class="absolute w-20 h-20 top-1/5 left-1/10 bg-primary/5 border border-primary/10 rounded-lg animate-float">
+      </div>
+      <div
+        class="absolute w-16 h-16 bottom-30% right-15% bg-primary/5 border border-primary/10 rounded-lg animate-float-reverse">
+      </div>
+      <div
+        class="absolute w-10 h-10 top-1/2 left-1/5 bg-primary/5 border border-primary/10 rounded-lg animate-float-delayed">
+      </div>
+    </div>
 
-        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight uppercase tracking-tight">
-          <span class="block">BLOCKCHAIN</span>
-          <span class="block text-blockchain-300 mt-2">BOOTCAMP</span>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+      <div class="text-center py-16">
+        <!-- Location badge -->
+        <span
+          class="inline-flex items-center gap-2 bg-gradient-to-r from-bgTertiary to-accent px-5 py-2 rounded-full text-xs font-semibold mb-10 backdrop-blur-sm border border-white/10 animate-pulse-glow">
+          <i class='bx bx-map-pin'></i> Santa Cruz · Bolivia
+        </span>
+
+        <!-- Main title -->
+        <h1 class="font-orbitron font-black uppercase leading-tight mb-4">
+          <span class="block text-5xl sm:text-6xl lg:text-7xl text-gradient">BLOCKCHAIN</span>
+          <span class="block text-5xl sm:text-6xl lg:text-7xl text-primary mt-2 drop-shadow-lg">BOOTCAMP</span>
         </h1>
 
-        <div class="my-8 font-mono text-blockchain-200 text-xl sm:text-2xl tracking-wider">
-          INNOVACION EN CADENA
+        <!-- Subtitle -->
+        <div
+          class="font-mono text-secondary text-xl sm:text-2xl tracking-widest uppercase font-semibold mb-10 drop-shadow-md">
+          INNOVACIÓN EN CADENA
         </div>
 
+        <!-- Date section -->
         <div class="my-12">
-          <div class="text-4xl sm:text-5xl font-bold mb-2">SAVE THE DATE</div>
-          <div class="text-blockchain-300 text-6xl sm:text-7xl font-black mt-6">
+          <div class="text-primary text-3xl sm:text-4xl font-bold mb-4 drop-shadow-md">SAVE THE DATE</div>
+          <div class="font-orbitron font-black text-5xl sm:text-6xl lg:text-7xl text-gradient-date mt-6 drop-shadow-md">
             SEP <span class="text-white">19-20</span>
           </div>
         </div>
 
         <!-- Countdown -->
         <div class="mt-12">
-          <div class="grid grid-cols-4 gap-3 max-w-md bg-white/5 p-4 rounded-2xl text-center">
-            <div class="py-3 rounded-lg">
-              <div id="cdDays" class="text-3xl font-bold">00</div>
-              <div class="text-xs uppercase tracking-wider text-white/60">Días</div>
+          <div
+            class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-md mx-auto bg-black/30 backdrop-blur-lg p-4 rounded-2xl text-center border border-white/10 shadow-lg">
+            <div class="py-4 rounded-lg">
+              <div id="cdDays" class="font-orbitron font-bold text-3xl text-primary">00</div>
+              <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Días</div>
             </div>
-            <div class="py-3 rounded-lg">
-              <div id="cdHours" class="text-3xl font-bold">00</div>
-              <div class="text-xs uppercase tracking-wider text-white/60">Horas</div>
+            <div class="py-4 rounded-lg">
+              <div id="cdHours" class="font-orbitron font-bold text-3xl text-primary">00</div>
+              <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Horas</div>
             </div>
-            <div class="py-3 rounded-lg">
-              <div id="cdMinutes" class="text-3xl font-bold">00</div>
-              <div class="text-xs uppercase tracking-wider text-white/60">Minutos</div>
+            <div class="py-4 rounded-lg">
+              <div id="cdMinutes" class="font-orbitron font-bold text-3xl text-primary">00</div>
+              <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Minutos</div>
             </div>
-            <div class="py-3 rounded-lg">
-              <div id="cdSeconds" class="text-3xl font-bold">00</div>
-              <div class="text-xs uppercase tracking-wider text-white/60">Segundos</div>
+            <div class="py-4 rounded-lg">
+              <div id="cdSeconds" class="font-orbitron font-bold text-3xl text-primary">00</div>
+              <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Segundos</div>
             </div>
           </div>
           <p class="mt-3 text-sm text-white/60">19-20 de septiembre, 2025</p>
@@ -201,38 +251,38 @@
   </section>
 
   <!-- ACERCA -->
-  <section id="acerca" class="py-16">
+  <section id="acerca" class="py-16 bg-bgTertiary/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-3 gap-8 items-center">
         <div class="lg:col-span-2">
-          <h2 class="text-3xl font-bold">Qué es Blockchain Bootcamp</h2>
+          <h2 class="text-3xl font-bold text-primary">Qué es Blockchain Bootcamp</h2>
           <p class="mt-4 text-white/80 max-w-2xl">Un espacio dedicado a explorar el potencial de la tecnología
             blockchain, criptoactivos y Web3. Diseñado para desarrolladores, emprendedores y entusiastas que buscan
             entender y aplicar estas tecnologías disruptivas.</p>
           <ul class="mt-6 grid sm:grid-cols-2 gap-4">
-            <li class="flex gap-3 items-start">
-              <i class='bx bx-data text-blockchain-400 text-2xl mt-1'></i>
+            <li class="flex gap-3 items-start p-3 rounded-lg bg-white/5 hover:bg-white/10 transition">
+              <i class='bx bx-data text-primary text-2xl mt-1'></i>
               <div>
                 <div class="font-semibold">Tecnología Blockchain</div>
                 <div class="text-sm text-white/70">Fundamentos y aplicaciones prácticas</div>
               </div>
             </li>
-            <li class="flex gap-3 items-start">
-              <i class='bx bx-coin-stack text-2xl text-crypto-orange mt-1'></i>
+            <li class="flex gap-3 items-start p-3 rounded-lg bg-white/5 hover:bg-white/10 transition">
+              <i class='bx bx-coin-stack text-2xl text-secondary mt-1'></i>
               <div>
                 <div class="font-semibold">Criptoeconomía</div>
                 <div class="text-sm text-white/70">Tokens, DeFi y modelos económicos</div>
               </div>
             </li>
-            <li class="flex gap-3 items-start">
-              <i class='bx bx-code-block text-2xl text-crypto-purple mt-1'></i>
+            <li class="flex gap-3 items-start p-3 rounded-lg bg-white/5 hover:bg-white/10 transition">
+              <i class='bx bx-code-block text-2xl text-primary mt-1'></i>
               <div>
                 <div class="font-semibold">Smart Contracts</div>
                 <div class="text-sm text-white/70">Desarrollo y auditoría de contratos inteligentes</div>
               </div>
             </li>
-            <li class="flex gap-3 items-start">
-              <i class='bx bx-network-chart text-2xl text-crypto-green mt-1'></i>
+            <li class="flex gap-3 items-start p-3 rounded-lg bg-white/5 hover:bg-white/10 transition">
+              <i class='bx bx-network-chart text-2xl text-secondary mt-1'></i>
               <div>
                 <div class="font-semibold">Web3 & DAOs</div>
                 <div class="text-sm text-white/70">El futuro descentralizado de Internet</div>
@@ -241,16 +291,17 @@
           </ul>
         </div>
 
-        <div class="rounded-2xl bg-white/4 p-6">
-          <h4 class="font-semibold">Datos clave</h4>
+        <div class="rounded-2xl bg-white/4 p-6 border border-white/10">
+          <h4 class="font-semibold text-primary">Datos clave</h4>
           <div class="mt-4 space-y-3 text-sm">
-            <div class="flex justify-between"><span>Charlas & talleres</span><span class="font-semibold">+15</span>
-            </div>
-            <div class="flex justify-between"><span>Asistentes estimados</span><span class="font-semibold">+250</span>
-            </div>
-            <div class="flex justify-between"><span>Duración</span><span class="font-semibold">2 días</span></div>
-            <div class="flex justify-between"><span>Nivel</span><span class="font-semibold">Principiante a
-                Avanzado</span></div>
+            <div class="flex justify-between p-2 rounded-lg bg-white/5"><span>Charlas & talleres</span><span
+                class="font-semibold text-primary">+15</span></div>
+            <div class="flex justify-between p-2 rounded-lg bg-white/5"><span>Asistentes estimados</span><span
+                class="font-semibold text-primary">+250</span></div>
+            <div class="flex justify-between p-2 rounded-lg bg-white/5"><span>Duración</span><span
+                class="font-semibold text-primary">2 días</span></div>
+            <div class="flex justify-between p-2 rounded-lg bg-white/5"><span>Nivel</span><span
+                class="font-semibold text-primary">Principiante a Avanzado</span></div>
           </div>
         </div>
       </div>
@@ -258,41 +309,41 @@
   </section>
 
   <!-- AGENDA / CRONOGRAMA -->
-  <section id="agenda" class="py-16 bg-white/5">
+  <section id="agenda" class="py-16 bg-bgSecondary/50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between mb-6">
-        <h2 class="text-2xl font-bold">Agenda del evento</h2>
+        <h2 class="text-2xl font-bold text-primary">Agenda del evento</h2>
         <div class="text-sm text-white/60">19-20 de septiembre · 2025</div>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8">
         <!-- Día 1 -->
-        <div class="overflow-hidden rounded-2xl border border-white/6 bg-black/20">
-          <div class="bg-blockchain-700 px-4 py-3">
+        <div class="overflow-hidden rounded-2xl border border-white/6 bg-bgTertiary/30">
+          <div class="bg-primary/20 px-4 py-3">
             <h3 class="font-semibold">Día 1 · 19 Sept · Fundamentos</h3>
           </div>
           <div class="divide-y divide-white/6 text-sm">
-            <div class="p-4 hover:bg-white/3 transition">
-              <div class="text-blockchain-300 font-mono">08:30 – 09:00</div>
+            <div class="p-4 hover:bg-white/5 transition">
+              <div class="text-primary font-mono">08:30 – 09:00</div>
               <div class="font-medium mt-1">Registro y bienvenida</div>
               <div class="text-white/70 text-xs">Equipo organizador</div>
             </div>
-            <div class="p-4 hover:bg-white/3 transition">
-              <div class="text-blockchain-300 font-mono">09:00 – 10:00</div>
+            <div class="p-4 hover:bg-white/5 transition">
+              <div class="text-primary font-mono">09:00 – 10:00</div>
               <div class="font-medium mt-1">Introducción a Blockchain</div>
               <div class="text-white/70 text-xs">Conceptos básicos y casos de uso</div>
             </div>
-            <div class="p-4 hover:bg-white/3 transition">
-              <div class="text-blockchain-300 font-mono">10:00 – 11:00</div>
+            <div class="p-4 hover:bg-white/5 transition">
+              <div class="text-primary font-mono">10:00 – 11:00</div>
               <div class="font-medium mt-1">Criptomonedas y wallets</div>
               <div class="text-white/70 text-xs">Manejo seguro de activos digitales</div>
             </div>
-            <div class="p-4 hover:bg-white/3 transition">
-              <div class="text-blockchain-300 font-mono">11:00 – 11:30</div>
+            <div class="p-4 hover:bg-white/5 transition">
+              <div class="text-primary font-mono">11:00 – 11:30</div>
               <div class="font-medium mt-1">Refrigerio & Networking</div>
             </div>
-            <div class="p-4 hover:bg-white/3 transition">
-              <div class="text-blockchain-300 font-mono">11:30 – 13:00</div>
+            <div class="p-4 hover:bg-white/5 transition">
+              <div class="text-primary font-mono">11:30 – 13:00</div>
               <div class="font-medium mt-1">Taller: Primeros pasos con Smart Contracts</div>
               <div class="text-white/70 text-xs">Sesión práctica</div>
             </div>
@@ -300,32 +351,32 @@
         </div>
 
         <!-- Día 2 -->
-        <div class="overflow-hidden rounded-2xl border border-white/6 bg-black/20">
-          <div class="bg-blockchain-700 px-4 py-3">
+        <div class="overflow-hidden rounded-2xl border border-white/6 bg-bgTertiary/30">
+          <div class="bg-primary/20 px-4 py-3">
             <h3 class="font-semibold">Día 2 · 20 Sept · Aplicaciones</h3>
           </div>
           <div class="divide-y divide-white/6 text-sm">
-            <div class="p-4 hover:bg-white/3 transition">
-              <div class="text-blockchain-300 font-mono">09:00 – 10:30</div>
+            <div class="p-4 hover:bg-white/5 transition">
+              <div class="text-primary font-mono">09:00 – 10:30</div>
               <div class="font-medium mt-1">DeFi y Finanzas Descentralizadas</div>
               <div class="text-white/70 text-xs">Protocolos y oportunidades</div>
             </div>
-            <div class="p-4 hover:bg-white/3 transition">
-              <div class="text-blockchain-300 font-mono">10:30 – 12:00</div>
+            <div class="p-4 hover:bg-white/5 transition">
+              <div class="text-primary font-mono">10:30 – 12:00</div>
               <div class="font-medium mt-1">NFTs y tokenización</div>
               <div class="text-white/70 text-xs">Más allá del arte digital</div>
             </div>
-            <div class="p-4 hover:bg-white/3 transition">
-              <div class="text-blockchain-300 font-mono">12:00 – 12:30</div>
+            <div class="p-4 hover:bg-white/5 transition">
+              <div class="text-primary font-mono">12:00 – 12:30</div>
               <div class="font-medium mt-1">Refrigerio</div>
             </div>
-            <div class="p-4 hover:bg-white/3 transition">
-              <div class="text-blockchain-300 font-mono">12:30 – 14:00</div>
+            <div class="p-4 hover:bg-white/5 transition">
+              <div class="text-primary font-mono">12:30 – 14:00</div>
               <div class="font-medium mt-1">Taller: Desarrollo DApps</div>
               <div class="text-white/70 text-xs">Construyendo aplicaciones descentralizadas</div>
             </div>
-            <div class="p-4 hover:bg-white/3 transition">
-              <div class="text-blockchain-300 font-mono">14:00 – 15:00</div>
+            <div class="p-4 hover:bg-white/5 transition">
+              <div class="text-primary font-mono">14:00 – 15:00</div>
               <div class="font-medium mt-1">El futuro de Web3 & Cierre</div>
               <div class="text-white/70 text-xs">Panel de expertos</div>
             </div>
@@ -336,19 +387,22 @@
   </section>
 
   <!-- SPEAKERS -->
-  <section id="speakers" class="py-16">
+  <section id="speakers" class="py-16 bg-bgPrimary">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between mb-6">
-        <h2 class="text-2xl font-bold">Nuestros expositores</h2>
+        <h2 class="text-2xl font-bold text-primary">Nuestros expositores</h2>
         <div class="text-sm text-white/60">Expertos en tecnología blockchain</div>
       </div>
 
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <!-- speaker card -->
-        <article class="group relative rounded-2xl bg-white/4 p-5 overflow-hidden hover:shadow-glow transition">
+        <article
+          class="group relative rounded-2xl bg-bgTertiary/30 p-5 overflow-hidden hover:shadow-glow-primary transition border border-white/5">
           <div class="flex items-center gap-4">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=60&auto=format&fit=crop"
-              alt="Ana Torres" class="h-16 w-16 rounded-full object-cover ring-2 ring-white/8" />
+            <div
+              class="h-16 w-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-xl font-bold text-bgPrimary">
+              AT
+            </div>
             <div>
               <h3 class="font-semibold">Ana Torres</h3>
               <p class="text-xs text-white/70">Especialista en Blockchain</p>
@@ -357,15 +411,18 @@
           <p class="mt-4 text-sm text-white/70">Experta en implementaciones empresariales de blockchain y soluciones de
             supply chain.</p>
           <div class="mt-4 flex gap-2">
-            <a class="text-xs bg-blockchain-500/20 px-2 py-1 rounded-full">Blockchain</a>
-            <a class="text-xs bg-crypto-orange/20 px-2 py-1 rounded-full">Supply Chain</a>
+            <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">Blockchain</span>
+            <span class="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded-full">Supply Chain</span>
           </div>
         </article>
 
-        <article class="group relative rounded-2xl bg-white/4 p-5 overflow-hidden hover:shadow-glow transition">
+        <article
+          class="group relative rounded-2xl bg-bgTertiary/30 p-5 overflow-hidden hover:shadow-glow-primary transition border border-white/5">
           <div class="flex items-center gap-4">
-            <img src="https://images.unsplash.com/photo-1545996124-f2b3b2f7f06b?w=400&q=60&auto=format&fit=crop"
-              alt="Carlos Méndez" class="h-16 w-16 rounded-full object-cover ring-2 ring-white/8" />
+            <div
+              class="h-16 w-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-xl font-bold text-bgPrimary">
+              CM
+            </div>
             <div>
               <h3 class="font-semibold">Carlos Méndez</h3>
               <p class="text-xs text-white/70">Desarrollador Smart Contracts</p>
@@ -373,103 +430,115 @@
           </div>
           <p class="mt-4 text-sm text-white/70">Desarrollador senior de contratos inteligentes con experiencia en
             múltiples blockchains.</p>
+          <div class="mt-4 flex gap-2">
+            <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">Smart Contracts</span>
+            <span class="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded-full">Solidity</span>
+          </div>
         </article>
 
-        <article class="group relative rounded-2xl bg-white/4 p-5 overflow-hidden hover:shadow-glow transition">
+        <article
+          class="group relative rounded-2xl bg-bgTertiary/30 p-5 overflow-hidden hover:shadow-glow-primary transition border border-white/5">
           <div class="flex items-center gap-4">
-            <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=400&q=60&auto=format&fit=crop"
-              alt="Laura Fernández" class="h-16 w-16 rounded-full object-cover ring-2 ring-white/8" />
+            <div
+              class="h-16 w-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-xl font-bold text-bgPrimary">
+              LF
+            </div>
             <div>
               <h3 class="font-semibold">Laura Fernández</h3>
               <p class="text-xs text-white/70">Especialista en DeFi</p>
             </div>
           </div>
           <p class="mt-4 text-sm text-white/70">Analista de protocolos DeFi y estrategias de yield farming.</p>
+          <div class="mt-4 flex gap-2">
+            <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">DeFi</span>
+            <span class="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded-full">Finanzas</span>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
   <!-- TICKETS -->
-  <section id="tickets" class="py-16 bg-gradient-to-b from-black/10 to-black/20">
+  <section id="tickets" class="py-16 bg-gradient-to-b from-bgSecondary to-bgTertiary">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8">
-        <h2 class="text-2xl font-bold">Tickets y pases</h2>
+        <h2 class="text-2xl font-bold text-primary">Tickets y pases</h2>
         <p class="text-white/70 mt-2">Cupos limitados — elige tu pase</p>
       </div>
 
       <div class="grid gap-6 sm:grid-cols-3">
-        <div class="rounded-2xl p-6 bg-white/4">
+        <div class="rounded-2xl p-6 bg-bgTertiary/30 border border-white/5">
           <div class="flex items-baseline gap-3">
-            <div class="text-3xl font-extrabold">Bs 100</div>
+            <div class="text-3xl font-extrabold text-primary">Bs 100</div>
             <div class="text-sm text-white/70">Acceso General</div>
           </div>
           <ul class="mt-4 text-sm text-white/70 space-y-2">
-            <li><i class='bx bx-check text-blockchain-300 mr-2'></i>Acceso a ambas días</li>
-            <li><i class='bx bx-check text-blockchain-300 mr-2'></i>Material digital</li>
-            <li><i class='bx bx-check text-blockchain-300 mr-2'></i>Refrigerios</li>
+            <li><i class='bx bx-check text-primary mr-2'></i>Acceso a ambas días</li>
+            <li><i class='bx bx-check text-primary mr-2'></i>Material digital</li>
+            <li><i class='bx bx-check text-primary mr-2'></i>Refrigerios</li>
           </ul>
           <a href="#comprar"
-            class="mt-6 inline-block w-full text-center bg-blockchain-500 text-white py-2 rounded-lg font-semibold">Comprar</a>
+            class="mt-6 inline-block w-full text-center bg-primary text-bgPrimary py-2 rounded-lg font-semibold hover:bg-secondary transition">Comprar</a>
         </div>
 
         <div
-          class="rounded-2xl p-6 bg-gradient-to-br from-blockchain-600/30 to-blockchain-800/30 border border-white/6 shadow-glow">
+          class="rounded-2xl p-6 bg-gradient-to-br from-primary/30 to-secondary/30 border border-primary/50 shadow-glow-primary">
           <div class="flex items-baseline gap-3">
-            <div class="text-3xl font-extrabold">Bs 180</div>
+            <div class="text-3xl font-extrabold text-primary">Bs 180</div>
             <div class="text-sm text-white/70">Acceso Premium</div>
           </div>
           <ul class="mt-4 text-sm text-white/70 space-y-2">
-            <li><i class='bx bx-check text-blockchain-300 mr-2'></i>Todo lo del Acceso General</li>
-            <li><i class='bx bx-check text-blockchain-300 mr-2'></i>Certificado físico</li>
-            <li><i class='bx bx-check text-blockchain-300 mr-2'></i>Acceso a talleres premium</li>
-            <li><i class='bx bx-check text-blockchain-300 mr-2'></i>Networking con expositores</li>
+            <li><i class='bx bx-check text-primary mr-2'></i>Todo lo del Acceso General</li>
+            <li><i class='bx bx-check text-primary mr-2'></i>Certificado físico</li>
+            <li><i class='bx bx-check text-primary mr-2'></i>Acceso a talleres premium</li>
+            <li><i class='bx bx-check text-primary mr-2'></i>Networking con expositores</li>
           </ul>
           <a href="#comprar"
-            class="mt-6 inline-block w-full text-center bg-white text-blockchain-800 py-2 rounded-lg font-semibold border border-white">Comprar</a>
+            class="mt-6 inline-block w-full text-center bg-white text-bgPrimary py-2 rounded-lg font-semibold border border-white hover:bg-gray-100 transition">Comprar</a>
         </div>
 
-        <div class="rounded-2xl p-6 bg-white/4">
+        <div class="rounded-2xl p-6 bg-bgTertiary/30 border border-white/5">
           <div class="flex items-baseline gap-3">
-            <div class="text-3xl font-extrabold">Bs 60</div>
+            <div class="text-3xl font-extrabold text-primary">Bs 60</div>
             <div class="text-sm text-white/70">Estudiante</div>
           </div>
           <ul class="mt-4 text-sm text-white/70 space-y-2">
-            <li><i class='bx bx-check text-blockchain-300 mr-2'></i>Acceso a charlas (1 día)</li>
-            <li><i class='bx bx-check text-blockchain-300 mr-2'></i>Material digital</li>
+            <li><i class='bx bx-check text-primary mr-2'></i>Acceso a charlas (1 día)</li>
+            <li><i class='bx bx-check text-primary mr-2'></i>Material digital</li>
             <li><i class='bx bx-x text-red-400 mr-2'></i>Talleres prácticos</li>
           </ul>
           <a href="#comprar"
-            class="mt-6 inline-block w-full text-center bg-white/10 text-white py-2 rounded-lg font-semibold">Comprar</a>
+            class="mt-6 inline-block w-full text-center bg-white/10 text-white py-2 rounded-lg font-semibold hover:bg-white/20 transition">Comprar</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACTO -->
-  <section id="contacto" class="py-16 bg-gradient-to-b from-black/10 to-black/20">
+  <section id="contacto" class="py-16 bg-bgPrimary">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-8 items-center">
         <div>
-          <h2 class="text-2xl font-bold">Contáctanos</h2>
+          <h2 class="text-2xl font-bold text-primary">Contáctanos</h2>
           <p class="mt-3 text-white/70">¿Preguntas, sponsoreo o información? Escríbenos y te respondemos pronto.</p>
           <ul class="mt-4 text-sm text-white/70 space-y-2">
-            <li><i class='bx bx-phone'></i> +591 700 12345</li>
-            <li><i class='bx bx-envelope'></i> info@blockchainbootcamp.com</li>
-            <li><i class='bx bx-map'></i> Santa Cruz, Bolivia</li>
+            <li class="flex items-center gap-2"><i class='bx bx-phone text-primary'></i> +591 700 12345</li>
+            <li class="flex items-center gap-2"><i class='bx bx-envelope text-primary'></i> info@blockchainbootcamp.com
+            </li>
+            <li class="flex items-center gap-2"><i class='bx bx-map text-primary'></i> Santa Cruz, Bolivia</li>
           </ul>
         </div>
 
-        <form id="contactForm" class="rounded-2xl p-6 bg-white/4">
+        <form id="contactForm" class="rounded-2xl p-6 bg-bgTertiary/30 border border-white/5">
           <div class="grid gap-3">
             <input required name="name" placeholder="Tu nombre"
-              class="rounded-xl px-3 py-2 bg-black/20 border border-white/6" />
+              class="rounded-xl px-3 py-2 bg-bgPrimary border border-white/6 focus:outline-none focus:ring-2 focus:ring-primary" />
             <input required type="email" name="email" placeholder="tu@email.com"
-              class="rounded-xl px-3 py-2 bg-black/20 border border-white/6" />
+              class="rounded-xl px-3 py-2 bg-bgPrimary border border-white/6 focus:outline-none focus:ring-2 focus:ring-primary" />
             <textarea required name="message" rows="4" placeholder="¿En qué podemos ayudar?"
-              class="rounded-xl px-3 py-2 bg-black/20 border border-white/6"></textarea>
+              class="rounded-xl px-3 py-2 bg-bgPrimary border border-white/6 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
             <button type="submit"
-              class="inline-flex items-center gap-2 justify-center bg-blockchain-500 text-white px-4 py-2 rounded-lg font-semibold">Enviar
+              class="inline-flex items-center gap-2 justify-center bg-primary text-bgPrimary px-4 py-2 rounded-lg font-semibold hover:bg-secondary transition">Enviar
               <i class='bx bx-send'></i></button>
           </div>
         </form>
@@ -478,68 +547,48 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="py-8 border-t border-white/6">
+  <footer class="py-8 border-t border-white/6 bg-bgSecondary">
     <div
       class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-white/60 flex flex-col md:flex-row items-center justify-between gap-4">
       <div>© 2025 Blockchain Bootcamp · Innovación en Cadena</div>
       <div class="flex items-center gap-3">
-        <a class="hover:text-blockchain-300" href="#"><i class='bx bxl-twitter'></i></a>
-        <a class="hover:text-blockchain-300" href="#"><i class='bx bxl-linkedin'></i></a>
-        <a class="hover:text-blockchain-300" href="#"><i class='bx bxl-telegram'></i></a>
-        <a class="hover:text-blockchain-300" href="#"><i class='bx bxl-github'></i></a>
+        <a class="hover:text-primary transition" href="#"><i class='bx bxl-twitter'></i></a>
+        <a class="hover:text-primary transition" href="#"><i class='bx bxl-linkedin'></i></a>
+        <a class="hover:text-primary transition" href="#"><i class='bx bxl-telegram'></i></a>
+        <a class="hover:text-primary transition" href="#"><i class='bx bxl-github'></i></a>
       </div>
     </div>
   </footer>
 
-  <!-- SCRIPTS: theme toggle, countdown, mobile menu, form (mock) -->
+  <!-- SCRIPTS -->
   <script>
-    // Theme toggle
-    const themeBtn = document.getElementById('themeBtn');
-    const themeIcon = document.getElementById('themeIcon');
-    const root = document.documentElement;
-    if (localStorage.getItem('bc-theme') === 'dark' || (!localStorage.getItem('bc-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      root.classList.add('dark');
-      themeIcon.className = 'bx bx-sun';
-    } else {
-      themeIcon.className = 'bx bx-moon';
-    }
-    themeBtn?.addEventListener('click', () => {
-      root.classList.toggle('dark');
-      const isDark = root.classList.contains('dark');
-      localStorage.setItem('bc-theme', isDark ? 'dark' : 'light');
-      themeIcon.className = isDark ? 'bx bx-sun' : 'bx bx-moon';
-    });
-
-    // Mobile menu (simple)
-    const menuBtn = document.getElementById('menuBtn');
-    menuBtn?.addEventListener('click', () => {
-      alert('Menú móvil - En la versión final se implementará un menú desplegable.');
-    });
-
-    // Countdown -> objetivo 19 Sept 2025 08:30 GMT-4
-    const target = new Date('2025-09-19T08:30:00-04:00').getTime();
-    const dd = document.getElementById('cdDays');
-    const hh = document.getElementById('cdHours');
-    const mm = document.getElementById('cdMinutes');
-    const ss = document.getElementById('cdSeconds');
-
+    // Countdown functionality
     function updateCountdown() {
-      const now = Date.now();
-      let diff = Math.max(0, target - now);
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24)); diff -= days * 24 * 60 * 60 * 1000;
-      const hours = Math.floor(diff / (1000 * 60 * 60)); diff -= hours * 60 * 60 * 1000;
-      const minutes = Math.floor(diff / (1000 * 60)); diff -= minutes * 60 * 1000;
-      const seconds = Math.floor(diff / 1000);
-      dd.textContent = String(days).padStart(2, '0');
-      hh.textContent = String(hours).padStart(2, '0');
-      mm.textContent = String(minutes).padStart(2, '0');
-      ss.textContent = String(seconds).padStart(2, '0');
-      if (target - now <= 0) {
-        document.querySelectorAll('#cdDays,#cdHours,#cdMinutes,#cdSeconds').forEach(el => el.textContent = '00');
+      const eventDate = new Date('September 19, 2025 09:00:00').getTime();
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance < 0) {
+        document.getElementById("cdDays").innerText = "00";
+        document.getElementById("cdHours").innerText = "00";
+        document.getElementById("cdMinutes").innerText = "00";
+        document.getElementById("cdSeconds").innerText = "00";
+        return;
       }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("cdDays").innerText = days.toString().padStart(2, '0');
+      document.getElementById("cdHours").innerText = hours.toString().padStart(2, '0');
+      document.getElementById("cdMinutes").innerText = minutes.toString().padStart(2, '0');
+      document.getElementById("cdSeconds").innerText = seconds.toString().padStart(2, '0');
     }
-    updateCountdown();
+
     setInterval(updateCountdown, 1000);
+    updateCountdown();
 
     // Contact form (mock)
     const contactForm = document.getElementById('contactForm');
