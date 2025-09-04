@@ -7,13 +7,13 @@
   <title>Blockchain Bootcamp · Innovación en Cadena</title>
   <meta name="description"
     content="Blockchain Bootcamp · Charlas, talleres y networking sobre tecnología blockchain · Santa Cruz, Bolivia" />
-<!-- Boxicons CDN -->
-<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Boxicons CDN -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
-<!-- Google Fonts -->
-<link
-  href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
-  rel="stylesheet">
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -75,41 +75,43 @@
 
   <style>
     /* Estilos personalizados */
-.text-gradient {
-  background: linear-gradient(to right, #00CCFF, #00FF88);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    .text-gradient {
+      background: linear-gradient(to right, #00CCFF, #00FF88);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.text-gradient-date {
-  background: linear-gradient(to right, rgba(0,255,136,0.9), rgba(0,204,255,0.9));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.bg-hero-pattern::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(30, 0, 36, 0.3) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(9, 40, 30, 0.3) 0%, transparent 40%);
-  z-index: 1;
-}
+    .text-gradient-date {
+      background: linear-gradient(to right, rgba(0, 255, 136, 0.9), rgba(0, 204, 255, 0.9));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .bg-hero-pattern::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(30, 0, 36, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(9, 40, 30, 0.3) 0%, transparent 40%);
+      z-index: 1;
+    }
 
 
-.block-element {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border: 2px solid rgba(0,204,255,0.4);
-  border-radius: 4px;
-  transform: rotate(45deg);
-  box-shadow: 0 0 12px rgba(0,204,255,0.3);
-  z-index: 0;
-}
+    .block-element {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border: 2px solid rgba(0, 204, 255, 0.4);
+      border-radius: 4px;
+      transform: rotate(45deg);
+      box-shadow: 0 0 12px rgba(0, 204, 255, 0.3);
+      z-index: 0;
+    }
+
     .block-element::after {
       content: '';
       position: absolute;
@@ -128,294 +130,308 @@
       background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.5), transparent);
       z-index: 0;
     }
-     /* Carrusel animado */
-  @keyframes slide {
-    0% { transform: translateX(0); }
-    33% { transform: translateX(-100%); }
-    66% { transform: translateX(-200%); }
-    100% { transform: translateX(0); }
-  }
-  .animate-slide {
-    animation: slide 30s linear infinite;
-  }
+
+    /* Carrusel animado */
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+
+      33% {
+        transform: translateX(-100%);
+      }
+
+      66% {
+        transform: translateX(-200%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .animate-slide {
+      animation: slide 30s linear infinite;
+    }
   </style>
 
 </head>
 
 <body class="min-h-screen bg-gradient-to-b from-bgPrimary to-bgSecondary text-white font-rajdhani antialiased">
 
-  
-<!-- Fondo decorativo -->
-<div class="absolute inset-0 pointer-events-none overflow-hidden">
-  <!-- Cubo flotante -->
-  <div
-    class="absolute top-1/4 left-1/4 w-20 h-20 border-2 border-secondary/40 rounded-md rotate-45 animate-[float_6s_ease-in-out_infinite] shadow-secondary/30">
+
+  <!-- Fondo decorativo -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <!-- Cubo flotante -->
+    <div
+      class="absolute top-1/4 left-1/4 w-20 h-20 border-2 border-secondary/40 rounded-md rotate-45 animate-[float_6s_ease-in-out_infinite] shadow-secondary/30">
+    </div>
+
+    <!-- Cubo estático -->
+    <div
+      class="absolute top-1/3 right-1/4 w-20 h-20 border-2 border-secondary/30 rounded-md rotate-45 shadow-secondary/20">
+    </div>
+
+    <!-- Cubo flotante -->
+    <div
+      class="absolute bottom-1/4 left-1/3 w-20 h-20 border-2 border-primary/40 rounded-md rotate-45 animate-[float_8s_ease-in-out_infinite] shadow-primary/30">
+    </div>
+
+    <!-- Conector SVG animado -->
+    <svg class="absolute top-[30%] left-[30%] w-40 h-40 rotate-45" viewBox="0 0 200 200" fill="none">
+      <line x1="0" y1="100" x2="200" y2="100" stroke="url(#gradient)" stroke-width="2" stroke-dasharray="10 10"
+        stroke-dashoffset="0">
+        <animate attributeName="stroke-dashoffset" values="0;20" dur="2s" repeatCount="indefinite" />
+      </line>
+
+      <defs>
+        <linearGradient id="gradient" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#00CCFF" stop-opacity="0" />
+          <stop offset="0.5" stop-color="#00CCFF" stop-opacity="0.8" />
+          <stop offset="1" stop-color="#00FF88" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+    </svg>
   </div>
-
-  <!-- Cubo estático -->
-  <div
-    class="absolute top-1/3 right-1/4 w-20 h-20 border-2 border-secondary/30 rounded-md rotate-45 shadow-secondary/20">
-  </div>
-
-  <!-- Cubo flotante -->
-  <div
-    class="absolute bottom-1/4 left-1/3 w-20 h-20 border-2 border-primary/40 rounded-md rotate-45 animate-[float_8s_ease-in-out_infinite] shadow-primary/30">
-  </div>
-
-  <!-- Conector SVG animado -->
-  <svg class="absolute top-[30%] left-[30%] w-40 h-40 rotate-45" viewBox="0 0 200 200" fill="none">
-    <line x1="0" y1="100" x2="200" y2="100" stroke="url(#gradient)" stroke-width="2" stroke-dasharray="10 10"
-      stroke-dashoffset="0">
-      <animate attributeName="stroke-dashoffset" values="0;20" dur="2s" repeatCount="indefinite" />
-    </line>
-
-    <defs>
-      <linearGradient id="gradient" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#00CCFF" stop-opacity="0" />
-        <stop offset="0.5" stop-color="#00CCFF" stop-opacity="0.8" />
-        <stop offset="1" stop-color="#00FF88" stop-opacity="0" />
-      </linearGradient>
-    </defs>
-  </svg>
-</div>
 
 
   <!-- NAV -->
-<!-- HEADER -->
-<header class="sticky top-0 z-50 backdrop-blur bg-black/30 border-b border-white/10">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-black/30 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
 
-      <!-- LOGO -->
-      <a href="#inicio" class="flex items-center gap-3">
-        <div
-          class="flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-primary to-secondary text-bgPrimary font-bold shadow-glow-primary">
-          BC
-        </div>
-        <div class="text-base leading-tight">
-          <div class="font-semibold">Blockchain Bootcamp</div>
-          <div class="text-xs text-white/60">Innovación en Cadena · 2025</div>
-        </div>
-      </a>
-
-      <!-- NAVIGATION -->
-      <nav id="navMenu" class="hidden md:flex items-center gap-8 text-sm font-medium">
-        <a href="#acerca" class="hover:text-primary transition">Acerca</a>
-        <a href="#agenda" class="hover:text-primary transition">Agenda</a>
-        <a href="#speakers" class="hover:text-primary transition">Speakers</a>
-        <a href="#tickets" class="hover:text-primary transition">Tickets</a>
-        <a href="#contacto" class="hover:text-primary transition">Contacto</a>
-      </nav>
-
-      <!-- ACTIONS -->
-      <div class="flex items-center gap-3">
-        <a href="#tickets"
-          class="hidden sm:inline-flex items-center gap-2 bg-primary hover:bg-secondary text-bgPrimary px-4 py-2 rounded-lg font-semibold shadow-glow-primary transition">
-          Consigue tu ticket <i class="bx bx-ticket text-base"></i>
+        <!-- LOGO -->
+        <a href="#inicio" class="flex items-center gap-3">
+          <div
+            class="flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-primary to-secondary text-bgPrimary font-bold shadow-glow-primary">
+            BC
+          </div>
+          <div class="text-base leading-tight">
+            <div class="font-semibold">Blockchain Bootcamp</div>
+            <div class="text-xs text-white/60">Innovación en Cadena · 2025</div>
+          </div>
         </a>
-        <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-white/10">
-          <i class="bx bx-menu text-2xl"></i>
-        </button>
+
+        <!-- NAVIGATION -->
+        <nav id="navMenu" class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="#acerca" class="hover:text-primary transition">Acerca</a>
+          <a href="#agenda" class="hover:text-primary transition">Agenda</a>
+          <a href="#speakers" class="hover:text-primary transition">Speakers</a>
+          <a href="#tickets" class="hover:text-primary transition">Tickets</a>
+          <a href="#contacto" class="hover:text-primary transition">Contacto</a>
+        </nav>
+
+        <!-- ACTIONS -->
+        <div class="flex items-center gap-3">
+          <a href="#tickets"
+            class="hidden sm:inline-flex items-center gap-2 bg-primary hover:bg-secondary text-bgPrimary px-4 py-2 rounded-lg font-semibold shadow-glow-primary transition">
+            Consigue tu ticket <i class="bx bx-ticket text-base"></i>
+          </a>
+          <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-white/10">
+            <i class="bx bx-menu text-2xl"></i>
+          </button>
+        </div>
+
       </div>
-
     </div>
-  </div>
 
-  <!-- MOBILE MENU -->
-  <div id="mobileMenu"
-    class="md:hidden hidden flex-col gap-4 px-6 py-4 bg-black/80 backdrop-blur border-t border-white/10 text-base">
-    <a href="#acerca" class="hover:text-primary transition">Acerca</a>
-    <a href="#agenda" class="hover:text-primary transition">Agenda</a>
-    <a href="#speakers" class="hover:text-primary transition">Speakers</a>
-    <a href="#tickets" class="hover:text-primary transition">Tickets</a>
-    <a href="#contacto" class="hover:text-primary transition">Contacto</a>
-    <a href="#tickets"
-      class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-secondary text-bgPrimary px-4 py-2 rounded-lg font-semibold shadow-glow-primary transition">
-      Consigue tu ticket <i class="bx bx-ticket text-base"></i>
-    </a>
-  </div>
-</header>
-
-<!-- SCRIPT MENU RESPONSIVE -->
-<script>
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-    mobileMenu.classList.toggle("flex");
-  });
-</script>
-
-
-<!-- HERO SECTION -->
-<!-- HERO SECTION -->
-<section id="inicio"
-  class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-bgPrimary via-bgSecondary to-bgTertiary">
-
-  <!-- Carrusel difuminado de fondo -->
-  <div class="absolute inset-0 z-0 overflow-hidden">
-    <!-- Contenedor del carrusel -->
-    <div id="carousel" class="absolute inset-0 flex"></div>
-
-    <!-- Overlay negro semi-transparente encima de las imágenes -->
-    <div class="absolute inset-0 bg-black/80"></div>
-  </div>
-
-  <!-- Floating blockchain cubes -->
-  <div class="absolute w-full h-full top-0 left-0 pointer-events-none z-10">
-    <div class="absolute w-20 h-20 top-1/5 left-1/10 bg-primary/20 border border-primary/30 rounded-lg animate-float">
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu"
+      class="md:hidden hidden flex-col gap-4 px-6 py-4 bg-black/80 backdrop-blur border-t border-white/10 text-base">
+      <a href="#acerca" class="hover:text-primary transition">Acerca</a>
+      <a href="#agenda" class="hover:text-primary transition">Agenda</a>
+      <a href="#speakers" class="hover:text-primary transition">Speakers</a>
+      <a href="#tickets" class="hover:text-primary transition">Tickets</a>
+      <a href="#contacto" class="hover:text-primary transition">Contacto</a>
+      <a href="#tickets"
+        class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-secondary text-bgPrimary px-4 py-2 rounded-lg font-semibold shadow-glow-primary transition">
+        Consigue tu ticket <i class="bx bx-ticket text-base"></i>
+      </a>
     </div>
-    <div
-      class="absolute w-16 h-16 bottom-[30%] right-[15%] bg-secondary/20 border border-secondary/30 rounded-lg animate-float-reverse">
+  </header>
+
+  <!-- SCRIPT MENU RESPONSIVE -->
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+      mobileMenu.classList.toggle("flex");
+    });
+  </script>
+
+
+  <!-- HERO SECTION -->
+  <!-- HERO SECTION -->
+  <section id="inicio"
+    class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-bgPrimary via-bgSecondary to-bgTertiary">
+
+    <!-- Carrusel difuminado de fondo -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <!-- Contenedor del carrusel -->
+      <div id="carousel" class="absolute inset-0 flex"></div>
+
+      <!-- Overlay negro semi-transparente encima de las imágenes -->
+      <div class="absolute inset-0 bg-black/80"></div>
     </div>
-    <div
-      class="absolute w-10 h-10 top-1/2 left-1/5 bg-primary/20 border border-primary/30 rounded-lg animate-float-delayed">
-    </div>
-  </div>
 
-  <!-- Contenido principal -->
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center py-12">
-
-
-<h1 class="font-orbitron font-black uppercase leading-tight mb-1">
-  <span class="block text-2xl sm:text-3xl lg:text-4xl text-white drop-shadow-lg">BLOCKCHAIN</span>
-  <span class="block text-2xl sm:text-3xl lg:text-4xl text-white mt-1 drop-shadow-lg">BOOTCAMP</span>
-</h1>
-
-<div class="font-mono text-white text-base sm:text-lg tracking-widest uppercase font-semibold mb-4 drop-shadow-md">
-  INNOVACIÓN EN CADENA
-</div>
-
-
-<div class="my-4">
-  <div class="font-orbitron font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 drop-shadow-md">
-    SEP <span class="text-white">19-20</span>
-  </div>
-</div>
-
-
-    <div class="mt-8">
+    <!-- Floating blockchain cubes -->
+    <div class="absolute w-full h-full top-0 left-0 pointer-events-none z-10">
+      <div class="absolute w-20 h-20 top-1/5 left-1/10 bg-primary/20 border border-primary/30 rounded-lg animate-float">
+      </div>
       <div
-        class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-md mx-auto bg-black/30 backdrop-blur-lg p-4 rounded-2xl text-center border border-white/10 shadow-lg">
-        <div class="py-3 rounded-lg">
-          <div id="cdDays" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
-          <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Días</div>
-        </div>
-        <div class="py-3 rounded-lg">
-          <div id="cdHours" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
-          <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Horas</div>
-        </div>
-        <div class="py-3 rounded-lg">
-          <div id="cdMinutes" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
-          <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Minutos</div>
-        </div>
-        <div class="py-3 rounded-lg">
-          <div id="cdSeconds" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
-          <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Segundos</div>
+        class="absolute w-16 h-16 bottom-[30%] right-[15%] bg-secondary/20 border border-secondary/30 rounded-lg animate-float-reverse">
+      </div>
+      <div
+        class="absolute w-10 h-10 top-1/2 left-1/5 bg-primary/20 border border-primary/30 rounded-lg animate-float-delayed">
+      </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center py-12">
+
+
+      <h1 class="font-orbitron font-black uppercase leading-tight mb-1">
+        <span class="block text-2xl sm:text-3xl lg:text-4xl text-white drop-shadow-lg">BLOCKCHAIN</span>
+        <span class="block text-2xl sm:text-3xl lg:text-4xl text-white mt-1 drop-shadow-lg">BOOTCAMP</span>
+      </h1>
+
+      <div
+        class="font-mono text-white text-base sm:text-lg tracking-widest uppercase font-semibold mb-4 drop-shadow-md">
+        INNOVACIÓN EN CADENA
+      </div>
+
+
+      <div class="my-4">
+        <div class="font-orbitron font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 drop-shadow-md">
+          SEP <span class="text-white">19-20</span>
         </div>
       </div>
-      <br>
-    <span
-      class="inline-flex items-center gap-2 bg-gradient-to-r from-bgTertiary to-accent px-4 py-1 rounded-full text-xs font-semibold mb-6 backdrop-blur-sm border border-white/10 animate-pulse-glow">
-      <i class='bx bx-map-pin'></i> Santa Cruz · Bolivia
-    </span>
+
+
+      <div class="mt-8">
+        <div
+          class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-md mx-auto bg-black/30 backdrop-blur-lg p-4 rounded-2xl text-center border border-white/10 shadow-lg">
+          <div class="py-3 rounded-lg">
+            <div id="cdDays" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
+            <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Días</div>
+          </div>
+          <div class="py-3 rounded-lg">
+            <div id="cdHours" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
+            <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Horas</div>
+          </div>
+          <div class="py-3 rounded-lg">
+            <div id="cdMinutes" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
+            <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Minutos</div>
+          </div>
+          <div class="py-3 rounded-lg">
+            <div id="cdSeconds" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
+            <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Segundos</div>
+          </div>
+        </div>
+        <br>
+        <span
+          class="inline-flex items-center gap-2 bg-gradient-to-r from-bgTertiary to-accent px-4 py-1 rounded-full text-xs font-semibold mb-6 backdrop-blur-sm border border-white/10 animate-pulse-glow">
+          <i class='bx bx-map-pin'></i> Santa Cruz · Bolivia
+        </span>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<script>
-  const images = [
-    '/img/foto1.jpg',
-    '/img/foto2.jpg',
-    '/img/bg-bootcamp.png'
-  ];
-  const carousel = document.getElementById('carousel');
-  let current = 0;
+  <script>
+    const images = [
+      '/img/foto1.jpg',
+      '/img/foto2.jpg',
+      '/img/bg-bootcamp.png'
+    ];
+    const carousel = document.getElementById('carousel');
+    let current = 0;
 
-  function showImage(index) {
-    carousel.innerHTML = `
+    function showImage(index) {
+      carousel.innerHTML = `
       <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 animate-fade"
            style="background-image: url('${images[index]}');"></div>
     `;
-    setTimeout(() => {
-      carousel.firstChild.classList.add('opacity-100');
-    }, 50);
-  }
+      setTimeout(() => {
+        carousel.firstChild.classList.add('opacity-100');
+      }, 50);
+    }
 
-  function nextImage() {
-    current = (current + 1) % images.length;
+    function nextImage() {
+      current = (current + 1) % images.length;
+      showImage(current);
+    }
+
     showImage(current);
-  }
+    setInterval(nextImage, 5000);
+  </script>
 
-  showImage(current);
-  setInterval(nextImage, 5000);
-</script>
+  <style>
+    @keyframes fade {
+      from {
+        opacity: 0
+      }
 
-<style>
-  @keyframes fade {
-    from {
-      opacity: 0
+      to {
+        opacity: 1
+      }
     }
 
-    to {
-      opacity: 1
-    }
-  }
-
-  .animate-fade {
-    animation: fade 1s ease-in-out forwards;
-  }
-
-  /* Floating animations */
-  @keyframes float {
-
-    0%,
-    100% {
-      transform: translateY(0) rotate(0deg);
+    .animate-fade {
+      animation: fade 1s ease-in-out forwards;
     }
 
-    50% {
-      transform: translateY(-15px) rotate(10deg);
-    }
-  }
+    /* Floating animations */
+    @keyframes float {
 
-  @keyframes float-reverse {
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
 
-    0%,
-    100% {
-      transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-      transform: translateY(-15px) rotate(-10deg);
-    }
-  }
-
-  @keyframes float-delayed {
-
-    0%,
-    100% {
-      transform: translateY(0) rotate(0deg);
+      50% {
+        transform: translateY(-15px) rotate(10deg);
+      }
     }
 
-    50% {
-      transform: translateY(-10px) rotate(5deg);
+    @keyframes float-reverse {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(-10deg);
+      }
     }
-  }
 
-  .animate-float {
-    animation: float 10s infinite ease-in-out;
-  }
+    @keyframes float-delayed {
 
-  .animate-float-reverse {
-    animation: float-reverse 12s infinite ease-in-out;
-  }
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
 
-  .animate-float-delayed {
-    animation: float-delayed 14s infinite ease-in-out;
-  }
-</style>
+      50% {
+        transform: translateY(-10px) rotate(5deg);
+      }
+    }
+
+    .animate-float {
+      animation: float 10s infinite ease-in-out;
+    }
+
+    .animate-float-reverse {
+      animation: float-reverse 12s infinite ease-in-out;
+    }
+
+    .animate-float-delayed {
+      animation: float-delayed 14s infinite ease-in-out;
+    }
+  </style>
 
 
 
@@ -683,6 +699,51 @@
       </div>
     </div>
   </section>
+
+
+<!-- SPONSORS / ALIADOS -->
+<section id="sponsors" class="py-16 bg-bgPrimary">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between mb-10">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white drop-shadow-md">Nuestros Sponsors</h2>
+      <div class="text-sm sm:text-base text-white/60">Comunidad y aliados tecnológicos</div>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6 items-center justify-items-center">
+      <!-- Sponsor card -->
+      <div
+        class="group relative rounded-2xl overflow-hidden w-32 h-32 sm:w-36 sm:h-36 bg-white/5 backdrop-blur-md border border-white/10 hover:scale-105 transition-transform shadow-lg">
+        <img src="/img/sponsor1.png" alt="Sponsor 1" class="w-full h-full object-contain p-4">
+      </div>
+
+      <div
+        class="group relative rounded-2xl overflow-hidden w-32 h-32 sm:w-36 sm:h-36 bg-white/5 backdrop-blur-md border border-white/10 hover:scale-105 transition-transform shadow-lg">
+        <img src="/img/sponsor2.png" alt="Sponsor 2" class="w-full h-full object-contain p-4">
+      </div>
+
+      <div
+        class="group relative rounded-2xl overflow-hidden w-32 h-32 sm:w-36 sm:h-36 bg-white/5 backdrop-blur-md border border-white/10 hover:scale-105 transition-transform shadow-lg">
+        <img src="/img/sponsor3.png" alt="Sponsor 3" class="w-full h-full object-contain p-4">
+      </div>
+
+      <div
+        class="group relative rounded-2xl overflow-hidden w-32 h-32 sm:w-36 sm:h-36 bg-white/5 backdrop-blur-md border border-white/10 hover:scale-105 transition-transform shadow-lg">
+        <img src="/img/sponsor4.png" alt="Sponsor 4" class="w-full h-full object-contain p-4">
+      </div>
+
+      <div
+        class="group relative rounded-2xl overflow-hidden w-32 h-32 sm:w-36 sm:h-36 bg-white/5 backdrop-blur-md border border-white/10 hover:scale-105 transition-transform shadow-lg">
+        <img src="/img/sponsor5.png" alt="Sponsor 5" class="w-full h-full object-contain p-4">
+      </div>
+
+      <div
+        class="group relative rounded-2xl overflow-hidden w-32 h-32 sm:w-36 sm:h-36 bg-white/5 backdrop-blur-md border border-white/10 hover:scale-105 transition-transform shadow-lg">
+        <img src="/img/sponsor6.png" alt="Sponsor 6" class="w-full h-full object-contain p-4">
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- CONTACTO -->
   <section id="contacto" class="py-16 bg-bgPrimary">
