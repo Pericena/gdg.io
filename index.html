@@ -5,48 +5,48 @@
   <!-- Charset & Responsive -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
+
   <!-- Title (60-65 caracteres ideal para SEO) -->
   <title>Blockchain Bootcamp · Innovación y Networking en Santa Cruz</title>
-  
+
   <!-- Meta Description (máx. 155 caracteres, claro y atractivo) -->
   <meta name="description"
     content="Blockchain Bootcamp en Santa Cruz, Bolivia · Charlas, talleres, networking y sponsors sobre tecnología blockchain e innovación." />
-  
+
   <!-- Keywords (ya no es tan relevante, pero ayuda un poco) -->
   <meta name="keywords"
     content="Blockchain, Bootcamp, Tecnología, Santa Cruz, Bolivia, Criptomonedas, Web3, Innovación, Charlas, Talleres, Networking" />
-  
+
   <!-- Author -->
   <meta name="author" content="Blockchain Bootcamp Team" />
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/image/logo/6.png" />
-  
+
   <!-- Open Graph (SEO en redes sociales: Facebook, LinkedIn, WhatsApp) -->
   <meta property="og:title" content="Blockchain Bootcamp · Innovación y Networking en Santa Cruz" />
   <meta property="og:description"
     content="Charlas, talleres y networking sobre tecnología blockchain con expertos internacionales y sponsors en Santa Cruz, Bolivia." />
-  <meta property="og:image" content="/image/logo/6.png" />
-  <meta property="og:url" content="/image/logo/6.png" />
+  <meta property="og:image" content="./image/logo/6.png" />
+  <meta property="og:url" content="./image/logo/6.png" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_ES" />
-  
+
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Blockchain Bootcamp · Innovación y Networking en Santa Cruz" />
   <meta name="twitter:description"
     content="Charlas, talleres y networking sobre tecnología blockchain con expertos internacionales y sponsors." />
-  <meta name="twitter:image" content="/image/logo/6.png" />
+  <meta name="twitter:image" content="./image/logo/6.png" />
 
   <!-- Boxicons CDN -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  
+
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  
+
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -237,13 +237,14 @@
       <div class="flex items-center justify-between h-16">
 
         <!-- LOGO -->
-<a href="#inicio" class="flex items-center gap-3">
-  <img src="/image/logo/6.png" alt="Blockchain Bootcamp" class="h-10 w-10 rounded-lg shadow-glow-primary object-contain">
-  <div class="text-base leading-tight">
-    <div class="font-semibold text-white">Blockchain Bootcamp</div>
-    <div class="text-xs text-white/60">Innovación en Cadena · 2025</div>
-  </div>
-</a>
+        <a href="#inicio" class="flex items-center gap-3">
+          <img src="/image/logo/6.png" alt="Blockchain Bootcamp"
+            class="h-10 w-10 rounded-lg object-contain">
+          <div class="text-base leading-tight">
+            <div class="font-semibold text-white">Blockchain Bootcamp</div>
+            <div class="text-xs text-white/60">Innovación en Cadena · 2025</div>
+          </div>
+        </a>
 
 
         <!-- NAVIGATION -->
@@ -322,55 +323,56 @@
       </div>
     </div>
 
-<!-- Contenido principal -->
-<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center py-12">
+    <!-- Contenido principal -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center py-12">
 
-  <h1 class="font-orbitron font-black uppercase leading-tight mb-1">
-    <span class="block text-2xl sm:text-3xl lg:text-4xl text-white drop-shadow-lg">BLOCKCHAIN</span>
-    <span class="block text-2xl sm:text-3xl lg:text-4xl text-white mt-1 drop-shadow-lg">BOOTCAMP</span>
-  </h1>
+      <h1 class="font-orbitron font-black uppercase leading-tight mb-1">
+        <span class="block text-2xl sm:text-3xl lg:text-4xl text-white drop-shadow-lg">BLOCKCHAIN</span>
+        <span class="block text-2xl sm:text-3xl lg:text-4xl text-white mt-1 drop-shadow-lg">BOOTCAMP</span>
+      </h1>
 
-  <div class="font-mono text-white text-base sm:text-lg tracking-widest uppercase font-semibold mb-4 drop-shadow-md">
-    INNOVACIÓN EN CADENA
-  </div>
+      <div
+        class="font-mono text-white text-base sm:text-lg tracking-widest uppercase font-semibold mb-4 drop-shadow-md">
+        INNOVACIÓN EN CADENA
+      </div>
 
-  <div class="my-4">
-    <div class="font-orbitron font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 drop-shadow-md">
-      SEP <span class="text-white">19-20</span>
+      <div class="my-4">
+        <div class="font-orbitron font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 drop-shadow-md">
+          SEP <span class="text-white">19-20</span>
+        </div>
+      </div>
+
+      <!-- Cuenta regresiva -->
+      <div class="mt-8">
+        <div
+          class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-md mx-auto bg-black/30 backdrop-blur-lg p-4 rounded-2xl text-center border border-white/10 shadow-lg">
+          <div class="py-3 rounded-lg">
+            <div id="cdDays" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
+            <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Días</div>
+          </div>
+          <div class="py-3 rounded-lg">
+            <div id="cdHours" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
+            <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Horas</div>
+          </div>
+          <div class="py-3 rounded-lg">
+            <div id="cdMinutes" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
+            <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Minutos</div>
+          </div>
+          <div class="py-3 rounded-lg">
+            <div id="cdSeconds" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
+            <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Segundos</div>
+          </div>
+        </div>
+
+        <br>
+
+        <!-- Sede destacada -->
+        <span
+          class="inline-flex items-center gap-2 bg-gradient-to-r from-bgTertiary to-accent px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm border border-white/10 shadow-glow-primary animate-pulse-glow">
+          <i class='bx bx-map-pin'></i> Santa Cruz · Bolivia · <span class="text-primary font-bold">UPSA</span>
+        </span>
+      </div>
     </div>
-  </div>
-
-  <!-- Cuenta regresiva -->
-  <div class="mt-8">
-    <div
-      class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-md mx-auto bg-black/30 backdrop-blur-lg p-4 rounded-2xl text-center border border-white/10 shadow-lg">
-      <div class="py-3 rounded-lg">
-        <div id="cdDays" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
-        <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Días</div>
-      </div>
-      <div class="py-3 rounded-lg">
-        <div id="cdHours" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
-        <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Horas</div>
-      </div>
-      <div class="py-3 rounded-lg">
-        <div id="cdMinutes" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
-        <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Minutos</div>
-      </div>
-      <div class="py-3 rounded-lg">
-        <div id="cdSeconds" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
-        <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Segundos</div>
-      </div>
-    </div>
-
-    <br>
-
-    <!-- Sede destacada -->
-    <span
-      class="inline-flex items-center gap-2 bg-gradient-to-r from-bgTertiary to-accent px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm border border-white/10 shadow-glow-primary animate-pulse-glow">
-      <i class='bx bx-map-pin'></i> Santa Cruz · Bolivia · <span class="text-primary font-bold">UPTESA</span>
-    </span>
-  </div>
-</div>
 
 
   </section>
@@ -957,8 +959,9 @@
 
     <!-- Fondo decorativo con imagen -->
     <div class="absolute inset-0">
-      <img src="https://media.istockphoto.com/id/1313901506/es/foto/foto-recortada-de-una-joven-afroamericana-usando-un-tel%C3%A9fono-inteligente-en-casa-mujer.jpg?s=612x612&w=0&k=20&c=GcwY0CIzfScKGuQ8zwU1_1hE2ZVr5XVt8VLrQsX0dFA=" alt="Persona usando celular"
-        class="w-full h-full object-cover opacity-30">
+      <img
+        src="https://media.istockphoto.com/id/1313901506/es/foto/foto-recortada-de-una-joven-afroamericana-usando-un-tel%C3%A9fono-inteligente-en-casa-mujer.jpg?s=612x612&w=0&k=20&c=GcwY0CIzfScKGuQ8zwU1_1hE2ZVr5XVt8VLrQsX0dFA="
+        alt="Persona usando celular" class="w-full h-full object-cover opacity-30">
     </div>
 
     <div class="relative max-w-6xl mx-auto px-6 lg:px-8 text-center">
@@ -976,27 +979,7 @@
       <!-- Sponsors destacados -->
       <div class="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
 
-        <!-- Sponsor 1 -->
-        <div
-          class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 flex flex-col items-center shadow-lg hover:scale-105 transition">
-          <img src="https://eldorado.io/static/f4ed8a521b10baed657858830cac133c/8010a/logo.webp" alt="Dorado"
-            class="w-24 h-24 object-contain mb-4">
 
-          <h3 class="text-2xl font-extrabold text-primary mb-1">El Dorado</h3>
-          <p class="text-sm text-white/70 mb-4">La manera más fácil de comprar y vender dólares digitales.</p>
-
-          <!-- Botones -->
-          <div class="flex flex-col gap-3 w-full">
-            <a href="https://apps.apple.com/co/app/el-dorado-marketplace/id1591303547" class="inline-flex items-center justify-center gap-2 bg-primary text-bgPrimary px-5 py-2 rounded-xl 
-             font-semibold hover:bg-secondary transition">
-              <i class='bx bxl-apple text-xl'></i> Descargar en App Store
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=io.eldorado.app" class="inline-flex items-center justify-center gap-2 bg-primary text-bgPrimary px-5 py-2 rounded-xl 
-             font-semibold hover:bg-secondary transition">
-              <i class='bx bxl-play-store text-xl'></i> Descargar en Google Play
-            </a>
-          </div>
-        </div>
 
 
         <!-- Sponsor 2 -->
@@ -1094,6 +1077,111 @@
 </section> -->
 
 
+  <!-- ORGANIZADORES -->
+  <!-- <section id="team" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-primary">Organizadores</h2>
+      <p class="text-white/70 mt-2">Conoce al equipo detrás del evento</p>
+    </div>
+
+
+   <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+
+
+      <div class="flex flex-col items-center bg-white/5 p-4 rounded-2xl hover:bg-white/10 cursor-pointer transition"
+        onclick="openModal('organizer1')">
+        <img src="https://placehold.co/150x150" alt="Organizador 1"
+          class="w-24 h-24 rounded-full object-cover mb-3 shadow-md ring-2 ring-primary/50" />
+        <h3 class="text-sm font-semibold text-white">Luishiño</h3>
+        <p class="text-xs text-white/50">Coordinador</p>
+      </div>
+
+ 
+      <div class="flex flex-col items-center bg-white/5 p-4 rounded-2xl hover:bg-white/10 cursor-pointer transition"
+        onclick="openModal('organizer2')">
+        <img src="https://placehold.co/150x150" alt="Organizador 2"
+          class="w-24 h-24 rounded-full object-cover mb-3 shadow-md ring-2 ring-primary/50" />
+        <h3 class="text-sm font-semibold text-white">Jhenny</h3>
+        <p class="text-xs text-white/50">Logística</p>
+      </div>
+
+    </div>
+  </div>
+</section>  -->
+
+  <!-- MODAL -->
+  <div id="organizerModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4">
+    <div
+      class="bg-gray-900/95 backdrop-blur-lg rounded-2xl shadow-2xl max-w-md w-full p-6 relative border border-white/10">
+
+      <!-- Botón Cerrar -->
+      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-xl">✕</button>
+
+      <!-- Contenido dinámico -->
+      <div id="modalContent" class="text-center">
+        <!-- Se llena con JS -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Datos de ejemplo (puedes expandir con los 20+ organizadores)
+    const organizers = {
+      organizer1: {
+        name: "Luishiño ",
+        role: "Desarrollador",
+        bio: "Apasionado por blockchain y la innovación en cadenas de bloques. Con 5 años de experiencia organizando comunidades tech.",
+        img: "https://placehold.co/200x200",
+        linkedin: "https://linkedin.com/in/juanperez",
+        tags: ["Blockchain", "Gestión", "Innovación"]
+      },
+      organizer2: {
+        name: "Jhenny",
+        role: "La mejor de todos",
+        bio: "Encargada de la gestión de eventos y coordinación del equipo. Experta en logística de hackathons y bootcamps.",
+        img: "https://placehold.co/200x200",
+        linkedin: "https://linkedin.com/in/mariagomez",
+        tags: ["Eventos", "Organización", "Comunidad"]
+      }
+    };
+
+    function openModal(id) {
+      const data = organizers[id];
+      const modal = document.getElementById("organizerModal");
+      const content = document.getElementById("modalContent");
+
+      // Generar los tags
+      const tagsHtml = data.tags.map(tag =>
+        `<span class="px-2 py-1 text-xs bg-primary/20 text-primary rounded-full">${tag}</span>`
+      ).join(" ");
+
+      content.innerHTML = `
+      <img src="${data.img}" class="w-28 h-28 mx-auto rounded-full shadow-lg ring-2 ring-primary/50 mb-4" />
+      <h3 class="text-xl font-bold text-white">${data.name}</h3>
+      <p class="text-sm text-primary mb-3">${data.role}</p>
+      <p class="mt-2 text-gray-300 text-sm leading-relaxed">${data.bio}</p>
+      <div class="flex flex-wrap justify-center gap-2 mt-4">${tagsHtml}</div>
+      <a href="${data.linkedin}" target="_blank"
+        class="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-4 h-4 fill-current">
+          <path d="M100.28 448H7.4V148.9h92.88zM53.79..."/>
+        </svg>
+        LinkedIn
+      </a>
+    `;
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("organizerModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+  </script>
 
 
   <!-- SPONSORS / COLABORADORES -->
@@ -1127,10 +1215,24 @@
             class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition" />
         </a>
 
-        <!-- Avalanche -->
-        <a href="https://avax.network/" target="_blank"
+        <!-- UPSA -->
+        <a href="#" 
           class="flex items-center justify-center w-32 h-20 sm:w-40 sm:h-24">
-          <img src="https://placehold.co/300x120?text=Avalanche" alt="Avalanche"
+          <img src="./image/logo/15.png" alt="UPSA"
+            class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition" />
+        </a>
+
+        <!-- UPSA -->
+        <a href="#" 
+          class="flex items-center justify-center w-32 h-20 sm:w-40 sm:h-24">
+          <img src="./image/logo/GDG-LARGO.png" alt="GDG"
+            class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition" />
+        </a>
+
+        <!-- UPSA -->
+        <a href="#" 
+          class="flex items-center justify-center w-32 h-20 sm:w-40 sm:h-24">
+          <img src="./image/logo/wtm.png" alt="WTM"
             class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition" />
         </a>
 
@@ -1184,9 +1286,14 @@
           <a href="https://gdg.community.dev/gdg-santa-cruz/" target="_blank"
             class="hover:text-primary transition font-medium">
             GDG Santa Cruz
-          </a> &amp; Luishiño
+          </a> &amp;
+          <a href="https://www.linkedin.com/in/lpericena/" target="_blank"
+            class="hover:text-primary transition font-medium">
+            Luishiño
+          </a>
         </span>
       </div>
+
 
       <!-- Redes GDG Santa Cruz -->
       <div class="flex items-center gap-3">
