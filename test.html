@@ -1,0 +1,1118 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DevFest Santa Cruz 2025 — Innovación, código y comunidad</title>
+  <meta name="description"
+    content="El evento tecnológico más esperado de Santa Cruz. Únete a la comunidad de desarrolladores el 29 de noviembre de 2025.">
+
+  <!-- Tailwind CDN (Play) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* Custom small tweaks */
+    :root {
+      --accent: #f6a21b;
+      /* naranja */
+      --accent-2: #1da73a;
+      /* verde */
+      --bg: #232425;
+      /* fondo oscuro */
+      --card: #2a2b2c;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .gradient-accent {
+      background: linear-gradient(90deg, rgba(246, 162, 27, 1) 0%, rgba(29, 167, 58, 1) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(90deg, rgba(246, 162, 27, 0.1) 0%, rgba(29, 167, 58, 0.1) 100%);
+    }
+
+    /* tiny carousel transition tweak */
+    .carousel-track {
+      transition: transform .45s cubic-bezier(.2, .9, .3, 1);
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Custom animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    /* Sticky header */
+    .sticky-header {
+      transition: all 0.3s ease;
+    }
+
+    .sticky-header.scrolled {
+      background-color: rgba(35, 36, 37, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      transition: all 0.3s ease;
+      transform: translateX(100%);
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* Floating button */
+    .floating-button {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 40;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, rgba(246, 162, 27, 1) 0%, rgba(29, 167, 58, 1) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .floating-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Banner styles */
+    .banner {
+      background: linear-gradient(rgba(35, 36, 37, 0.8), rgba(35, 36, 37, 0.8)),
+        url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Gallery styles */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+
+    /* Avatar carousel */
+    .avatar-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 16px;
+    }
+
+    .avatar-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .avatar-item {
+      flex: 0 0 auto;
+      width: 280px;
+      margin-right: 16px;
+      scroll-snap-align: start;
+    }
+
+    /* Timeline styles */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: var(--accent);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      top: 15px;
+      z-index: 1;
+    }
+
+    .timeline-item:nth-child(odd)::after {
+      right: -10px;
+    }
+
+    .timeline-item:nth-child(even)::after {
+      left: -10px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+
+      .timeline-item:nth-child(odd)::after,
+      .timeline-item:nth-child(even)::after {
+        left: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-[color:var(--bg)] text-gray-200 antialiased leading-relaxed">
+
+  <!-- Sticky Header -->
+  <header class="sticky-header fixed top-0 left-0 right-0 z-50 py-4">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 ring-1 ring-white/6">
+            <i class='bx bx-code text-xl' style="color:var(--accent)"></i>
+          </div>
+          <div>
+            <h1 class="text-xl font-extrabold gradient-accent">DevFest <span class="text-white">Santa Cruz</span></h1>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="#hero" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Inicio</a>
+          <a href="#about" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Acerca de</a>
+          <a href="#speakers"
+            class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Speakers</a>
+          <a href="#gallery" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Galería</a>
+          <a href="#sponsors"
+            class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Sponsors</a>
+          <a href="#schedule" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Agenda</a>
+          <a href="#location"
+            class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Ubicación</a>
+        </nav>
+
+        <!-- CTA Buttons -->
+        <div class="flex items-center gap-3">
+          <button id="registerBtn"
+            class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-md bg-[color:var(--accent)] hover:brightness-95 text-black font-semibold transition-all">
+            <i class='bx bx-calendar-event'></i> Inscribirse
+          </button>
+
+          <!-- Mobile menu button -->
+          <button id="mobileMenuBtn" class="md:hidden p-2 bg-white/5 rounded-md">
+            <i class='bx bx-menu text-xl'></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-0 z-40 bg-[color:var(--bg)] md:hidden">
+    <div class="flex flex-col h-full">
+      <div class="flex justify-between items-center p-4 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 ring-1 ring-white/6">
+            <i class='bx bx-code text-xl' style="color:var(--accent)"></i>
+          </div>
+          <div>
+            <h1 class="text-xl font-extrabold gradient-accent">DevFest <span class="text-white">Santa Cruz</span></h1>
+          </div>
+        </div>
+        <button id="closeMobileMenu" class="p-2">
+          <i class='bx bx-x text-2xl'></i>
+        </button>
+      </div>
+
+      <nav class="flex flex-col p-4 gap-4 flex-1">
+        <a href="#hero" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Inicio</a>
+        <a href="#about" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Acerca de</a>
+        <a href="#speakers" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Speakers</a>
+        <a href="#gallery" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Galería</a>
+        <a href="#sponsors" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Sponsors</a>
+        <a href="#schedule" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Agenda</a>
+        <a href="#location" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Ubicación</a>
+
+        <div class="mt-auto pt-4 border-t border-white/10">
+          <button
+            class="w-full py-3 rounded-md bg-[color:var(--accent)] text-black font-semibold flex items-center justify-center gap-2">
+            <i class='bx bx-calendar-event'></i> Inscribirse
+          </button>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section with Banner -->
+    <section id="hero" class="banner pt-24 pb-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <!-- Hero Content -->
+          <div class="fade-in">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-sm mb-6">
+              <span class="w-2 h-2 rounded-full bg-[color:var(--accent)]"></span>
+              <span>29 Noviembre 2025 — Universidad Privada Domingo Savio</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+              <span class="gradient-accent">DevFest</span> Santa Cruz 2025
+            </h2>
+            <p class="text-xl text-white/70 mb-8">Innovación, código y comunidad en un solo lugar. El evento tecnológico
+              más esperado del año.</p>
+
+            <!-- Countdown -->
+            <div class="mb-8">
+              <p class="text-sm text-white/60 mb-3">El evento comienza en:</p>
+              <div id="countdown" class="flex gap-3">
+                <div class="text-center px-4 py-3 bg-white/5 rounded-lg">
+                  <div id="days" class="text-2xl font-bold">00</div>
+                  <div class="text-xs text-white/60">Días</div>
+                </div>
+                <div class="text-center px-4 py-3 bg-white/5 rounded-lg">
+                  <div id="hours" class="text-2xl font-bold">00</div>
+                  <div class="text-xs text-white/60">Horas</div>
+                </div>
+                <div class="text-center px-4 py-3 bg-white/5 rounded-lg">
+                  <div id="minutes" class="text-2xl font-bold">00</div>
+                  <div class="text-xs text-white/60">Min</div>
+                </div>
+                <div class="text-center px-4 py-3 bg-white/5 rounded-lg">
+                  <div id="seconds" class="text-2xl font-bold">00</div>
+                  <div class="text-xs text-white/60">Seg</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button
+                class="px-6 py-3 rounded-md bg-[color:var(--accent)] hover:brightness-95 text-black font-semibold flex items-center justify-center gap-2">
+                <i class='bx bx-calendar-event'></i> Inscribirse ahora
+              </button>
+              <a href="#about"
+                class="px-6 py-3 rounded-md bg-white/5 hover:bg-white/10 font-medium flex items-center justify-center gap-2">
+                <i class='bx bx-info-circle'></i> Más información
+              </a>
+            </div>
+          </div>
+
+<!-- Hero Visual -->
+<div class="fade-in flex justify-center lg:justify-end">
+  <div class="relative w-full max-w-md group">
+    <!-- Contenedor principal con degradado -->
+    <div
+      class="aspect-square rounded-2xl gradient-bg flex flex-col items-center justify-center p-8 transition-transform duration-300 group-hover:scale-[1.03] group-hover:brightness-110">
+
+      <!-- Imagen del taller -->
+      <div class="w-200 h-250 mb-5 overflow-hidden rounded-xl shadow-lg">
+        <img src="/img/taller/agente.jpg" alt="Taller Google ADK" class="w-full h-full object-cover" />
+      </div>
+
+      <!-- Texto -->
+      <div class="text-center text-white/80 text-sm sm:text-base">
+        <p class="mb-2">Taller: “Crea tu sistema multi-agente con Google ADK”</p>
+        <p>
+          👉 <a href="https://forms.gle/KH11gcabaKLr1hey7" target="_blank"
+            class="text-[color:var(--accent)] hover:underline font-semibold">
+            Haz clic aquí para inscribirte
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Elementos decorativos -->
+    <div class="absolute -top-4 -left-4 w-20 h-20 rounded-xl bg-[color:var(--accent)] opacity-20 blur-sm"></div>
+    <div class="absolute -bottom-4 -right-4 w-16 h-16 rounded-full bg-[color:var(--accent-2)] opacity-20 blur-sm"></div>
+  </div>
+</div>
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Acerca del DevFest</h2>
+          <p class="text-lg text-white/70 max-w-2xl mx-auto">El DevFest (Developer Festival) es un evento organizado por
+            la comunidad para desarrolladores, creadores y entusiastas de la tecnología.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div class="bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
+            <div class="w-12 h-12 rounded-lg bg-[color:var(--accent)] flex items-center justify-center mb-4">
+              <i class='bx bx-group text-2xl text-black'></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Comunidad</h3>
+            <p class="text-white/70">Conecta con desarrolladores locales, comparte conocimientos y expande tu red
+              profesional.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
+            <div class="w-12 h-12 rounded-lg bg-[color:var(--accent-2)] flex items-center justify-center mb-4">
+              <i class='bx bx-bulb text-2xl text-black'></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Innovación</h3>
+            <p class="text-white/70">Descubre las últimas tendencias tecnológicas y herramientas que están transformando
+              la industria.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
+            <div class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4">
+              <i class='bx bx-code-alt text-2xl' style="color:var(--accent)"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Aprendizaje</h3>
+            <p class="text-white/70">Aprende de expertos con charlas técnicas, talleres prácticos y sesiones de
+              networking.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Speakers Section with Avatar Carousel -->
+    <!-- <section id="speakers" class="py-16 bg-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Nuestros Speakers</h2>
+          <p class="text-lg text-white/70 max-w-2xl mx-auto">Conoce a los expertos que compartirán sus conocimientos y
+            experiencias en el DevFest Santa Cruz 2025.</p>
+        </div>
+
+
+        <div class="avatar-carousel mb-8">
+
+          <div class="avatar-item bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
+            <div class="flex flex-col items-center text-center mb-4">
+              <div
+                class="w-24 h-24 rounded-full bg-gradient-to-br from-[color:var(--accent)] to-[color:var(--accent-2)] flex items-center justify-center text-white font-bold text-2xl mb-4">
+                AP</div>
+              <div>
+                <h3 class="font-bold text-lg">Andrea Pérez</h3>
+                <p class="text-sm text-white/60">Frontend Engineer</p>
+              </div>
+            </div>
+            <p class="text-white/70 mb-4 text-center">Especialista en diseño de interfaces y experiencia de usuario con
+              más de 8
+              años de experiencia.</p>
+            <div class="flex items-center gap-2 text-sm justify-center">
+              <i class='bx bx-microphone' style="color:var(--accent)"></i>
+              <span>Charla: Micro-interactions en UI</span>
+            </div>
+          </div>
+
+
+          <div class="avatar-item bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
+            <div class="flex flex-col items-center text-center mb-4">
+              <div
+                class="w-24 h-24 rounded-full bg-gradient-to-br from-[color:var(--accent)] to-[color:var(--accent-2)] flex items-center justify-center text-white font-bold text-2xl mb-4">
+                JR</div>
+              <div>
+                <h3 class="font-bold text-lg">José Rojas</h3>
+                <p class="text-sm text-white/60">Cloud Architect</p>
+              </div>
+            </div>
+            <p class="text-white/70 mb-4 text-center">Arquitecto de soluciones en la nube con experiencia en
+              implementaciones a gran
+              escala.</p>
+            <div class="flex items-center gap-2 text-sm justify-center">
+              <i class='bx bx-microphone' style="color:var(--accent)"></i>
+              <span>Charla: Serverless para Startups</span>
+            </div>
+          </div>
+
+       
+          <div class="avatar-item bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
+            <div class="flex flex-col items-center text-center mb-4">
+              <div
+                class="w-24 h-24 rounded-full bg-gradient-to-br from-[color:var(--accent)] to-[color:var(--accent-2)] flex items-center justify-center text-white font-bold text-2xl mb-4">
+                MC</div>
+              <div>
+                <h3 class="font-bold text-lg">María Castro</h3>
+                <p class="text-sm text-white/60">Data Scientist</p>
+              </div>
+            </div>
+            <p class="text-white/70 mb-4 text-center">Científica de datos especializada en machine learning e
+              inteligencia
+              artificial aplicada.</p>
+            <div class="flex items-center gap-2 text-sm justify-center">
+              <i class='bx bx-microphone' style="color:var(--accent)"></i>
+              <span>Charla: IA Ética en Proyectos Reales</span>
+            </div>
+          </div>
+
+    
+          <div class="avatar-item bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
+            <div class="flex flex-col items-center text-center mb-4">
+              <div
+                class="w-24 h-24 rounded-full bg-gradient-to-br from-[color:var(--accent)] to-[color:var(--accent-2)] flex items-center justify-center text-white font-bold text-2xl mb-4">
+                CR</div>
+              <div>
+                <h3 class="font-bold text-lg">Carlos Rodríguez</h3>
+                <p class="text-sm text-white/60">DevOps Engineer</p>
+              </div>
+            </div>
+            <p class="text-white/70 mb-4 text-center">Experto en automatización de procesos y herramientas de CI/CD para
+              equipos de desarrollo.</p>
+            <div class="flex items-center gap-2 text-sm justify-center">
+              <i class='bx bx-microphone' style="color:var(--accent)"></i>
+              <span>Charla: GitOps en la Práctica</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <button
+            class="px-6 py-3 rounded-md bg-white/5 hover:bg-white/10 font-medium flex items-center justify-center gap-2 mx-auto">
+            <i class='bx bx-user-plus'></i> Ver todos los speakers
+          </button>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Galería</h2>
+          <p class="text-lg text-white/70 max-w-2xl mx-auto">Revive los mejores momentos de ediciones anteriores del
+            DevFest Santa Cruz.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item"
+            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+          </div>
+          <div class="gallery-item"
+            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+          </div>
+          <div class="gallery-item"
+            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+          </div>
+          <div class="gallery-item"
+            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+          </div>
+          <div class="gallery-item"
+            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+          </div>
+          <div class="gallery-item"
+            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <button
+            class="px-6 py-3 rounded-md bg-white/5 hover:bg-white/10 font-medium flex items-center justify-center gap-2 mx-auto">
+            <i class='bx bx-images'></i> Ver más fotos
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="py-16 bg-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Nuestros Sponsors</h2>
+          <p class="text-lg text-white/70 max-w-2xl mx-auto">Agradecemos a todas las empresas y organizaciones que hacen
+            posible este evento.</p>
+        </div>
+
+        <!-- Sponsors Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          <div class="bg-[color:var(--card)] rounded-xl p-6 flex items-center justify-center h-32">
+            <span class="font-bold text-lg gradient-accent">Sponsor Platino</span>
+          </div>
+          <div class="bg-[color:var(--card)] rounded-xl p-6 flex items-center justify-center h-32">
+            <span class="font-bold text-lg" style="color:var(--accent)">Sponsor Oro</span>
+          </div>
+          <div class="bg-[color:var(--card)] rounded-xl p-6 flex items-center justify-center h-32">
+            <span class="font-bold text-lg text-white/80">Sponsor Plata</span>
+          </div>
+          <div class="bg-[color:var(--card)] rounded-xl p-6 flex items-center justify-center h-32">
+            <span class="font-bold text-lg" style="color:var(--accent-2)">Comunidad</span>
+          </div>
+        </div>
+
+        <!-- Sponsors Carousel -->
+        <div class="relative">
+          <div class="overflow-hidden rounded-xl">
+            <div id="carouselTrack" class="carousel-track flex gap-6">
+              <!-- Sponsor cards -->
+              <div class="min-w-[280px] bg-[color:var(--card)] rounded-xl p-6 flex-shrink-0">
+                <div
+                  class="h-16 w-full rounded-lg bg-gradient-to-r from-white/5 to-white/10 flex items-center justify-center mb-4">
+                  <span class="font-bold text-lg gradient-accent">Sponsor Platino</span>
+                </div>
+                <p class="text-white/70">Máxima visibilidad en escenario, stand premium, charla técnica y branding en
+                  todos los materiales.</p>
+              </div>
+
+              <div class="min-w-[280px] bg-[color:var(--card)] rounded-xl p-6 flex-shrink-0">
+                <div
+                  class="h-16 w-full rounded-lg bg-gradient-to-r from-white/5 to-white/10 flex items-center justify-center mb-4">
+                  <span class="font-bold text-lg" style="color:var(--accent)">Sponsor Oro</span>
+                </div>
+                <p class="text-white/70">Branding destacado, stand corporativo y presencia en redes sociales del evento.
+                </p>
+              </div>
+
+              <div class="min-w-[280px] bg-[color:var(--card)] rounded-xl p-6 flex-shrink-0">
+                <div
+                  class="h-16 w-full rounded-lg bg-gradient-to-r from-white/5 to-white/10 flex items-center justify-center mb-4">
+                  <span class="font-bold text-lg text-white/80">Sponsor Plata</span>
+                </div>
+                <p class="text-white/70">Logo en materiales del evento, menciones durante el evento y presencia digital.
+                </p>
+              </div>
+
+              <div class="min-w-[280px] bg-[color:var(--card)] rounded-xl p-6 flex-shrink-0">
+                <div
+                  class="h-16 w-full rounded-lg bg-gradient-to-r from-white/5 to-white/10 flex items-center justify-center mb-4">
+                  <span class="font-bold text-lg" style="color:var(--accent-2)">Comunidad</span>
+                </div>
+                <p class="text-white/70">Apoyo local, difusión en redes y reconocimiento como parte de la comunidad
+                  tech.</p>
+              </div>
+
+              <!-- Duplicate for looping -->
+              <div class="min-w-[280px] bg-[color:var(--card)] rounded-xl p-6 flex-shrink-0">
+                <div
+                  class="h-16 w-full rounded-lg bg-gradient-to-r from-white/5 to-white/10 flex items-center justify-center mb-4">
+                  <span class="font-bold text-lg gradient-accent">Sponsor Platino</span>
+                </div>
+                <p class="text-white/70">Máxima visibilidad en escenario, stand premium, charla técnica y branding en
+                  todos los materiales.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel controls -->
+          <button id="prevBtn" aria-label="Anterior"
+            class="absolute left-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 transition-colors">
+            <i class='bx bx-chevron-left text-2xl'></i>
+          </button>
+          <button id="nextBtn" aria-label="Siguiente"
+            class="absolute right-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 transition-colors">
+            <i class='bx bx-chevron-right text-2xl'></i>
+          </button>
+        </div>
+
+        <div class="text-center mt-8">
+          <button
+            class="px-6 py-3 rounded-md bg-[color:var(--accent)] hover:brightness-95 text-black font-semibold flex items-center justify-center gap-2 mx-auto">
+            <i class='bx bx-briefcase-alt'></i> Ser Sponsor
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schedule Section with Timeline -->
+    <section id="schedule" class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Agenda del Evento</h2>
+          <p class="text-lg text-white/70 max-w-2xl mx-auto">Consulta las charlas, talleres y actividades programadas
+            para el DevFest Santa Cruz 2025.</p>
+        </div>
+
+        <!-- Schedule Tabs -->
+        <div class="flex border-b border-white/10 mb-8">
+          <button class="px-4 py-3 border-b-2 border-[color:var(--accent)] text-[color:var(--accent)] font-medium">Día
+            1</button>
+          <button class="px-4 py-3 text-white/60 hover:text-white font-medium">Día 2</button>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline">
+          <!-- Item 1 -->
+          <div class="timeline-item">
+            <div class="bg-[color:var(--card)] rounded-xl p-5 shadow-lg ring-1 ring-black/30">
+              <div class="flex items-center gap-2 mb-2">
+                <div class="px-3 py-1 rounded-full bg-[color:var(--accent)] text-black text-sm font-medium">09:00 -
+                  10:00</div>
+              </div>
+              <h3 class="font-bold text-lg mb-1">Registro y Bienvenida</h3>
+              <p class="text-white/70">Registro de participantes, entrega de credenciales y bienvenida al evento.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline-item">
+            <div class="bg-[color:var(--card)] rounded-xl p-5 shadow-lg ring-1 ring-black/30">
+              <div class="flex items-center gap-2 mb-2">
+                <div class="px-3 py-1 rounded-full bg-[color:var(--accent-2)] text-black text-sm font-medium">10:00 -
+                  11:00</div>
+              </div>
+              <h3 class="font-bold text-lg mb-1">Keynote: El Futuro del Desarrollo Web</h3>
+              <p class="text-white/70 mb-2">Una visión sobre las tendencias y tecnologías que darán forma al
+                desarrollo web en los próximos años.</p>
+              <div class="flex items-center gap-2 text-sm text-white/60">
+                <i class='bx bx-user'></i>
+                <span>Andrea Pérez</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="timeline-item">
+            <div class="bg-[color:var(--card)] rounded-xl p-5 shadow-lg ring-1 ring-black/30">
+              <div class="flex items-center gap-2 mb-2">
+                <div class="px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium">11:15 - 12:15</div>
+              </div>
+              <h3 class="font-bold text-lg mb-1">Serverless para Startups</h3>
+              <p class="text-white/70 mb-2">Cómo las arquitecturas serverless pueden acelerar el desarrollo y
+                reducir costos para startups.</p>
+              <div class="flex items-center gap-2 text-sm text-white/60">
+                <i class='bx bx-user'></i>
+                <span>José Rojas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <button
+            class="px-6 py-3 rounded-md bg-white/5 hover:bg-white/10 font-medium flex items-center justify-center gap-2 mx-auto">
+            <i class='bx bx-download'></i> Descargar Agenda Completa
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-16 bg-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Location Info -->
+          <div>
+            <h2 class="text-3xl font-bold mb-4">Ubicación</h2>
+            <p class="text-lg text-white/70 mb-6">El DevFest Santa Cruz 2025 se llevará a cabo en las instalaciones de
+              la Universidad Privada Domingo Savio, un espacio moderno y equipado para eventos tecnológicos.</p>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
+                  <i class='bx bx-map text-xl' style="color:var(--accent)"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold mb-1">Dirección</h3>
+                  <p class="text-white/70">Av. Beni entre 2do y 3er anillo, Santa Cruz de la Sierra, Bolivia</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
+                  <i class='bx bx-time text-xl' style="color:var(--accent-2)"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold mb-1">Fecha y Hora</h3>
+                  <p class="text-white/70">29 de Noviembre, 2025 - 9:00 AM a 6:00 PM</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
+                  <i class='bx bx-group text-xl' style="color:var(--accent)"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold mb-1">Organiza</h3>
+                  <p class="text-white/70">Google Developer Group — Santa Cruz</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map Placeholder -->
+          <div class="bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
+            <div class="aspect-video rounded-lg bg-white/5 flex items-center justify-center">
+              <div class="text-center">
+                <i class='bx bx-map-pin text-5xl mb-4' style="color:var(--accent)"></i>
+                <p class="text-white/70">Mapa de ubicación</p>
+                <p class="text-sm text-white/60 mt-2">Universidad Privada Domingo Savio</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 gradient-bg">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold mb-4">¿Listo para ser parte del DevFest?</h2>
+        <p class="text-lg text-white/70 mb-8 max-w-2xl mx-auto">No te pierdas la oportunidad de conectar con la
+          comunidad tech, aprender de expertos y descubrir las últimas tendencias tecnológicas.</p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            class="px-6 py-3 rounded-md bg-[color:var(--accent)] hover:brightness-95 text-black font-semibold flex items-center justify-center gap-2">
+            <i class='bx bx-calendar-event'></i> Inscribirse ahora
+          </button>
+          <button id="openQr"
+            class="px-6 py-3 rounded-md bg-white/5 hover:bg-white/10 font-medium flex items-center justify-center gap-2">
+            <i class='bx bx-qr-scan'></i> Ver QR de registro
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black/20 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 ring-1 ring-white/6">
+              <i class='bx bx-code text-xl' style="color:var(--accent)"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-extrabold gradient-accent">DevFest <span class="text-white">Santa Cruz</span></h3>
+            </div>
+          </div>
+          <p class="text-white/70 mb-4">El evento tecnológico más esperado de Santa Cruz, organizado por la comunidad
+            para la comunidad.</p>
+          <div class="flex gap-4">
+            <a href="#"
+              class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+              <i class='bx bxl-twitter'></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+              <i class='bx bxl-facebook'></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+              <i class='bx bxl-instagram'></i>
+            </a>
+            <a href="#"
+              class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+              <i class='bx bxl-linkedin'></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div>
+          <h4 class="font-bold mb-4">Enlaces rápidos</h4>
+          <ul class="space-y-2">
+            <li><a href="#about" class="text-white/70 hover:text-white transition-colors">Acerca de</a></li>
+            <li><a href="#speakers" class="text-white/70 hover:text-white transition-colors">Speakers</a></li>
+            <li><a href="#gallery" class="text-white/70 hover:text-white transition-colors">Galería</a></li>
+            <li><a href="#sponsors" class="text-white/70 hover:text-white transition-colors">Sponsors</a></li>
+            <li><a href="#schedule" class="text-white/70 hover:text-white transition-colors">Agenda</a></li>
+            <li><a href="#location" class="text-white/70 hover:text-white transition-colors">Ubicación</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="font-bold mb-4">Contacto</h4>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2 text-white/70">
+              <i class='bx bx-envelope'></i>
+              <span>info@devfestsantacruz.bo</span>
+            </li>
+            <li class="flex items-center gap-2 text-white/70">
+              <i class='bx bx-world'></i>
+              <span>devfestsantacruz.bo</span>
+            </li>
+            <li class="flex items-center gap-2 text-white/70">
+              <i class='bx bxl-meetup'></i>
+              <span>GDG Santa Cruz</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 mt-8 pt-6 text-center text-sm text-white/60">
+        <p>© 2025 DevFest Santa Cruz. Organizado por Google Developer Group — Santa Cruz. Todos los derechos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Button -->
+  <div class="floating-button" id="scrollToTop">
+    <i class='bx bx-chevron-up text-2xl text-black'></i>
+  </div>
+
+  <!-- Modal QR -->
+  <div id="qrModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4 z-50">
+    <div class="bg-[color:var(--card)] p-6 rounded-xl max-w-sm w-full">
+      <div class="flex justify-between items-center mb-4">
+        <h4 class="font-bold text-lg">QR de registro</h4>
+        <button id="closeQr" class="text-white/60 hover:text-white">
+          <i class='bx bx-x text-2xl'></i>
+        </button>
+      </div>
+      <div class="mt-3 flex flex-col items-center justify-center">
+        <div class="w-56 h-56 bg-white rounded-md flex items-center justify-center mb-4">
+          <!-- Placeholder QR: replace with real QR URL -->
+          <svg width="180" height="180" viewBox="0 0 24 24" fill="none">
+            <rect x="1" y="1" width="6" height="6" fill="black" />
+            <rect x="17" y="1" width="6" height="6" fill="black" />
+            <rect x="1" y="17" width="6" height="6" fill="black" />
+            <rect x="10" y="10" width="2" height="2" fill="black" />
+            <rect x="13" y="10" width="2" height="2" fill="black" />
+          </svg>
+        </div>
+        <p class="text-sm text-white/70 text-center">Escanea este código QR para acceder al formulario de registro.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    /* =======================
+       Sticky Header
+       ======================= */
+    window.addEventListener('scroll', function () {
+      const header = document.querySelector('.sticky-header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    /* =======================
+       Mobile Menu
+       ======================= */
+    document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+      document.getElementById('mobileMenu').classList.add('open');
+    });
+
+    document.getElementById('closeMobileMenu').addEventListener('click', function () {
+      document.getElementById('mobileMenu').classList.remove('open');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', function () {
+        document.getElementById('mobileMenu').classList.remove('open');
+      });
+    });
+
+    /* =======================
+       Countdown
+       ======================= */
+    (function () {
+      // Target date: Nov 29, 2025 at 09:00 local time
+      const target = new Date('2025-11-29T09:00:00');
+      const $ = id => document.getElementById(id);
+
+      function updateCountdown() {
+        const now = new Date();
+        let diff = Math.max(0, target - now);
+        const sec = Math.floor(diff / 1000) % 60;
+        const min = Math.floor(diff / (1000 * 60)) % 60;
+        const hr = Math.floor(diff / (1000 * 60 * 60)) % 24;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        $('days').textContent = String(days).padStart(2, '0');
+        $('hours').textContent = String(hr).padStart(2, '0');
+        $('minutes').textContent = String(min).padStart(2, '0');
+        $('seconds').textContent = String(sec).padStart(2, '0');
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    })();
+
+    /* =======================
+       Carousel (simple)
+       ======================= */
+    (function () {
+      const track = document.getElementById('carouselTrack');
+      const prev = document.getElementById('prevBtn');
+      const next = document.getElementById('nextBtn');
+
+      // visible width and item width
+      let idx = 0;
+      const items = track.children;
+      const itemWidth = items[0].getBoundingClientRect().width + 24; // card + gap
+      const visibleCount = Math.floor((track.parentElement.clientWidth) / itemWidth) || 1;
+
+      function update() {
+        const x = -idx * itemWidth;
+        track.style.transform = 'translateX(' + x + 'px)';
+      }
+
+      prev.addEventListener('click', () => {
+        idx = Math.max(0, idx - 1);
+        update();
+      });
+
+      next.addEventListener('click', () => {
+        idx = Math.min(items.length - visibleCount, idx + 1);
+        update();
+      });
+
+      // auto slide
+      let auto = setInterval(() => {
+        idx = (idx + 1) % Math.max(1, items.length - visibleCount + 1);
+        update();
+      }, 3500);
+
+      // pause on hover
+      track.parentElement.addEventListener('mouseenter', () => clearInterval(auto));
+      track.parentElement.addEventListener('mouseleave', () => {
+        auto = setInterval(() => {
+          idx = (idx + 1) % Math.max(1, items.length - visibleCount + 1);
+          update();
+        }, 3500);
+      });
+
+      // responsive resize recalculation
+      window.addEventListener('resize', () => {
+        // recalc visibleCount (simple approach: reset idx to 0)
+        idx = 0;
+        track.style.transition = 'none';
+        update();
+        setTimeout(() => track.style.transition = '', 100);
+      });
+    })();
+
+    /* =======================
+       Small interactions
+       ======================= */
+    document.getElementById('openQr').addEventListener('click', () => {
+      document.getElementById('qrModal').classList.remove('hidden');
+    });
+    document.getElementById('closeQr').addEventListener('click', () => {
+      document.getElementById('qrModal').classList.add('hidden');
+    });
+
+    // Register CTA smooth scroll
+    document.querySelectorAll('#registerBtn, .register-cta').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('#location').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Floating button scroll to top
+    document.getElementById('scrollToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Show/hide floating button based on scroll position
+    window.addEventListener('scroll', function () {
+      const floatingButton = document.getElementById('scrollToTop');
+      if (window.scrollY > 300) {
+        floatingButton.style.display = 'flex';
+      } else {
+        floatingButton.style.display = 'none';
+      }
+    });
+
+    // Add fade-in animation to elements when they come into view
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements with the fade-in class
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+
+</html>

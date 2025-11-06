@@ -1,0 +1,1139 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+<!-- Charset & Responsive -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Title (60-65 caracteres ideal para SEO) -->
+<title>Blockchain Bootcamp Santa Cruz · Innovación y Networking</title>
+
+<!-- Meta Description (máx. 155 caracteres) -->
+<meta name="description"
+  content="Participa en el Blockchain Bootcamp en Santa Cruz, Bolivia: talleres, charlas, networking y sponsors sobre tecnología blockchain e innovación." />
+
+<!-- Keywords -->
+<meta name="keywords"
+  content="Blockchain, Bootcamp, Santa Cruz, Bolivia, Criptomonedas, Web3, Innovación, Charlas, Talleres, Networking, Tecnología" />
+
+<!-- Author -->
+<meta name="author" content="GDG Santa Cruz" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="logo.png" />
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+<meta property="og:title" content="Blockchain Bootcamp Santa Cruz · Innovación y Networking" />
+<meta property="og:description"
+  content="Únete al Blockchain Bootcamp en Santa Cruz, Bolivia: aprende de expertos, participa en talleres y haz networking con sponsors." />
+<meta property="og:image" content="logo.png" />
+<meta property="og:url" content="https://gdgsantacruz.org/" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="es_ES" />
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Blockchain Bootcamp Santa Cruz · Innovación y Networking" />
+<meta name="twitter:description"
+  content="Participa en el Blockchain Bootcamp en Santa Cruz: talleres, charlas, networking y sponsors en tecnología blockchain." />
+<meta name="twitter:image" content="logo.png" />
+<meta name="twitter:site" content="@gdgsantacruz" />
+<meta name="twitter:creator" content="@gdgsantacruz" />
+
+  <!-- Boxicons CDN -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+  <script>
+    // Tailwind config: fuentes, colores blockchain
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            orbitron: ['Orbitron', 'ui-sans-serif', 'system-ui'],
+            rajdhani: ['Rajdhani', 'ui-sans-serif', 'system-ui'],
+          },
+          colors: {
+            bgPrimary: "#000000",
+            bgSecondary: "#1E0024",
+            bgTertiary: "#26353C",
+            accent: "#09281E",
+            primary: "#00FF88",
+            secondary: "#00CCFF",
+            blockchain: {
+              50: "#f0f9ff",
+              100: "#e0f2fe",
+              200: "#bae6fd",
+              300: "#7dd3fc",
+              400: "#38bdf8",
+              500: "#0ea5e9",
+              600: "#0284c7",
+              700: "#0369a1",
+              800: "#075985",
+              900: "#0c4a6e",
+            }
+          },
+          boxShadow: {
+            'glow-primary': '0 0 20px rgba(0, 255, 136, 0.3)',
+            'glow-secondary': '0 0 20px rgba(0, 204, 255, 0.3)',
+            'soft': '0 6px 24px rgba(8,15,24,0.6)'
+          },
+          animation: {
+            'pulse-glow': 'pulse-glow 2s infinite',
+            'float': 'float 15s infinite ease-in-out',
+            'float-reverse': 'float 12s infinite ease-in-out reverse',
+            'float-delayed': 'float 10s infinite ease-in-out 2s',
+          },
+          keyframes: {
+            'pulse-glow': {
+              '0%': { boxShadow: '0 0 0 0 rgba(0, 255, 136, 0.4)' },
+              '70%': { boxShadow: '0 0 0 10px rgba(0, 255, 136, 0)' },
+              '100%': { boxShadow: '0 0 0 0 rgba(0, 255, 136, 0)' },
+            },
+            'float': {
+              '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+              '50%': { transform: 'translateY(-20px) rotate(10deg)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilos personalizados */
+    .text-gradient {
+      background: linear-gradient(to right, #00CCFF, #00FF88);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-gradient-date {
+      background: linear-gradient(to right, rgba(0, 255, 136, 0.9), rgba(0, 204, 255, 0.9));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .bg-hero-pattern::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(30, 0, 36, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(9, 40, 30, 0.3) 0%, transparent 40%);
+      z-index: 1;
+    }
+
+
+    .block-element {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border: 2px solid rgba(0, 204, 255, 0.4);
+      border-radius: 4px;
+      transform: rotate(45deg);
+      box-shadow: 0 0 12px rgba(0, 204, 255, 0.3);
+      z-index: 0;
+    }
+
+    .block-element::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      height: 60%;
+      background: rgba(14, 165, 233, 0.1);
+      border-radius: 2px;
+    }
+
+    .connector {
+      position: absolute;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.5), transparent);
+      z-index: 0;
+    }
+
+    /* Carrusel animado */
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+
+      33% {
+        transform: translateX(-100%);
+      }
+
+      66% {
+        transform: translateX(-200%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .animate-slide {
+      animation: slide 30s linear infinite;
+    }
+  </style>
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-bgPrimary to-bgSecondary text-white font-rajdhani antialiased">
+
+
+  <!-- Fondo decorativo -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <!-- Cubo flotante -->
+    <div
+      class="absolute top-1/4 left-1/4 w-20 h-20 border-2 border-secondary/40 rounded-md rotate-45 animate-[float_6s_ease-in-out_infinite] shadow-secondary/30">
+    </div>
+
+    <!-- Cubo estático -->
+    <div
+      class="absolute top-1/3 right-1/4 w-20 h-20 border-2 border-secondary/30 rounded-md rotate-45 shadow-secondary/20">
+    </div>
+
+    <!-- Cubo flotante -->
+    <div
+      class="absolute bottom-1/4 left-1/3 w-20 h-20 border-2 border-primary/40 rounded-md rotate-45 animate-[float_8s_ease-in-out_infinite] shadow-primary/30">
+    </div>
+
+    <!-- Conector SVG animado -->
+    <svg class="absolute top-[30%] left-[30%] w-40 h-40 rotate-45" viewBox="0 0 200 200" fill="none">
+      <line x1="0" y1="100" x2="200" y2="100" stroke="url(#gradient)" stroke-width="2" stroke-dasharray="10 10"
+        stroke-dashoffset="0">
+        <animate attributeName="stroke-dashoffset" values="0;20" dur="2s" repeatCount="indefinite" />
+      </line>
+
+      <defs>
+        <linearGradient id="gradient" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#00CCFF" stop-opacity="0" />
+          <stop offset="0.5" stop-color="#00CCFF" stop-opacity="0.8" />
+          <stop offset="1" stop-color="#00FF88" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+
+  <!-- NAV -->
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-black/30 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- LOGO -->
+        <a href="#inicio" class="flex items-center gap-3">
+          <img src="logo.png" alt="Blockchain Bootcamp" class="h-10 w-10 rounded-lg object-contain">
+          <div class="text-base leading-tight">
+            <div class="font-semibold text-white">Blockchain Bootcamp</div>
+            <div class="text-xs text-white/60">Innovación en Cadena · 2025</div>
+          </div>
+        </a>
+
+
+        <!-- NAVIGATION -->
+        <nav id="navMenu" class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="#acerca" class="hover:text-primary transition">Acerca</a>
+          <a href="#agenda" class="hover:text-primary transition">Agenda</a>
+          <a href="#tickets" class="hover:text-primary transition">Tickets</a>
+          <!-- <a href="teams.html" class="hover:text-primary transition">Equipo</a> -->
+        </nav>
+
+        <!-- ACTIONS -->
+        <div class="flex items-center gap-3">
+          <a href="#tickets"
+            class="hidden sm:inline-flex items-center gap-2 bg-primary hover:bg-secondary text-bgPrimary px-4 py-2 rounded-lg font-semibold shadow-glow-primary transition">
+            Consigue tu ticket <i class="bx bx-ticket text-base"></i>
+          </a>
+          <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-white/10">
+            <i class="bx bx-menu text-2xl"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu"
+      class="md:hidden hidden flex-col gap-4 px-6 py-4 bg-black/80 backdrop-blur border-t border-white/10 text-base">
+      <a href="#acerca" class="hover:text-primary transition">Acerca</a>
+      <a href="#agenda" class="hover:text-primary transition">Agenda</a>
+      <a href="#speakers" class="hover:text-primary transition">Speakers</a>
+      <a href="#tickets" class="hover:text-primary transition">Tickets</a>
+      <a href="#contacto" class="hover:text-primary transition">Contacto</a>
+      <a href="#tickets"
+        class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-secondary text-bgPrimary px-4 py-2 rounded-lg font-semibold shadow-glow-primary transition">
+        Consigue tu ticket <i class="bx bx-ticket text-base"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- SCRIPT MENU RESPONSIVE -->
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+      mobileMenu.classList.toggle("flex");
+    });
+  </script>
+
+
+  <!-- HERO SECTION -->
+  <!-- HERO SECTION -->
+  <section id="inicio"
+    class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-bgPrimary via-bgSecondary to-bgTertiary">
+
+    <!-- Carrusel difuminado de fondo -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <!-- Contenedor del carrusel -->
+      <div id="carousel" class="absolute inset-0 flex"></div>
+
+      <!-- Overlay negro semi-transparente encima de las imágenes -->
+      <div class="absolute inset-0 bg-black/80"></div>
+    </div>
+
+    <!-- Floating blockchain cubes -->
+    <div class="absolute w-full h-full top-0 left-0 pointer-events-none z-10">
+      <div class="absolute w-20 h-20 top-1/5 left-1/10 bg-primary/20 border border-primary/30 rounded-lg animate-float">
+      </div>
+      <div
+        class="absolute w-16 h-16 bottom-[30%] right-[15%] bg-secondary/20 border border-secondary/30 rounded-lg animate-float-reverse">
+      </div>
+      <div
+        class="absolute w-10 h-10 top-1/2 left-1/5 bg-primary/20 border border-primary/30 rounded-lg animate-float-delayed">
+      </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center py-12">
+
+      <h1 class="font-orbitron font-black uppercase leading-tight mb-1">
+        <span class="block text-2xl sm:text-3xl lg:text-4xl text-white drop-shadow-lg">BLOCKCHAIN</span>
+        <span class="block text-2xl sm:text-3xl lg:text-4xl text-white mt-1 drop-shadow-lg">BOOTCAMP</span>
+      </h1>
+
+      <div
+        class="font-mono text-white text-base sm:text-lg tracking-widest uppercase font-semibold mb-4 drop-shadow-md">
+        INNOVACIÓN EN CADENA
+      </div>
+
+      <div class="my-4">
+        <div class="font-orbitron font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 drop-shadow-md">
+          SEP <span class="text-white">19-20</span>
+        </div>
+      </div>
+
+      <!-- Cuenta regresiva -->
+      <div class="mt-8">
+        <!-- <div
+          class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-md mx-auto bg-black/30 backdrop-blur-lg p-4 rounded-2xl text-center border border-white/10 shadow-lg">
+          <div class="py-3 rounded-lg">
+            <div id="cdDays" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
+            <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Días</div>
+          </div>
+          <div class="py-3 rounded-lg">
+            <div id="cdHours" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
+            <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Horas</div>
+          </div>
+          <div class="py-3 rounded-lg">
+            <div id="cdMinutes" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
+            <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Minutos</div>
+          </div>
+          <div class="py-3 rounded-lg">
+            <div id="cdSeconds" class="font-orbitron font-bold text-2xl sm:text-3xl text-primary">00</div>
+            <div class="text-xs uppercase tracking-wider text-white/70 mt-1">Segundos</div>
+          </div>
+        </div> -->
+
+        <br>
+
+ 
+        <span
+          class="inline-flex items-center gap-2 bg-gradient-to-r from-bgTertiary to-accent px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm border border-white/10 shadow-glow-primary animate-pulse-glow">
+          <i class='bx bx-map-pin'></i> Santa Cruz · Bolivia · <span class="text-primary font-bold">UPSA</span>
+        </span>
+      </div>
+    </div>
+
+
+  </section>
+
+  <script>
+    const images = [
+      '/image/foto1.jpg',
+      '/image/foto2.jpg',
+      '/image/bg-bootcamp.png'
+    ];
+    const carousel = document.getElementById('carousel');
+    let current = 0;
+
+    function showImage(index) {
+      carousel.innerHTML = `
+      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0 animate-fade"
+           style="background-image: url('${images[index]}');"></div>
+    `;
+      setTimeout(() => {
+        carousel.firstChild.classList.add('opacity-100');
+      }, 50);
+    }
+
+    function nextImage() {
+      current = (current + 1) % images.length;
+      showImage(current);
+    }
+
+    showImage(current);
+    setInterval(nextImage, 5000);
+  </script>
+
+  <style>
+    @keyframes fade {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    .animate-fade {
+      animation: fade 1s ease-in-out forwards;
+    }
+
+    /* Floating animations */
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(10deg);
+      }
+    }
+
+    @keyframes float-reverse {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(-10deg);
+      }
+    }
+
+    @keyframes float-delayed {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(5deg);
+      }
+    }
+
+    .animate-float {
+      animation: float 10s infinite ease-in-out;
+    }
+
+    .animate-float-reverse {
+      animation: float-reverse 12s infinite ease-in-out;
+    }
+
+    .animate-float-delayed {
+      animation: float-delayed 14s infinite ease-in-out;
+    }
+  </style>
+
+
+
+
+  <!-- ACERCA -->
+  <section id="acerca" class="py-16 bg-bgTertiary/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-10 items-center">
+        <!-- TEXTO PRINCIPAL -->
+        <div class="lg:col-span-2">
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary">
+            Qué es Blockchain Bootcamp
+          </h2>
+          <p class="mt-4 text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl leading-relaxed">
+            Un espacio dedicado a explorar el potencial de la tecnología
+            blockchain, criptoactivos y Web3. Diseñado para desarrolladores, emprendedores y entusiastas
+            que buscan entender y aplicar estas tecnologías disruptivas.
+          </p>
+
+          <!-- LISTA DE BENEFICIOS -->
+          <ul class="mt-6 grid sm:grid-cols-2 gap-5">
+            <li class="flex gap-3 items-start p-4 rounded-xl bg-white/5 hover:bg-white/10 transition">
+              <i class='bx bx-data text-primary text-3xl'></i>
+              <div>
+                <div class="font-semibold text-base sm:text-lg">Tecnología Blockchain</div>
+                <div class="text-sm sm:text-base text-white/70">Fundamentos y aplicaciones prácticas</div>
+              </div>
+            </li>
+            <li class="flex gap-3 items-start p-4 rounded-xl bg-white/5 hover:bg-white/10 transition">
+              <i class='bx bx-coin-stack text-3xl text-secondary'></i>
+              <div>
+                <div class="font-semibold text-base sm:text-lg">Criptoeconomía</div>
+                <div class="text-sm sm:text-base text-white/70">Tokens, DeFi y modelos económicos</div>
+              </div>
+            </li>
+            <li class="flex gap-3 items-start p-4 rounded-xl bg-white/5 hover:bg-white/10 transition">
+              <i class='bx bx-code-block text-3xl text-primary'></i>
+              <div>
+                <div class="font-semibold text-base sm:text-lg">Smart Contracts</div>
+                <div class="text-sm sm:text-base text-white/70">Desarrollo y auditoría de contratos inteligentes</div>
+              </div>
+            </li>
+            <li class="flex gap-3 items-start p-4 rounded-xl bg-white/5 hover:bg-white/10 transition">
+              <i class='bx bx-network-chart text-3xl text-secondary'></i>
+              <div>
+                <div class="font-semibold text-base sm:text-lg">Web3 & DAOs</div>
+                <div class="text-sm sm:text-base text-white/70">El futuro descentralizado de Internet</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- DATOS CLAVE -->
+        <div class="rounded-2xl bg-white/5 p-6 border border-white/10 shadow-lg">
+          <h4 class="font-semibold text-primary text-lg sm:text-xl">Datos clave</h4>
+          <div class="mt-5 space-y-4 text-sm sm:text-base">
+            <div class="flex justify-between p-3 rounded-lg bg-white/5">
+              <span>Asistentes estimados</span>
+              <span class="font-semibold text-primary">+250</span>
+            </div>
+            <div class="flex justify-between p-3 rounded-lg bg-white/5">
+              <span>Duración</span>
+              <span class="font-semibold text-primary">2 días</span>
+            </div>
+            <div class="flex justify-between p-3 rounded-lg bg-white/5">
+              <span>Nivel</span>
+              <span class="font-semibold text-primary">Principiante a Avanzado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- AGENDA / CRONOGRAMA -->
+  <section id="agenda" class="py-16 bg-bgSecondary/50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <!-- Título -->
+      <h2 class="text-2xl sm:text-3xl font-bold text-primary mb-4">Agenda del evento</h2>
+      <div class="text-sm sm:text-base text-white/60 mb-8">19-20 de septiembre · 2025</div>
+
+      <!-- Tabs de días -->
+      <div class="flex justify-center gap-4 mb-10">
+        <button id="tab-dia1"
+          class="flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 text-white text-sm sm:text-base transition">
+          <i class="bx bx-calendar"></i> Día 1 · 19 Sept
+        </button>
+        <button id="tab-dia2"
+          class="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary bg-primary text-white text-sm sm:text-base font-semibold shadow-lg transition">
+          <i class="bx bx-calendar-star"></i> Día 2 · 20 Sept <span
+            class="text-xs bg-white/20 px-2 py-0.5 rounded-md">Principal</span>
+        </button>
+      </div>
+
+      <!-- Contenedor de cronogramas -->
+      <div id="cronograma-dia1" class="agenda hidden text-left">
+        <!-- Día 1 -->
+        <div class="bg-primary/20 px-4 py-3 flex items-center justify-between">
+          <h3 class="font-semibold">Día 1 · Fundamentos · 15:30 - 18:00</h3>
+          <span class="text-xs bg-white/10 text-white px-2 py-1 rounded-md">Introductorio</span>
+        </div>
+
+        <div class="divide-y divide-white/10 text-sm">
+          <!-- Taller 1 -->
+          <div class="p-4 flex gap-3 hover:bg-white/5 transition">
+            <i class="bx bx-laptop text-primary text-lg mt-0.5"></i>
+            <div>
+              <div class="font-medium">Taller en Lab 1</div>
+              <div class="text-white/70 text-xs">Yhovanna Machaca Vargas</div>
+            </div>
+          </div>
+
+          <!-- Taller 2 -->
+          <div class="p-4 flex gap-3 hover:bg-white/5 transition">
+            <i class="bx bx-laptop text-secondary text-lg mt-0.5"></i>
+            <div>
+              <div class="font-medium">Taller en Lab 2</div>
+              <div class="text-white/70 text-xs">Diego Guzman Montoya</div>
+            </div>
+          </div>
+
+          <!-- Taller 3 -->
+          <div class="p-4 flex gap-3 hover:bg-white/5 transition">
+            <i class="bx bx-cube text-primary text-lg mt-0.5"></i>
+            <div>
+              <div class="font-medium">Taller en Lab 1</div>
+              <div class="text-white/70 text-xs">Daniel Cueto</div>
+            </div>
+          </div>
+
+          <!-- Taller 4 -->
+          <div class="p-4 flex gap-3 hover:bg-white/5 transition">
+            <i class="bx bx-cube text-secondary text-lg mt-0.5"></i>
+            <div>
+              <div class="font-medium">Taller en Lab 2</div>
+              <div class="text-white/70 text-xs">Sebastián González</div>
+            </div>
+          </div>
+
+          <!-- Taller 5 -->
+          <div class="p-4 flex gap-3 hover:bg-white/5 transition">
+            <i class="bx bx-cube text-primary text-lg mt-0.5"></i>
+            <div>
+              <div class="font-medium">Taller en Lab 1</div>
+              <div class="text-white/70 text-xs">Mijael Merida</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="cronograma-dia2" class="agenda text-left">
+        <!-- Día 2 destacado -->
+        <div class="overflow-hidden rounded-2xl border border-primary/40 bg-primary/10 shadow-xl">
+          <div class="bg-primary px-4 py-3 flex items-center justify-between text-white">
+            <h3 class="font-semibold">Día 2 · 08:00 am - 13:00 pm</h3>
+            <span class="text-xs bg-white/0 px-2 py-1 rounded-md font-medium">Evento Principal</span>
+          </div>
+
+          <div class="divide-y divide-white/10 text-sm">
+            <!-- Ingreso -->
+            <div class="p-4 flex gap-3 hover:bg-white/10 transition">
+              <i class="bx bx-log-in-circle text-white text-lg mt-0.5"></i>
+              <div>
+                <div class="font-medium">Ingreso</div>
+                <div class="text-white/70 text-xs">Centro de Convenciones</div>
+              </div>
+            </div>
+
+            <!-- Palabras GDG / WTM -->
+            <div class="p-4 flex gap-3 hover:bg-white/10 transition">
+              <i class="bx bx-microphone text-white text-lg mt-0.5"></i>
+              <div>
+                <div class="font-medium">Palabras GDG / WTM</div>
+                <div class="text-white/70 text-xs">Centro de Convenciones</div>
+              </div>
+            </div>
+
+            <!-- 1ra Charla -->
+            <div class="p-4 flex gap-3 hover:bg-white/10 transition">
+              <i class="bx bx-podcast text-white text-lg mt-0.5"></i>
+              <div>
+                <div class="font-medium">1ra Charla · Kenji Kawaida</div>
+                <div class="text-white/70 text-xs">
+                  Blockchain e Inteligencia Artificial: Trazabilidad y Transparencia en Modelos de Aprendizaje
+                  Automático
+                </div>
+              </div>
+            </div>
+
+            <!-- 2da Charla -->
+            <div class="p-4 flex gap-3 hover:bg-white/10 transition">
+              <i class="bx bx-podcast text-white text-lg mt-0.5"></i>
+              <div>
+                <div class="font-medium">2da Charla · Diego Angulo</div>
+                <div class="text-white/70 text-xs">
+                  Render Network: el mercado descentralizado de GPUs y su matemática oculta
+                </div>
+              </div>
+            </div>
+
+            <!-- 3ra Charla -->
+            <div class="p-4 flex gap-3 hover:bg-white/10 transition">
+              <i class="bx bx-podcast text-white text-lg mt-0.5"></i>
+              <div>
+                <div class="font-medium">3ra Charla · Arnold Gandarillas</div>
+                <div class="text-white/70 text-xs">
+                  Tokenización Institucional: El Caso de Uso que Define el Futuro de DeFi
+                </div>
+              </div>
+            </div>
+
+            <!-- 4ta Charla -->
+            <div class="p-4 flex gap-3 hover:bg-white/10 transition">
+              <i class="bx bx-podcast text-white text-lg mt-0.5"></i>
+              <div>
+                <div class="font-medium">4ta Charla · Fabián Espinoza</div>
+                <div class="text-white/70 text-xs">
+                  ¿Pueden los contratos ser inteligentes?
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+
+        </div>
+
+        <!-- CTA -->
+        <!-- <div class="mt-6 text-center">
+          <a href="teams.html"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-xl shadow-lg hover:bg-primary/80 transition">
+            <i class="bx bx-credit-card-front text-lg"></i>
+            <span>Nuestro Organizadores</span>
+          </a>
+        </div> -->
+
+
+      </div>
+
+
+
+    </div>
+  </section>
+
+  <script>
+    // Toggle entre días
+    const tab1 = document.getElementById('tab-dia1');
+    const tab2 = document.getElementById('tab-dia2');
+    const dia1 = document.getElementById('cronograma-dia1');
+    const dia2 = document.getElementById('cronograma-dia2');
+
+    tab1.addEventListener('click', () => {
+      dia1.classList.remove('hidden');
+      dia2.classList.add('hidden');
+      tab1.classList.add('bg-primary', 'text-white', 'border-primary');
+      tab2.classList.remove('bg-primary', 'text-white', 'border-primary');
+      tab2.classList.add('bg-white/5', 'text-white');
+    });
+
+    tab2.addEventListener('click', () => {
+      dia1.classList.add('hidden');
+      dia2.classList.remove('hidden');
+      tab2.classList.add('bg-primary', 'text-white', 'border-primary');
+      tab1.classList.remove('bg-primary', 'text-white', 'border-primary');
+      tab1.classList.add('bg-white/5', 'text-white');
+    });
+  </script>
+
+  <!-- TICKETS -->
+  <section id="tickets" class="py-16 bg-gradient-to-b from-bgSecondary to-bgTertiary">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Título -->
+      <div class="text-center mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-primary mb-4">Tickets</h2>
+        <p class="text-white/70 mt-2">Cupos limitados — elige tu pase</p>
+      </div>
+
+      <!-- Grid -->
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
+
+        <div
+          class="rounded-2xl p-6 bg-gradient-to-b from-gray-800/40 to-gray-800/20 border border-white/10 relative flex flex-col shadow-lg">
+          <span
+            class="absolute top-3 right-3 text-xs bg-red-500/20 text-red-400 px-3 py-1 rounded-full font-medium flex items-center gap-1">
+            <i class="bx bx-x-circle"></i> Agotado
+          </span>
+          <div class="flex items-baseline gap-3">
+            <div class="text-4xl font-extrabold text-gray-500">Bs 20</div>
+            <div class="text-sm text-white/50">Entrada</div>
+          </div>
+          <ul class="mt-4 text-sm text-white/60 space-y-2 flex-1">
+            <li><i class='bx bx-check text-gray-500 mr-2'></i> Acceso total</li>
+            <li><i class='bx bx-check text-gray-500 mr-2'></i> Refrigerio</li>
+            <li><i class='bx bx-check text-gray-500 mr-2'></i> Credencial</li>
+          </ul>
+          <div class="mt-6">
+            <button disabled
+              class="w-full text-center bg-gray-700 text-gray-400 py-2 rounded-lg font-semibold cursor-not-allowed">
+              No disponible
+            </button>
+          </div>
+        </div>
+
+        <!-- Ticket Profesional (Agotado) -->
+        <div
+          class="rounded-2xl p-6 bg-gradient-to-b from-gray-800/40 to-gray-800/20 border border-white/10 relative flex flex-col shadow-lg">
+          <span
+            class="absolute top-3 right-3 text-xs bg-red-500/20 text-red-400 px-3 py-1 rounded-full font-medium flex items-center gap-1">
+            <i class="bx bx-x-circle"></i> Agotado
+          </span>
+          <div class="flex items-baseline gap-3">
+            <div class="text-4xl font-extrabold text-gray-500">Bs 30</div>
+            <div class="text-sm text-white/50">Entrada</div>
+          </div>
+          <ul class="mt-4 text-sm text-white/60 space-y-2 flex-1">
+            <li><i class='bx bx-check text-gray-500 mr-2'></i> Acceso total</li>
+            <li><i class='bx bx-check text-gray-500 mr-2'></i> Refrigerio</li>
+            <li><i class='bx bx-check text-gray-500 mr-2'></i> Credencial</li>
+          </ul>
+          <div class="mt-6">
+            <button disabled
+              class="w-full text-center bg-gray-700 text-gray-400 py-2 rounded-lg font-semibold cursor-not-allowed">
+              No disponible
+            </button>
+          </div>
+        </div>
+
+        <!-- Ticket Único (Disponible solo sábado Bs 50) -->
+        <div
+          class="rounded-2xl p-6 bg-gradient-to-b from-bgTertiary/40 to-bgTertiary/20 border border-white/10 relative flex flex-col shadow-lg hover:shadow-primary/20 transition">
+          <span
+            class="absolute top-3 right-3 text-xs bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full font-medium flex items-center gap-1">
+            <i class="bx bx-time-five"></i> Disponible (Solo sábado)
+          </span>
+          <div class="flex items-baseline gap-3">
+            <div class="text-4xl font-extrabold text-primary">Bs 50</div>
+            <div class="text-sm text-white/70">Entrada</div>
+          </div>
+          <ul class="mt-4 text-sm text-white/80 space-y-2 flex-1">
+            <li><i class='bx bx-check text-primary mr-2'></i> Acceso a charla del sábado</li>
+            <li><i class='bx bx-check text-primary mr-2'></i> Credencial</li>
+            <li><i class='bx bx-check text-primary mr-2'></i> Refrigerio</li>
+          </ul>
+          <div class="mt-6 flex flex-col gap-2">
+            <a href="#agenda"
+              class="inline-block w-full text-center bg-primary/10 text-primary py-2 rounded-lg font-semibold hover:bg-primary/20 transition">
+              Ver Cronograma
+            </a>
+            <a href="https://forms.gle/X37YKZKLo4aTs2Tt7"
+              class="inline-block w-full text-center bg-primary text-bgPrimary py-2 rounded-lg font-semibold hover:bg-secondary transition">
+              Comprar
+            </a>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- INSTALA LA APP -->
+  <!-- INSTALA LA APP -->
+  <section id="app" class="relative py-24 bg-gradient-to-b from-bgSecondary/90 to-bgTertiary/90 overflow-hidden">
+
+    <!-- Fondo decorativo con imagen -->
+    <div class="absolute inset-0">
+      <img
+        src="https://media.istockphoto.com/id/1313901506/es/foto/foto-recortada-de-una-joven-afroamericana-usando-un-tel%C3%A9fono-inteligente-en-casa-mujer.jpg?s=612x612&w=0&k=20&c=GcwY0CIzfScKGuQ8zwU1_1hE2ZVr5XVt8VLrQsX0dFA="
+        alt="Persona usando celular" class="w-full h-full object-cover opacity-30">
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-6 lg:px-8 text-center">
+
+      <!-- Texto principal -->
+      <h2 class="text-4xl sm:text-5xl font-extrabold text-primary mb-6 drop-shadow-lg">
+        ¡Instala la App!
+      </h2>
+      <p class="text-white/80 max-w-2xl mx-auto mb-12 text-lg">
+        Lleva la experiencia del evento en tu bolsillo.
+        Conéctate con nuestros <span class="text-primary font-semibold">sponsors oficiales</span>
+        y accede a beneficios exclusivos.
+      </p>
+
+
+<!-- Sponsor destacado -->
+<div class="max-w-md mx-auto">
+
+  <div class="bg-white/10 backdrop-blur-xl rounded-3xl p-8 flex flex-col items-center text-center 
+    shadow-lg border border-white/20 hover:shadow-2xl hover:scale-105 transition-transform duration-300">
+
+    <!-- Logo -->
+    <div class="w-28 h-28 flex items-center justify-center bg-white/5 rounded-2xl shadow-inner mb-6">
+      <img
+        src="https://play-lh.googleusercontent.com/eENGPdDsji3qrllEk5jKfl3c6nlIxpQx3ai6BD_m6nWZ0kUl__mowmt8geQJ3vlFVow=w480-h960-rw"
+        alt="Wallbit" class="w-20 h-20 object-contain">
+    </div>
+
+    <!-- Nombre -->
+    <h3 class="text-2xl font-extrabold text-primary mb-2 tracking-tight">Wallbit</h3>
+
+    <!-- Descripción corta -->
+    <p class="text-base text-white/70 mb-8 leading-relaxed">
+      Accede a <span class="text-primary font-semibold">promociones exclusivas</span> y recibe notificaciones en vivo
+      desde la App.
+    </p>
+
+    <!-- Botones -->
+    <div class="flex flex-col gap-4 w-full">
+      <a href="https://apps.apple.com/us/app/wallbit-your-us-bank-account/id1664212740" class="inline-flex items-center justify-center gap-2 bg-primary text-bgPrimary px-6 py-3 rounded-xl 
+        font-semibold shadow-md hover:bg-secondary hover:shadow-lg transition">
+        <i class='bx bxl-apple text-2xl'></i> Descargar en App Store
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=io.wallbit" class="inline-flex items-center justify-center gap-2 bg-green-500 text-white px-6 py-3 rounded-xl 
+        font-semibold shadow-md hover:bg-green-600 hover:shadow-lg transition">
+        <i class='bx bxl-play-store text-2xl'></i> Descargar en Google Play
+      </a>
+    </div>
+  </div>
+
+</div>
+
+    </div>
+  </section>
+
+
+
+  <!-- MODAL -->
+  <div id="organizerModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4">
+    <div
+      class="bg-gray-900/95 backdrop-blur-lg rounded-2xl shadow-2xl max-w-md w-full p-6 relative border border-white/10">
+
+      <!-- Botón Cerrar -->
+      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-xl">✕</button>
+
+      <!-- Contenido dinámico -->
+      <div id="modalContent" class="text-center">
+        <!-- Se llena con JS -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Datos de ejemplo (puedes expandir con los 20+ organizadores)
+    const organizers = {
+      organizer1: {
+        name: "Luishiño ",
+        role: "Desarrollador",
+        bio: "Apasionado por blockchain y la innovación en cadenas de bloques. Con 5 años de experiencia organizando comunidades tech.",
+        img: "https://placehold.co/200x200",
+        linkedin: "https://linkedin.com/in/juanperez",
+        tags: ["Blockchain", "Gestión", "Innovación"]
+      },
+      organizer2: {
+        name: "Jhenny",
+        role: "La mejor de todos",
+        bio: "Encargada de la gestión de eventos y coordinación del equipo. Experta en logística de hackathons y bootcamps.",
+        img: "https://placehold.co/200x200",
+        linkedin: "https://linkedin.com/in/mariagomez",
+        tags: ["Eventos", "Organización", "Comunidad"]
+      }
+    };
+
+    function openModal(id) {
+      const data = organizers[id];
+      const modal = document.getElementById("organizerModal");
+      const content = document.getElementById("modalContent");
+
+      // Generar los tags
+      const tagsHtml = data.tags.map(tag =>
+        `<span class="px-2 py-1 text-xs bg-primary/20 text-primary rounded-full">${tag}</span>`
+      ).join(" ");
+
+      content.innerHTML = `
+      <img src="${data.img}" class="w-28 h-28 mx-auto rounded-full shadow-lg ring-2 ring-primary/50 mb-4" />
+      <h3 class="text-xl font-bold text-white">${data.name}</h3>
+      <p class="text-sm text-primary mb-3">${data.role}</p>
+      <p class="mt-2 text-gray-300 text-sm leading-relaxed">${data.bio}</p>
+      <div class="flex flex-wrap justify-center gap-2 mt-4">${tagsHtml}</div>
+      <a href="${data.linkedin}" target="_blank"
+        class="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-4 h-4 fill-current">
+          <path d="M100.28 448H7.4V148.9h92.88zM53.79..."/>
+        </svg>
+        LinkedIn
+      </a>
+    `;
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("organizerModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+  </script>
+
+
+  <!-- SPONSORS / COLABORADORES -->
+  <!-- Sponsors -->
+  <section class="py-10 bg-gradient-to-b from-bgTertiary/30 to-bgTertiary/10 rounded-3xl shadow-lg">
+    <h2 class="text-center text-2xl font-bold mb-8 text-primary tracking-wide">
+      Nuestros Aliados & Sponsors
+    </h2>
+  
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center px-6 sm:px-10">
+  
+      <!-- Sponsor Card -->
+      <a href="#" target="_blank"
+        class="flex items-center justify-center w-32 h-20 sm:w-40 sm:h-24 bg-white/5 rounded-xl shadow-md ">
+        <img src="/image/sponsor/Asoblockchain.jpg" alt="Asoblockchain Bolivia"
+          class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" />
+      </a>
+  
+      <a href="#" target="_blank"
+        class="flex items-center justify-center w-32 h-20 sm:w-40 sm:h-24 bg-white/5 rounded-xl shadow-md ">
+        <img src="/image/sponsor/Babasu_Ventures_Logo_1.jpg" alt="Babasu Ventures"
+          class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" />
+      </a>
+  
+      <a href="#" target="_blank"
+        class="flex items-center justify-center w-32 h-20 sm:w-40 sm:h-24 bg-white/5 rounded-xl shadow-md ">
+        <img src="/image/sponsor/Blockfinity.png" alt="Blockfinity"
+          class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" />
+      </a>
+  
+      <a href="#" target="_blank"
+        class="flex items-center justify-center w-32 h-20 sm:w-40 sm:h-24 bg-white/5 rounded-xl shadow-md ">
+        <img src="/image/sponsor/CABLOCK.png" alt="Cablock"
+          class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" />
+      </a>
+  
+      <a href="#" target="_blank"
+        class="flex items-center justify-center w-32 h-20 sm:w-40 sm:h-24 bg-white/5 rounded-xl shadow-md ">
+        <img src="/image/sponsor/Wallbit.png" alt="Wallbit"
+          class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" />
+      </a>
+  
+      <a href="#" target="_blank"
+        class="flex items-center justify-center w-32 h-20 sm:w-40 sm:h-24 bg-white/5 rounded-xl shadow-md ">
+        <img src="/image/sponsor/linkser.png" alt="Linkser"
+          class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" />
+      </a>
+  
+      <!-- Universidades & Comunidades -->
+      <a href="#"
+        class="flex items-center justify-center w-32 h-20 sm:w-40 sm:h-24 bg-white/5 rounded-xl shadow-md ">
+        <img src="./image/logo/15.png" alt="UPSA"
+          class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" />
+      </a>
+  
+      <a href="#"
+        class="flex items-center justify-center w-32 h-20 sm:w-40 sm:h-24 bg-white/5 rounded-xl shadow-md ">
+        <img src="./image/logo/GDG-LARGO.png" alt="GDG"
+          class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" />
+      </a>
+  
+      <a href="#"
+        class="flex items-center justify-center w-32 h-20 sm:w-40 sm:h-24 bg-white/5 rounded-xl shadow-md ">
+        <img src="./image/logo/wtm.png" alt="WTM"
+          class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition duration-300" />
+      </a>
+  
+    </div>
+  </section>
+
+
+
+
+  <!-- FOOTER -->
+  <footer class="py-8 border-t border-white/6 bg-bgSecondary">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-white/60 flex flex-col md:flex-row items-center justify-between gap-4">
+
+      <!-- Texto -->
+      <div class="flex flex-col md:flex-row items-center gap-2">
+        <span>© 2025 Blockchain Bootcamp · Innovación en Cadena</span>
+        <span class="text-xs text-white/50"> · Desarrollado por
+          <a href="https://gdg.community.dev/gdg-santa-cruz/" target="_blank"
+            class="hover:text-primary transition font-medium">
+            GDG Santa Cruz
+          </a> &amp;
+          <a href="https://www.linkedin.com/in/lpericena/" target="_blank"
+            class="hover:text-primary transition font-medium">
+            Luishiño
+          </a>
+        </span>
+      </div>
+
+
+      <!-- Redes GDG Santa Cruz -->
+      <div class="flex items-center gap-3">
+        <a class="hover:text-primary transition" href="https://www.facebook.com/GDGSantaCruz/" target="_blank">
+          <i class='bx bxl-facebook'></i>
+        </a>
+        <a class="hover:text-primary transition" href="https://www.linkedin.com/company/gdg-santa-cruz/"
+          target="_blank">
+          <i class='bx bxl-linkedin'></i>
+        </a>
+        <a class="hover:text-primary transition" href="https://www.instagram.com/gdgsantacruz/" target="_blank">
+          <i class='bx bxl-instagram'></i>
+        </a>
+        <a class="hover:text-primary transition" href="https://gdg.community.dev/gdg-santa-cruz/" target="_blank">
+          <i class='bx bx-link-external'></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- SCRIPTS -->
+  <script>
+    // Countdown functionality
+    function updateCountdown() {
+      const eventDate = new Date('September 19, 2025 09:00:00').getTime();
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance < 0) {
+        document.getElementById("cdDays").innerText = "00";
+        document.getElementById("cdHours").innerText = "00";
+        document.getElementById("cdMinutes").innerText = "00";
+        document.getElementById("cdSeconds").innerText = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("cdDays").innerText = days.toString().padStart(2, '0');
+      document.getElementById("cdHours").innerText = hours.toString().padStart(2, '0');
+      document.getElementById("cdMinutes").innerText = minutes.toString().padStart(2, '0');
+      document.getElementById("cdSeconds").innerText = seconds.toString().padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Contact form (mock)
+    const contactForm = document.getElementById('contactForm');
+    contactForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = contactForm.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.innerHTML = 'Enviando...';
+      setTimeout(() => {
+        btn.innerHTML = 'Enviar <i class="bx bx-send"></i>';
+        btn.disabled = false;
+        alert('Mensaje enviado. Te contactaremos pronto.');
+        contactForm.reset();
+      }, 1100);
+    });
+  </script>
+</body>
+
+</html>

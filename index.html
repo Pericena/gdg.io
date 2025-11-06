@@ -14,6 +14,12 @@
   <!-- Boxicons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <style>
     /* Custom small tweaks */
     :root {
@@ -24,6 +30,10 @@
       --bg: #232425;
       /* fondo oscuro */
       --card: #2a2b2c;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
     }
 
     .gradient-accent {
@@ -83,6 +93,152 @@
     .mobile-menu.open {
       transform: translateX(0);
     }
+
+    /* Floating button */
+    .floating-button {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 40;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, rgba(246, 162, 27, 1) 0%, rgba(29, 167, 58, 1) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .floating-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Banner styles */
+    .banner {
+      background: linear-gradient(rgba(35, 36, 37, 0.8), rgba(35, 36, 37, 0.8)),
+        url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Gallery styles */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+
+    /* Avatar carousel */
+    .avatar-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 16px;
+    }
+
+    .avatar-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .avatar-item {
+      flex: 0 0 auto;
+      width: 280px;
+      margin-right: 16px;
+      scroll-snap-align: start;
+    }
+
+    /* Timeline styles */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: var(--accent);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      top: 15px;
+      z-index: 1;
+    }
+
+    .timeline-item:nth-child(odd)::after {
+      right: -10px;
+    }
+
+    .timeline-item:nth-child(even)::after {
+      left: -10px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+
+      .timeline-item:nth-child(odd)::after,
+      .timeline-item:nth-child(even)::after {
+        left: 21px;
+      }
+    }
   </style>
 </head>
 
@@ -108,6 +264,7 @@
           <a href="#about" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Acerca de</a>
           <a href="#speakers"
             class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Speakers</a>
+          <a href="#gallery" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Galería</a>
           <a href="#sponsors"
             class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Sponsors</a>
           <a href="#schedule" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Agenda</a>
@@ -152,6 +309,7 @@
         <a href="#hero" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Inicio</a>
         <a href="#about" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Acerca de</a>
         <a href="#speakers" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Speakers</a>
+        <a href="#gallery" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Galería</a>
         <a href="#sponsors" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Sponsors</a>
         <a href="#schedule" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Agenda</a>
         <a href="#location" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Ubicación</a>
@@ -168,8 +326,8 @@
 
   <!-- Main Content -->
   <main>
-    <!-- Hero Section -->
-    <section id="hero" class="pt-24 pb-12">
+    <!-- Hero Section with Banner -->
+    <section id="hero" class="banner pt-24 pb-12">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <!-- Hero Content -->
@@ -221,23 +379,37 @@
             </div>
           </div>
 
-          <!-- Hero Visual -->
-          <div class="fade-in flex justify-center lg:justify-end">
-            <div class="relative w-full max-w-md">
-              <div class="aspect-square rounded-2xl gradient-bg flex items-center justify-center p-8">
-                <div class="text-center">
-                  <i class='bx bx-code-block text-7xl mb-4' style="color:var(--accent)"></i>
-                  <h3 class="text-2xl font-bold mb-2">CALL 4 SPONSORS</h3>
-                  <p class="text-white/70">Únete como sponsor y conecta con la comunidad tech de Santa Cruz</p>
-                </div>
-              </div>
+<!-- Hero Visual -->
+<div class="fade-in flex justify-center lg:justify-end">
+  <div class="relative w-full max-w-md group">
+    <!-- Contenedor principal con degradado -->
+    <div
+      class="aspect-square rounded-2xl gradient-bg flex flex-col items-center justify-center p-8 transition-transform duration-300 group-hover:scale-[1.03] group-hover:brightness-110">
 
-              <!-- Floating elements -->
-              <div class="absolute -top-4 -left-4 w-20 h-20 rounded-xl bg-[color:var(--accent)] opacity-20"></div>
-              <div class="absolute -bottom-4 -right-4 w-16 h-16 rounded-full bg-[color:var(--accent-2)] opacity-20">
-              </div>
-            </div>
-          </div>
+      <!-- Imagen del taller -->
+      <div class="w-200 h-250 mb-5 overflow-hidden rounded-xl shadow-lg">
+        <img src="/img/taller/agente.jpg" alt="Taller Google ADK" class="w-full h-full object-cover" />
+      </div>
+
+      <!-- Texto -->
+      <div class="text-center text-white/80 text-sm sm:text-base">
+        <p class="mb-2">Taller: “Crea tu sistema multi-agente con Google ADK”</p>
+        <p>
+          👉 <a href="https://forms.gle/KH11gcabaKLr1hey7" target="_blank"
+            class="text-[color:var(--accent)] hover:underline font-semibold">
+            Haz clic aquí para inscribirte
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Elementos decorativos -->
+    <div class="absolute -top-4 -left-4 w-20 h-20 rounded-xl bg-[color:var(--accent)] opacity-20 blur-sm"></div>
+    <div class="absolute -bottom-4 -right-4 w-16 h-16 rounded-full bg-[color:var(--accent-2)] opacity-20 blur-sm"></div>
+  </div>
+</div>
+
+
         </div>
       </div>
     </section>
@@ -285,8 +457,8 @@
       </div>
     </section>
 
-    <!-- Speakers Section -->
-    <section id="speakers" class="py-16 bg-white/5">
+    <!-- Speakers Section with Avatar Carousel -->
+    <!-- <section id="speakers" class="py-16 bg-white/5">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold mb-4">Nuestros Speakers</h2>
@@ -294,61 +466,84 @@
             experiencias en el DevFest Santa Cruz 2025.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Speaker 1 -->
-          <div class="bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
-            <div class="flex items-center gap-4 mb-4">
+
+        <div class="avatar-carousel mb-8">
+
+          <div class="avatar-item bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
+            <div class="flex flex-col items-center text-center mb-4">
               <div
-                class="w-16 h-16 rounded-full bg-gradient-to-br from-[color:var(--accent)] to-[color:var(--accent-2)] flex items-center justify-center text-white font-bold text-xl">
+                class="w-24 h-24 rounded-full bg-gradient-to-br from-[color:var(--accent)] to-[color:var(--accent-2)] flex items-center justify-center text-white font-bold text-2xl mb-4">
                 AP</div>
               <div>
                 <h3 class="font-bold text-lg">Andrea Pérez</h3>
                 <p class="text-sm text-white/60">Frontend Engineer</p>
               </div>
             </div>
-            <p class="text-white/70 mb-4">Especialista en diseño de interfaces y experiencia de usuario con más de 8
+            <p class="text-white/70 mb-4 text-center">Especialista en diseño de interfaces y experiencia de usuario con
+              más de 8
               años de experiencia.</p>
-            <div class="flex items-center gap-2 text-sm">
+            <div class="flex items-center gap-2 text-sm justify-center">
               <i class='bx bx-microphone' style="color:var(--accent)"></i>
               <span>Charla: Micro-interactions en UI</span>
             </div>
           </div>
 
-          <!-- Speaker 2 -->
-          <div class="bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
-            <div class="flex items-center gap-4 mb-4">
+
+          <div class="avatar-item bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
+            <div class="flex flex-col items-center text-center mb-4">
               <div
-                class="w-16 h-16 rounded-full bg-gradient-to-br from-[color:var(--accent)] to-[color:var(--accent-2)] flex items-center justify-center text-white font-bold text-xl">
+                class="w-24 h-24 rounded-full bg-gradient-to-br from-[color:var(--accent)] to-[color:var(--accent-2)] flex items-center justify-center text-white font-bold text-2xl mb-4">
                 JR</div>
               <div>
                 <h3 class="font-bold text-lg">José Rojas</h3>
                 <p class="text-sm text-white/60">Cloud Architect</p>
               </div>
             </div>
-            <p class="text-white/70 mb-4">Arquitecto de soluciones en la nube con experiencia en implementaciones a gran
+            <p class="text-white/70 mb-4 text-center">Arquitecto de soluciones en la nube con experiencia en
+              implementaciones a gran
               escala.</p>
-            <div class="flex items-center gap-2 text-sm">
+            <div class="flex items-center gap-2 text-sm justify-center">
               <i class='bx bx-microphone' style="color:var(--accent)"></i>
               <span>Charla: Serverless para Startups</span>
             </div>
           </div>
 
-          <!-- Speaker 3 -->
-          <div class="bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
-            <div class="flex items-center gap-4 mb-4">
+       
+          <div class="avatar-item bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
+            <div class="flex flex-col items-center text-center mb-4">
               <div
-                class="w-16 h-16 rounded-full bg-gradient-to-br from-[color:var(--accent)] to-[color:var(--accent-2)] flex items-center justify-center text-white font-bold text-xl">
+                class="w-24 h-24 rounded-full bg-gradient-to-br from-[color:var(--accent)] to-[color:var(--accent-2)] flex items-center justify-center text-white font-bold text-2xl mb-4">
                 MC</div>
               <div>
                 <h3 class="font-bold text-lg">María Castro</h3>
                 <p class="text-sm text-white/60">Data Scientist</p>
               </div>
             </div>
-            <p class="text-white/70 mb-4">Científica de datos especializada en machine learning e inteligencia
+            <p class="text-white/70 mb-4 text-center">Científica de datos especializada en machine learning e
+              inteligencia
               artificial aplicada.</p>
-            <div class="flex items-center gap-2 text-sm">
+            <div class="flex items-center gap-2 text-sm justify-center">
               <i class='bx bx-microphone' style="color:var(--accent)"></i>
               <span>Charla: IA Ética en Proyectos Reales</span>
+            </div>
+          </div>
+
+    
+          <div class="avatar-item bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
+            <div class="flex flex-col items-center text-center mb-4">
+              <div
+                class="w-24 h-24 rounded-full bg-gradient-to-br from-[color:var(--accent)] to-[color:var(--accent-2)] flex items-center justify-center text-white font-bold text-2xl mb-4">
+                CR</div>
+              <div>
+                <h3 class="font-bold text-lg">Carlos Rodríguez</h3>
+                <p class="text-sm text-white/60">DevOps Engineer</p>
+              </div>
+            </div>
+            <p class="text-white/70 mb-4 text-center">Experto en automatización de procesos y herramientas de CI/CD para
+              equipos de desarrollo.</p>
+            <div class="flex items-center gap-2 text-sm justify-center">
+              <i class='bx bx-microphone' style="color:var(--accent)"></i>
+              <span>Charla: GitOps en la Práctica</span>
             </div>
           </div>
         </div>
@@ -360,15 +555,70 @@
           </button>
         </div>
       </div>
+    </section> -->
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Galería</h2>
+          <p class="text-lg text-white/70 max-w-2xl mx-auto">Revive los mejores momentos de ediciones anteriores del
+            DevFest Santa Cruz.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item"
+            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+          </div>
+          <div class="gallery-item"
+            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+          </div>
+          <div class="gallery-item"
+            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+          </div>
+          <div class="gallery-item"
+            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+          </div>
+          <div class="gallery-item"
+            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+          </div>
+          <div class="gallery-item"
+            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <button
+            class="px-6 py-3 rounded-md bg-white/5 hover:bg-white/10 font-medium flex items-center justify-center gap-2 mx-auto">
+            <i class='bx bx-images'></i> Ver más fotos
+          </button>
+        </div>
+      </div>
     </section>
 
     <!-- Sponsors Section -->
-    <section id="sponsors" class="py-16">
+    <section id="sponsors" class="py-16 bg-white/5">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold mb-4">Nuestros Sponsors</h2>
           <p class="text-lg text-white/70 max-w-2xl mx-auto">Agradecemos a todas las empresas y organizaciones que hacen
             posible este evento.</p>
+        </div>
+
+        <!-- Sponsors Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          <div class="bg-[color:var(--card)] rounded-xl p-6 flex items-center justify-center h-32">
+            <span class="font-bold text-lg gradient-accent">Sponsor Platino</span>
+          </div>
+          <div class="bg-[color:var(--card)] rounded-xl p-6 flex items-center justify-center h-32">
+            <span class="font-bold text-lg" style="color:var(--accent)">Sponsor Oro</span>
+          </div>
+          <div class="bg-[color:var(--card)] rounded-xl p-6 flex items-center justify-center h-32">
+            <span class="font-bold text-lg text-white/80">Sponsor Plata</span>
+          </div>
+          <div class="bg-[color:var(--card)] rounded-xl p-6 flex items-center justify-center h-32">
+            <span class="font-bold text-lg" style="color:var(--accent-2)">Comunidad</span>
+          </div>
         </div>
 
         <!-- Sponsors Carousel -->
@@ -444,8 +694,8 @@
       </div>
     </section>
 
-    <!-- Schedule Section -->
-    <section id="schedule" class="py-16 bg-white/5">
+    <!-- Schedule Section with Timeline -->
+    <section id="schedule" class="py-16">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold mb-4">Agenda del Evento</h2>
@@ -453,81 +703,72 @@
             para el DevFest Santa Cruz 2025.</p>
         </div>
 
-        <div class="max-w-3xl mx-auto">
-          <!-- Schedule Tabs -->
-          <div class="flex border-b border-white/10 mb-8">
-            <button class="px-4 py-3 border-b-2 border-[color:var(--accent)] text-[color:var(--accent)] font-medium">Día
-              1</button>
-            <button class="px-4 py-3 text-white/60 hover:text-white font-medium">Día 2</button>
+        <!-- Schedule Tabs -->
+        <div class="flex border-b border-white/10 mb-8">
+          <button class="px-4 py-3 border-b-2 border-[color:var(--accent)] text-[color:var(--accent)] font-medium">Día
+            1</button>
+          <button class="px-4 py-3 text-white/60 hover:text-white font-medium">Día 2</button>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline">
+          <!-- Item 1 -->
+          <div class="timeline-item">
+            <div class="bg-[color:var(--card)] rounded-xl p-5 shadow-lg ring-1 ring-black/30">
+              <div class="flex items-center gap-2 mb-2">
+                <div class="px-3 py-1 rounded-full bg-[color:var(--accent)] text-black text-sm font-medium">09:00 -
+                  10:00</div>
+              </div>
+              <h3 class="font-bold text-lg mb-1">Registro y Bienvenida</h3>
+              <p class="text-white/70">Registro de participantes, entrega de credenciales y bienvenida al evento.</p>
+            </div>
           </div>
 
-          <!-- Schedule Items -->
-          <div class="space-y-6">
-            <!-- Item 1 -->
+          <!-- Item 2 -->
+          <div class="timeline-item">
             <div class="bg-[color:var(--card)] rounded-xl p-5 shadow-lg ring-1 ring-black/30">
-              <div class="flex flex-col md:flex-row md:items-center gap-4">
-                <div class="flex-shrink-0">
-                  <div class="px-3 py-1 rounded-full bg-[color:var(--accent)] text-black text-sm font-medium">09:00 -
-                    10:00</div>
-                </div>
-                <div class="flex-1">
-                  <h3 class="font-bold text-lg mb-1">Registro y Bienvenida</h3>
-                  <p class="text-white/70">Registro de participantes, entrega de credenciales y bienvenida al evento.
-                  </p>
-                </div>
+              <div class="flex items-center gap-2 mb-2">
+                <div class="px-3 py-1 rounded-full bg-[color:var(--accent-2)] text-black text-sm font-medium">10:00 -
+                  11:00</div>
               </div>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="bg-[color:var(--card)] rounded-xl p-5 shadow-lg ring-1 ring-black/30">
-              <div class="flex flex-col md:flex-row md:items-center gap-4">
-                <div class="flex-shrink-0">
-                  <div class="px-3 py-1 rounded-full bg-[color:var(--accent-2)] text-black text-sm font-medium">10:00 -
-                    11:00</div>
-                </div>
-                <div class="flex-1">
-                  <h3 class="font-bold text-lg mb-1">Keynote: El Futuro del Desarrollo Web</h3>
-                  <p class="text-white/70 mb-2">Una visión sobre las tendencias y tecnologías que darán forma al
-                    desarrollo web en los próximos años.</p>
-                  <div class="flex items-center gap-2 text-sm text-white/60">
-                    <i class='bx bx-user'></i>
-                    <span>Andrea Pérez</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="bg-[color:var(--card)] rounded-xl p-5 shadow-lg ring-1 ring-black/30">
-              <div class="flex flex-col md:flex-row md:items-center gap-4">
-                <div class="flex-shrink-0">
-                  <div class="px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium">11:15 - 12:15</div>
-                </div>
-                <div class="flex-1">
-                  <h3 class="font-bold text-lg mb-1">Serverless para Startups</h3>
-                  <p class="text-white/70 mb-2">Cómo las arquitecturas serverless pueden acelerar el desarrollo y
-                    reducir costos para startups.</p>
-                  <div class="flex items-center gap-2 text-sm text-white/60">
-                    <i class='bx bx-user'></i>
-                    <span>José Rojas</span>
-                  </div>
-                </div>
+              <h3 class="font-bold text-lg mb-1">Keynote: El Futuro del Desarrollo Web</h3>
+              <p class="text-white/70 mb-2">Una visión sobre las tendencias y tecnologías que darán forma al
+                desarrollo web en los próximos años.</p>
+              <div class="flex items-center gap-2 text-sm text-white/60">
+                <i class='bx bx-user'></i>
+                <span>Andrea Pérez</span>
               </div>
             </div>
           </div>
 
-          <div class="text-center mt-8">
-            <button
-              class="px-6 py-3 rounded-md bg-white/5 hover:bg-white/10 font-medium flex items-center justify-center gap-2 mx-auto">
-              <i class='bx bx-download'></i> Descargar Agenda Completa
-            </button>
+          <!-- Item 3 -->
+          <div class="timeline-item">
+            <div class="bg-[color:var(--card)] rounded-xl p-5 shadow-lg ring-1 ring-black/30">
+              <div class="flex items-center gap-2 mb-2">
+                <div class="px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium">11:15 - 12:15</div>
+              </div>
+              <h3 class="font-bold text-lg mb-1">Serverless para Startups</h3>
+              <p class="text-white/70 mb-2">Cómo las arquitecturas serverless pueden acelerar el desarrollo y
+                reducir costos para startups.</p>
+              <div class="flex items-center gap-2 text-sm text-white/60">
+                <i class='bx bx-user'></i>
+                <span>José Rojas</span>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <button
+            class="px-6 py-3 rounded-md bg-white/5 hover:bg-white/10 font-medium flex items-center justify-center gap-2 mx-auto">
+            <i class='bx bx-download'></i> Descargar Agenda Completa
+          </button>
         </div>
       </div>
     </section>
 
     <!-- Location Section -->
-    <section id="location" class="py-16">
+    <section id="location" class="py-16 bg-white/5">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <!-- Location Info -->
@@ -646,6 +887,7 @@
           <ul class="space-y-2">
             <li><a href="#about" class="text-white/70 hover:text-white transition-colors">Acerca de</a></li>
             <li><a href="#speakers" class="text-white/70 hover:text-white transition-colors">Speakers</a></li>
+            <li><a href="#gallery" class="text-white/70 hover:text-white transition-colors">Galería</a></li>
             <li><a href="#sponsors" class="text-white/70 hover:text-white transition-colors">Sponsors</a></li>
             <li><a href="#schedule" class="text-white/70 hover:text-white transition-colors">Agenda</a></li>
             <li><a href="#location" class="text-white/70 hover:text-white transition-colors">Ubicación</a></li>
@@ -678,6 +920,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating Button -->
+  <div class="floating-button" id="scrollToTop">
+    <i class='bx bx-chevron-up text-2xl text-black'></i>
+  </div>
 
   <!-- Modal QR -->
   <div id="qrModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4 z-50">
@@ -830,6 +1077,21 @@
       btn.addEventListener('click', () => {
         document.querySelector('#location').scrollIntoView({ behavior: 'smooth' });
       });
+    });
+
+    // Floating button scroll to top
+    document.getElementById('scrollToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Show/hide floating button based on scroll position
+    window.addEventListener('scroll', function () {
+      const floatingButton = document.getElementById('scrollToTop');
+      if (window.scrollY > 300) {
+        floatingButton.style.display = 'flex';
+      } else {
+        floatingButton.style.display = 'none';
+      }
     });
 
     // Add fade-in animation to elements when they come into view
