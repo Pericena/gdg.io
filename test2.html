@@ -239,6 +239,54 @@
         left: 21px;
       }
     }
+
+    /* Carousel image styles */
+    .carousel-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.05);
+      transition: opacity 1.5s ease-in-out, transform 8s ease;
+    }
+
+    .carousel-image.active {
+      opacity: 1;
+      transform: scale(1.12);
+    }
+
+    /* Speaker card styles */
+    .speaker-card {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .speaker-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .speaker-image {
+      transition: all 0.3s ease;
+    }
+
+    .speaker-card:hover .speaker-image {
+      transform: scale(1.05);
+    }
+
+    .speaker-social {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+
+    .speaker-card:hover .speaker-social {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 
@@ -264,10 +312,12 @@
           <a href="#about" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Acerca de</a>
           <a href="#speakers"
             class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Speakers</a>
-          <a href="#gallery" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Galería</a>
+          <a href="#packages"
+            class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Paquetes</a>
           <a href="#sponsors"
             class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Sponsors</a>
           <a href="#schedule" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Agenda</a>
+          <a href="#taller" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Taller</a>
           <a href="#location"
             class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Ubicación</a>
         </nav>
@@ -309,16 +359,18 @@
         <a href="#hero" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Inicio</a>
         <a href="#about" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Acerca de</a>
         <a href="#speakers" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Speakers</a>
-        <a href="#gallery" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Galería</a>
+        <a href="#packages" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Paquetes</a>
         <a href="#sponsors" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Sponsors</a>
         <a href="#schedule" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Agenda</a>
+        <a href="#taller" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Taller</a>
         <a href="#location" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Ubicación</a>
 
         <div class="mt-auto pt-4 border-t border-white/10">
-          <button
-            class="w-full py-3 rounded-md bg-[color:var(--accent)] text-black font-semibold flex items-center justify-center gap-2">
+          <a class="w-full py-3 rounded-md bg-[color:var(--accent)] text-black font-semibold flex items-center justify-center gap-2"
+            href="https://gdg.community.dev/events/details/google-gdg-santa-cruz-presents-devfest-santa-cruz-2025/"
+            target="_blank" rel="noopener noreferrer">
             <i class='bx bx-calendar-event'></i> Inscribirse
-          </button>
+          </a>
         </div>
       </nav>
     </div>
@@ -327,39 +379,43 @@
   <!-- Main Content -->
   <main>
     <!-- Hero Section with Banner -->
-    <section id="hero" class="banner pt-24 pb-12">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+    <section id="hero" class="banner pt-24 pb-12 relative overflow-hidden text-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <!-- Hero Content -->
-          <div class="fade-in">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-sm mb-6">
-              <span class="w-2 h-2 rounded-full bg-[color:var(--accent)]"></span>
+          <div class="fade-in relative z-10">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-sm mb-6 border border-white/10 shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-[color:var(--accent)] animate-pulse"></span>
               <span>29 Noviembre 2025 — Universidad Privada Domingo Savio</span>
             </div>
 
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight">
               <span class="gradient-accent">DevFest</span> Santa Cruz 2025
             </h2>
-            <p class="text-xl text-white/70 mb-8">Innovación, código y comunidad en un solo lugar. El evento tecnológico
-              más esperado del año.</p>
+
+            <p class="text-lg md:text-xs text-white/80 mb-8 leading-relaxed max-w-lg">
+              Innovación, código y comunidad en un solo lugar.
+              Vive la experiencia tecnológica más grande del año impulsada por <b>Google Developers Group</b>.
+            </p>
 
             <!-- Countdown -->
             <div class="mb-8">
-              <p class="text-sm text-white/60 mb-3">El evento comienza en:</p>
+              <p class="text-sm text-white/70 mb-3 uppercase tracking-wide">El evento comienza en:</p>
               <div id="countdown" class="flex gap-3">
-                <div class="text-center px-4 py-3 bg-white/5 rounded-lg">
+                <div class="text-center px-4 py-3 bg-white/10 rounded-lg backdrop-blur-sm shadow-sm">
                   <div id="days" class="text-2xl font-bold">00</div>
                   <div class="text-xs text-white/60">Días</div>
                 </div>
-                <div class="text-center px-4 py-3 bg-white/5 rounded-lg">
+                <div class="text-center px-4 py-3 bg-white/10 rounded-lg backdrop-blur-sm shadow-sm">
                   <div id="hours" class="text-2xl font-bold">00</div>
                   <div class="text-xs text-white/60">Horas</div>
                 </div>
-                <div class="text-center px-4 py-3 bg-white/5 rounded-lg">
+                <div class="text-center px-4 py-3 bg-white/10 rounded-lg backdrop-blur-sm shadow-sm">
                   <div id="minutes" class="text-2xl font-bold">00</div>
                   <div class="text-xs text-white/60">Min</div>
                 </div>
-                <div class="text-center px-4 py-3 bg-white/5 rounded-lg">
+                <div class="text-center px-4 py-3 bg-white/10 rounded-lg backdrop-blur-sm shadow-sm">
                   <div id="seconds" class="text-2xl font-bold">00</div>
                   <div class="text-xs text-white/60">Seg</div>
                 </div>
@@ -369,48 +425,45 @@
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4">
               <button
-                class="px-6 py-3 rounded-md bg-[color:var(--accent)] hover:brightness-95 text-black font-semibold flex items-center justify-center gap-2">
-                <i class='bx bx-calendar-event'></i> Inscribirse ahora
+                class="px-6 py-3 rounded-md bg-[color:var(--accent)] hover:brightness-90 text-black font-semibold flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                <i class='bx bx-calendar-event text-xl'></i> Inscribirse ahora
               </button>
               <a href="#about"
-                class="px-6 py-3 rounded-md bg-white/5 hover:bg-white/10 font-medium flex items-center justify-center gap-2">
-                <i class='bx bx-info-circle'></i> Más información
+                class="px-6 py-3 rounded-md bg-white/10 hover:bg-white/20 font-medium flex items-center justify-center gap-2 transition-all border border-white/10 backdrop-blur-sm">
+                <i class='bx bx-info-circle text-xl'></i> Más información
               </a>
             </div>
           </div>
-
-<!-- Hero Visual -->
-<div class="fade-in flex justify-center lg:justify-end">
-  <div class="relative w-full max-w-md group">
-    <!-- Contenedor principal con degradado -->
-    <div
-      class="aspect-square rounded-2xl gradient-bg flex flex-col items-center justify-center p-8 transition-transform duration-300 group-hover:scale-[1.03] group-hover:brightness-110">
-
-      <!-- Imagen del taller -->
-      <div class="w-200 h-250 mb-5 overflow-hidden rounded-xl shadow-lg">
-        <img src="/img/taller/agente.jpg" alt="Taller Google ADK" class="w-full h-full object-cover" />
-      </div>
-
-      <!-- Texto -->
-      <div class="text-center text-white/80 text-sm sm:text-base">
-        <p class="mb-2">Taller: “Crea tu sistema multi-agente con Google ADK”</p>
-        <p>
-          👉 <a href="https://forms.gle/KH11gcabaKLr1hey7" target="_blank"
-            class="text-[color:var(--accent)] hover:underline font-semibold">
-            Haz clic aquí para inscribirte
-          </a>
-        </p>
-      </div>
-    </div>
-
-    <!-- Elementos decorativos -->
-    <div class="absolute -top-4 -left-4 w-20 h-20 rounded-xl bg-[color:var(--accent)] opacity-20 blur-sm"></div>
-    <div class="absolute -bottom-4 -right-4 w-16 h-16 rounded-full bg-[color:var(--accent-2)] opacity-20 blur-sm"></div>
-  </div>
-</div>
-
-
         </div>
+      </div>
+
+      <!-- Carrusel de fondo -->
+      <div class="absolute inset-0 w-full h-full overflow-hidden">
+        <div id="banner-carousel" class="relative w-full h-full">
+          <!-- 10+ imágenes -->
+          <img src="/img/banner0.jpg" class="carousel-image active" alt="Banner 1">
+          <img src="/img/banner1.jpg" class="carousel-image" alt="Banner 2">
+          <img src="/img/banner2.jpg" class="carousel-image" alt="Banner 3">
+          <img src="/img/banner3.jpg" class="carousel-image" alt="Banner 4">
+          <img src="/img/banner4.jpg" class="carousel-image" alt="Banner 5">
+          <img src="/img/banner5.jpg" class="carousel-image" alt="Banner 6">
+        </div>
+
+        <!-- Degradado oscuro -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+
+        <!-- SVG decorativos -->
+        <svg class="absolute top-10 right-10 w-40 opacity-10" viewBox="0 0 100 100" fill="none">
+          <path d="M10 10h80v80H10z" stroke="white" stroke-width="2" stroke-dasharray="4 3" />
+        </svg>
+        <svg class="absolute bottom-12 left-10 w-32 opacity-10 text-[color:var(--accent)]" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="3" stroke-dasharray="6 4" fill="none" />
+        </svg>
+      </div>
+
+      <!-- Fondos de color difuminado -->
+      <div class="absolute -top-10 -left-10 w-60 h-60 rounded-full bg-[color:var(--accent)] opacity-25 blur-3xl"></div>
+      <div class="absolute -bottom-20 -right-10 w-60 h-60 rounded-full bg-[color:var(--accent-2)] opacity-20 blur-3xl">
       </div>
     </section>
 
@@ -458,7 +511,7 @@
     </section>
 
     <!-- Speakers Section with Avatar Carousel -->
-    <!-- <section id="speakers" class="py-16 bg-white/5">
+    <section id="speakers" class="py-16 bg-white/5">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold mb-4">Nuestros Speakers</h2>
@@ -466,84 +519,96 @@
             experiencias en el DevFest Santa Cruz 2025.</p>
         </div>
 
-
-        <div class="avatar-carousel mb-8">
-
-          <div class="avatar-item bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <!-- Speaker 1 -->
+          <div class="speaker-card bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
             <div class="flex flex-col items-center text-center mb-4">
-              <div
-                class="w-24 h-24 rounded-full bg-gradient-to-br from-[color:var(--accent)] to-[color:var(--accent-2)] flex items-center justify-center text-white font-bold text-2xl mb-4">
-                AP</div>
+              <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
+                <img src="/img/speakers/speaker1.jpg" alt="Andrea Pérez"
+                  class="w-full h-full object-cover speaker-image">
+              </div>
               <div>
                 <h3 class="font-bold text-lg">Andrea Pérez</h3>
                 <p class="text-sm text-white/60">Frontend Engineer</p>
               </div>
             </div>
             <p class="text-white/70 mb-4 text-center">Especialista en diseño de interfaces y experiencia de usuario con
-              más de 8
-              años de experiencia.</p>
-            <div class="flex items-center gap-2 text-sm justify-center">
+              más de 8 años de experiencia.</p>
+            <div class="flex items-center gap-2 text-sm justify-center mb-4">
               <i class='bx bx-microphone' style="color:var(--accent)"></i>
               <span>Charla: Micro-interactions en UI</span>
             </div>
+            <div class="speaker-social flex justify-center gap-3">
+              <a href="#" class="text-white/60 hover:text-white transition-colors">
+                <i class='bx bxl-twitter text-xl'></i>
+              </a>
+              <a href="#" class="text-white/60 hover:text-white transition-colors">
+                <i class='bx bxl-linkedin text-xl'></i>
+              </a>
+              <a href="#" class="text-white/60 hover:text-white transition-colors">
+                <i class='bx bxl-github text-xl'></i>
+              </a>
+            </div>
           </div>
 
-
-          <div class="avatar-item bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
+          <!-- Speaker 2 -->
+          <div class="speaker-card bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
             <div class="flex flex-col items-center text-center mb-4">
-              <div
-                class="w-24 h-24 rounded-full bg-gradient-to-br from-[color:var(--accent)] to-[color:var(--accent-2)] flex items-center justify-center text-white font-bold text-2xl mb-4">
-                JR</div>
+              <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
+                <img src="/img/speakers/speaker2.jpg" alt="José Rojas" class="w-full h-full object-cover speaker-image">
+              </div>
               <div>
                 <h3 class="font-bold text-lg">José Rojas</h3>
                 <p class="text-sm text-white/60">Cloud Architect</p>
               </div>
             </div>
             <p class="text-white/70 mb-4 text-center">Arquitecto de soluciones en la nube con experiencia en
-              implementaciones a gran
-              escala.</p>
-            <div class="flex items-center gap-2 text-sm justify-center">
+              implementaciones a gran escala.</p>
+            <div class="flex items-center gap-2 text-sm justify-center mb-4">
               <i class='bx bx-microphone' style="color:var(--accent)"></i>
               <span>Charla: Serverless para Startups</span>
             </div>
+            <div class="speaker-social flex justify-center gap-3">
+              <a href="#" class="text-white/60 hover:text-white transition-colors">
+                <i class='bx bxl-twitter text-xl'></i>
+              </a>
+              <a href="#" class="text-white/60 hover:text-white transition-colors">
+                <i class='bx bxl-linkedin text-xl'></i>
+              </a>
+              <a href="#" class="text-white/60 hover:text-white transition-colors">
+                <i class='bx bxl-github text-xl'></i>
+              </a>
+            </div>
           </div>
 
-       
-          <div class="avatar-item bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
+          <!-- Speaker 3 -->
+          <div class="speaker-card bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
             <div class="flex flex-col items-center text-center mb-4">
-              <div
-                class="w-24 h-24 rounded-full bg-gradient-to-br from-[color:var(--accent)] to-[color:var(--accent-2)] flex items-center justify-center text-white font-bold text-2xl mb-4">
-                MC</div>
+              <div class="w-32 h-32 rounded-full overflow-hidden mb-4">
+                <img src="/img/speakers/speaker3.jpg" alt="María Castro"
+                  class="w-full h-full object-cover speaker-image">
+              </div>
               <div>
                 <h3 class="font-bold text-lg">María Castro</h3>
                 <p class="text-sm text-white/60">Data Scientist</p>
               </div>
             </div>
             <p class="text-white/70 mb-4 text-center">Científica de datos especializada en machine learning e
-              inteligencia
-              artificial aplicada.</p>
-            <div class="flex items-center gap-2 text-sm justify-center">
+              inteligencia artificial aplicada.</p>
+            <div class="flex items-center gap-2 text-sm justify-center mb-4">
               <i class='bx bx-microphone' style="color:var(--accent)"></i>
               <span>Charla: IA Ética en Proyectos Reales</span>
             </div>
-          </div>
-
-    
-          <div class="avatar-item bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
-            <div class="flex flex-col items-center text-center mb-4">
-              <div
-                class="w-24 h-24 rounded-full bg-gradient-to-br from-[color:var(--accent)] to-[color:var(--accent-2)] flex items-center justify-center text-white font-bold text-2xl mb-4">
-                CR</div>
-              <div>
-                <h3 class="font-bold text-lg">Carlos Rodríguez</h3>
-                <p class="text-sm text-white/60">DevOps Engineer</p>
-              </div>
-            </div>
-            <p class="text-white/70 mb-4 text-center">Experto en automatización de procesos y herramientas de CI/CD para
-              equipos de desarrollo.</p>
-            <div class="flex items-center gap-2 text-sm justify-center">
-              <i class='bx bx-microphone' style="color:var(--accent)"></i>
-              <span>Charla: GitOps en la Práctica</span>
+            <div class="speaker-social flex justify-center gap-3">
+              <a href="#" class="text-white/60 hover:text-white transition-colors">
+                <i class='bx bxl-twitter text-xl'></i>
+              </a>
+              <a href="#" class="text-white/60 hover:text-white transition-colors">
+                <i class='bx bxl-linkedin text-xl'></i>
+              </a>
+              <a href="#" class="text-white/60 hover:text-white transition-colors">
+                <i class='bx bxl-github text-xl'></i>
+              </a>
             </div>
           </div>
         </div>
@@ -555,43 +620,106 @@
           </button>
         </div>
       </div>
-    </section> -->
+    </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-16">
+    <section id="packages" class="py-8 md:py-16">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold mb-4">Galería</h2>
-          <p class="text-lg text-white/70 max-w-2xl mx-auto">Revive los mejores momentos de ediciones anteriores del
-            DevFest Santa Cruz.</p>
+        <div class="text-center mb-8 md:mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4">Paquetes DevFest</h2>
+          <p class="text-base md:text-lg text-white/70 max-w-2xl mx-auto">Selecciona el paquete que mejor se adapte a
+            tus
+            necesidades y únete a la comunidad de desarrolladores.</p>
         </div>
 
-        <div class="gallery-grid">
-          <div class="gallery-item"
-            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
-          </div>
-          <div class="gallery-item"
-            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
-          </div>
-          <div class="gallery-item"
-            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
-          </div>
-          <div class="gallery-item"
-            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
-          </div>
-          <div class="gallery-item"
-            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
-          </div>
-          <div class="gallery-item"
-            style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
-          </div>
-        </div>
+        <div class="packages-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+          <!-- Paquete Básico -->
+          <div
+            class="package-card bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 flex flex-col h-full">
+            <!-- Imagen del paquete -->
+            <div class="h-100 md:h-100 bg-cover bg-center flex items-center justify-center p-4">
+              <img src="./img/PaqueteYesca4x5_30.png" alt="Paquete Básico" class="w-full h-full object-contain">
+            </div>
+            <div class="p-4 md:p-6 flex-grow flex flex-col">
+              <div class="flex justify-between items-start mb-3 md:mb-4">
+                <h3 class="text-lg md:text-xl font-bold">Combo</h3>
+                <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-2 py-1 rounded-full">Yesca</span>
+              </div>
+              <div class="mb-4 md:mb-6">
+                <div class="flex items-baseline">
+                  <span class="text-2xl md:text-3xl font-bold">30 Bs</span>
+                  <span class="text-white/50 ml-2 line-through text-sm md:text-base">40 Bs</span>
+                </div>
+              </div>
 
-        <div class="text-center mt-8">
-          <button
-            class="px-6 py-3 rounded-md bg-white/5 hover:bg-white/10 font-medium flex items-center justify-center gap-2 mx-auto">
-            <i class='bx bx-images'></i> Ver más fotos
-          </button>
+              <div
+                class="w-full py-2 md:py-3 rounded-lg bg-[#EA9A1A] hover:bg-[#d48a15] font-medium transition-colors flex items-center justify-center gap-2">
+                <a href="https://forms.gle/e1BcTzDVivmqhANc7">
+                  <i class='bx bx-cart-alt text-lg'></i>
+                  <span>Comprar Ahora</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paquete Profesional -->
+          <div
+            class="package-card bg-white/5 rounded-xl overflow-hidden border-2 border-blue-500/70 relative hover:scale-105 transition-all duration-300 flex flex-col h-full">
+            <!-- Imagen del paquete -->
+            <div class="h-100 md:h-100 bg-cover bg-center flex items-center justify-center p-4">
+              <img src="./img/PaqueteChirapa4x5_60.png" alt="Paquete Profesional" class="w-full h-full object-contain">
+            </div>
+            <div class="p-4 md:p-6 pt-6 md:pt-8 flex-grow flex flex-col">
+              <div class="flex justify-between items-start mb-3 md:mb-4">
+                <h3 class="text-lg md:text-xl font-bold">Combo</h3>
+                <span class="bg-purple-500/20 text-purple-300 text-xs font-medium px-2 py-1 rounded-full">Chiripa</span>
+              </div>
+              <div class="mb-4 md:mb-6">
+                <div class="flex items-baseline">
+                  <span class="text-2xl md:text-3xl font-bold">60 Bs</span>
+                  <span class="text-white/50 ml-2 line-through text-sm md:text-base">70 Bs</span>
+                </div>
+              </div>
+
+              <div
+                class="w-full py-2 md:py-3 rounded-lg bg-[#EA9A1A] hover:bg-[#d48a15] font-medium transition-colors flex items-center justify-center gap-2">
+                <a href="https://forms.gle/udRkGyAwV2kK6mnb7">
+                  <i class='bx bx-cart-alt text-lg'></i>
+                  <span>Comprar Ahora</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paquete Premium -->
+          <div
+            class="package-card bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:border-yellow-500/50 transition-all duration-300 hover:scale-105 flex flex-col h-full">
+            <!-- Imagen del paquete -->
+            <div class="h-100 md:h-100 bg-cover bg-center flex items-center justify-center p-4">
+              <img src="./img/PaqueteMocasinero4x5_170.png" alt="Paquete Premium" class="w-full h-full object-contain">
+            </div>
+            <div class="p-4 md:p-6 flex-grow flex flex-col">
+              <div class="flex justify-between items-start mb-3 md:mb-4">
+                <h3 class="text-lg md:text-xl font-bold">Combo</h3>
+                <span
+                  class="bg-yellow-500/20 text-yellow-300 text-xs font-medium px-2 py-1 rounded-full">Mocasinero</span>
+              </div>
+              <div class="mb-4 md:mb-6">
+                <div class="flex items-baseline">
+                  <span class="text-2xl md:text-3xl font-bold">170 Bs</span>
+                  <span class="text-white/50 ml-2 line-through text-sm md:text-base">200 Bs</span>
+                </div>
+              </div>
+
+              <div
+                class="w-full py-2 md:py-3 rounded-lg bg-[#EA9A1A] hover:bg-[#d48a15] font-medium transition-colors flex items-center justify-center gap-2">
+                <a href="https://forms.gle/P55VoQ9H1TYMD4kj6">
+                  <i class='bx bx-cart-alt text-lg'></i>
+                  <span>Comprar Ahora</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -767,59 +895,132 @@
       </div>
     </section>
 
+    <!-- SECCIÓN DE TALLER -->
+    <section id="taller" class="relative py-24 overflow-hidden text-white">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Texto del taller -->
+        <div class="fade-in space-y-6">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-sm shadow">
+            <span class="w-2 h-2 rounded-full bg-[color:var(--accent)] animate-pulse"></span>
+            <span>Taller DevFest Santa Cruz 2025</span>
+          </div>
+
+          <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+            <span class="gradient-accent">Crea tu sistema multi-agente</span><br />
+            con Google ADK
+          </h2>
+
+          <p class="text-white/80 text-lg leading-relaxed max-w-md">
+            Participa en este taller exclusivo donde aprenderás a construir agentes inteligentes colaborativos usando
+            las
+            herramientas de Google.
+            ¡Lleva tu desarrollo al siguiente nivel!
+          </p>
+
+          <a href="https://forms.gle/KH11gcabaKLr1hey7" target="_blank"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[color:var(--accent)] text-black font-semibold hover:brightness-95 transition shadow-lg hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+            <i class='bx bx-calendar-event text-xl'></i>
+            Inscribirme ahora
+          </a>
+        </div>
+
+        <!-- Imagen del taller -->
+        <div class="fade-in relative group">
+          <div
+            class="rounded-2xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-md shadow-lg transition-transform duration-500 group-hover:scale-[1.03] group-hover:brightness-110">
+            <img src="/img/taller/agente.jpg" alt="Taller Google ADK"
+              class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105" />
+          </div>
+
+          <!-- Badges decorativos -->
+          <span
+            class="absolute top-4 left-4 bg-[color:var(--accent)] text-black text-xs font-bold px-3 py-1 rounded-full shadow-md">
+            DISPONIBLE
+          </span>
+          <div
+            class="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-[color:var(--accent-2)] opacity-25 blur-3xl">
+          </div>
+          <div class="absolute -top-6 -left-6 w-28 h-28 rounded-full bg-[color:var(--accent)] opacity-25 blur-3xl">
+          </div>
+        </div>
+      </div>
+
+      <!-- SVG decorativo de fondo -->
+      <svg class="absolute top-0 right-0 w-72 opacity-10" viewBox="0 0 200 200">
+        <path fill="url(#grad2)"
+          d="M40,-60C50,-50,60,-40,70,-20C80,0,80,20,70,40C60,60,40,80,20,80C0,80,-20,60,-40,40C-60,20,-80,0,-70,-20C-60,-40,-40,-60,-20,-70C0,-80,20,-70,40,-60Z"
+          transform="translate(100 100)" />
+        <defs>
+          <linearGradient id="grad2" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stop-color="var(--accent)" />
+            <stop offset="100%" stop-color="var(--accent-2)" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </section>
+
     <!-- Location Section -->
     <section id="location" class="py-16 bg-white/5">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <!-- Location Info -->
-          <div>
-            <h2 class="text-3xl font-bold mb-4">Ubicación</h2>
-            <p class="text-lg text-white/70 mb-6">El DevFest Santa Cruz 2025 se llevará a cabo en las instalaciones de
-              la Universidad Privada Domingo Savio, un espacio moderno y equipado para eventos tecnológicos.</p>
 
-            <div class="space-y-4">
+          <!-- Información de ubicación -->
+          <div>
+            <h2 class="text-3xl font-bold mb-4 text-white">Ubicación</h2>
+            <p class="text-lg text-white/70 mb-8 leading-relaxed">
+              El DevFest Santa Cruz 2025 se llevará a cabo en las instalaciones de la
+              <span class="text-white font-semibold">Universidad Privada Domingo Savio</span>,
+              un espacio moderno y equipado para eventos tecnológicos.
+            </p>
+
+            <div class="space-y-5">
+              <!-- Dirección -->
               <div class="flex items-start gap-4">
-                <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
-                  <i class='bx bx-map text-xl' style="color:var(--accent)"></i>
+                <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <i class='bx bx-map text-2xl' style="color:var(--accent)"></i>
                 </div>
                 <div>
-                  <h3 class="font-bold mb-1">Dirección</h3>
+                  <h3 class="font-bold mb-1 text-white">Dirección</h3>
                   <p class="text-white/70">Av. Beni entre 2do y 3er anillo, Santa Cruz de la Sierra, Bolivia</p>
                 </div>
               </div>
 
+              <!-- Fecha y hora -->
               <div class="flex items-start gap-4">
-                <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
-                  <i class='bx bx-time text-xl' style="color:var(--accent-2)"></i>
+                <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <i class='bx bx-time text-2xl' style="color:var(--accent-2)"></i>
                 </div>
                 <div>
-                  <h3 class="font-bold mb-1">Fecha y Hora</h3>
-                  <p class="text-white/70">29 de Noviembre, 2025 - 9:00 AM a 6:00 PM</p>
+                  <h3 class="font-bold mb-1 text-white">Fecha y Hora</h3>
+                  <p class="text-white/70">29 de Noviembre, 2025 — 9:00 AM a 6:00 PM</p>
                 </div>
               </div>
 
+              <!-- Organiza -->
               <div class="flex items-start gap-4">
-                <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
-                  <i class='bx bx-group text-xl' style="color:var(--accent)"></i>
+                <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <i class='bx bx-group text-2xl' style="color:var(--accent)"></i>
                 </div>
                 <div>
-                  <h3 class="font-bold mb-1">Organiza</h3>
+                  <h3 class="font-bold mb-1 text-white">Organiza</h3>
                   <p class="text-white/70">Google Developer Group — Santa Cruz</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Map Placeholder -->
-          <div class="bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
-            <div class="aspect-video rounded-lg bg-white/5 flex items-center justify-center">
-              <div class="text-center">
-                <i class='bx bx-map-pin text-5xl mb-4' style="color:var(--accent)"></i>
-                <p class="text-white/70">Mapa de ubicación</p>
-                <p class="text-sm text-white/60 mt-2">Universidad Privada Domingo Savio</p>
-              </div>
+          <!-- Mapa Google -->
+          <div class="bg-[color:var(--card)] rounded-2xl p-4 shadow-lg ring-1 ring-black/30">
+            <div class="overflow-hidden rounded-xl aspect-video">
+              <iframe class="w-full h-full rounded-xl border-0" loading="lazy" allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.616466358995!2d-63.16463788542465!3d-17.776579983881047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e9119ac95e15%3A0x63021f5b9db3bc36!2sUniversidad%20Privada%20Domingo%20Savio!5e0!3m2!1ses!2sbo!4v1698954184751!5m2!1ses!2sbo">
+              </iframe>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -830,17 +1031,6 @@
         <h2 class="text-3xl font-bold mb-4">¿Listo para ser parte del DevFest?</h2>
         <p class="text-lg text-white/70 mb-8 max-w-2xl mx-auto">No te pierdas la oportunidad de conectar con la
           comunidad tech, aprender de expertos y descubrir las últimas tendencias tecnológicas.</p>
-
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            class="px-6 py-3 rounded-md bg-[color:var(--accent)] hover:brightness-95 text-black font-semibold flex items-center justify-center gap-2">
-            <i class='bx bx-calendar-event'></i> Inscribirse ahora
-          </button>
-          <button id="openQr"
-            class="px-6 py-3 rounded-md bg-white/5 hover:bg-white/10 font-medium flex items-center justify-center gap-2">
-            <i class='bx bx-qr-scan'></i> Ver QR de registro
-          </button>
-        </div>
       </div>
     </section>
   </main>
@@ -887,7 +1077,7 @@
           <ul class="space-y-2">
             <li><a href="#about" class="text-white/70 hover:text-white transition-colors">Acerca de</a></li>
             <li><a href="#speakers" class="text-white/70 hover:text-white transition-colors">Speakers</a></li>
-            <li><a href="#gallery" class="text-white/70 hover:text-white transition-colors">Galería</a></li>
+            <li><a href="#packages" class="text-white/70 hover:text-white transition-colors">Paquetes</a></li>
             <li><a href="#sponsors" class="text-white/70 hover:text-white transition-colors">Sponsors</a></li>
             <li><a href="#schedule" class="text-white/70 hover:text-white transition-colors">Agenda</a></li>
             <li><a href="#location" class="text-white/70 hover:text-white transition-colors">Ubicación</a></li>
@@ -1060,6 +1250,22 @@
         update();
         setTimeout(() => track.style.transition = '', 100);
       });
+    })();
+
+    /* =======================
+       Banner Carousel
+       ======================= */
+    (function () {
+      const images = document.querySelectorAll('#banner-carousel .carousel-image');
+      let index = 0;
+
+      function showNextImage() {
+        images[index].classList.remove('active');
+        index = (index + 1) % images.length;
+        images[index].classList.add('active');
+      }
+
+      setInterval(showNextImage, 5000);
     })();
 
     /* =======================
