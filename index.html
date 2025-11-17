@@ -316,7 +316,6 @@
             class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Paquetes</a>
           <a href="#sponsors"
             class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Sponsors</a>
-          <a href="#schedule" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Agenda</a>
           <a href="#taller" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Taller</a>
           <a href="#location"
             class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Ubicación</a>
@@ -361,7 +360,6 @@
         <a href="#speakers" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Speakers</a>
         <a href="#packages" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Paquetes</a>
         <a href="#sponsors" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Sponsors</a>
-        <a href="#schedule" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Agenda</a>
         <a href="#taller" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Taller</a>
         <a href="#location" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Ubicación</a>
 
@@ -648,8 +646,8 @@ target="_blank" rel="noopener noreferrer">
               </div>
               <div class="mb-4 md:mb-6">
                 <div class="flex items-baseline">
-                  <span class="text-2xl md:text-3xl font-bold">30 Bs</span>
-                  <span class="text-white/50 ml-2 line-through text-sm md:text-base">40 Bs</span>
+                  <span class="text-2xl md:text-3xl font-bold">40 Bs</span>
+                  <!-- <span class="text-white/50 ml-2 line-through text-sm md:text-base">30 Bs</span> -->
                 </div>
               </div>
 
@@ -677,8 +675,8 @@ target="_blank" rel="noopener noreferrer">
               </div>
               <div class="mb-4 md:mb-6">
                 <div class="flex items-baseline">
-                  <span class="text-2xl md:text-3xl font-bold">60 Bs</span>
-                  <span class="text-white/50 ml-2 line-through text-sm md:text-base">70 Bs</span>
+                  <span class="text-2xl md:text-3xl font-bold">70 Bs</span>
+                  <!-- <span class="text-white/50 ml-2 line-through text-sm md:text-base">70 Bs</span> -->
                 </div>
               </div>
 
@@ -707,7 +705,7 @@ target="_blank" rel="noopener noreferrer">
               </div>
               <div class="mb-4 md:mb-6">
                 <div class="flex items-baseline">
-                  <span class="text-2xl md:text-3xl font-bold">170 Bs</span>
+                  <span class="text-2xl md:text-3xl font-bold">185 Bs</span>
                   <span class="text-white/50 ml-2 line-through text-sm md:text-base">200 Bs</span>
                 </div>
               </div>
@@ -725,176 +723,57 @@ target="_blank" rel="noopener noreferrer">
       </div>
     </section>
 
-    <!-- Sponsors Section -->
-    <section id="sponsors" class="py-16 bg-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold mb-4">Nuestros Sponsors</h2>
-          <p class="text-lg text-white/70 max-w-2xl mx-auto">Agradecemos a todas las empresas y organizaciones que hacen
-            posible este evento.</p>
+
+
+<!-- Sponsors Section -->
+<section id="sponsors" class="py-16 bg-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Title -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4 text-white">Nuestros Sponsors</h2>
+      <p class="text-lg text-white/70 max-w-2xl mx-auto">
+        Gracias a todas las empresas que hacen posible este evento.
+      </p>
+    </div>
+
+
+    <!-- Infinite Carousel -->
+    <div class="relative w-full overflow-hidden">
+      <div id="infiniteCarousel" class="flex gap-10 animate-slide">
+
+        <!-- CARD 1 -->
+        <div class="bg-[color:var(--card)] rounded-xl p-4 flex items-center justify-center min-w-[180px] h-28">
+          <img src="/img/sponsor/delve_white.png" class="h-full object-contain" alt="Sponsor 1">
         </div>
 
-        <!-- Sponsors Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-          <div class="bg-[color:var(--card)] rounded-xl p-6 flex items-center justify-center h-32">
-            <span class="font-bold text-lg gradient-accent">Sponsor Platino</span>
-          </div>
-          <div class="bg-[color:var(--card)] rounded-xl p-6 flex items-center justify-center h-32">
-            <span class="font-bold text-lg" style="color:var(--accent)">Sponsor Oro</span>
-          </div>
-          <div class="bg-[color:var(--card)] rounded-xl p-6 flex items-center justify-center h-32">
-            <span class="font-bold text-lg text-white/80">Sponsor Plata</span>
-          </div>
-          <div class="bg-[color:var(--card)] rounded-xl p-6 flex items-center justify-center h-32">
-            <span class="font-bold text-lg" style="color:var(--accent-2)">Comunidad</span>
-          </div>
+        <!-- CARD 2 -->
+        <div class="bg-[color:var(--card)] rounded-xl p-4 flex items-center justify-center min-w-[180px] h-28">
+          <img src="/img/sponsor/DHRNaranja.png" class="h-full object-contain" alt="Sponsor 2">
         </div>
 
-        <!-- Sponsors Carousel -->
-        <div class="relative">
-          <div class="overflow-hidden rounded-xl">
-            <div id="carouselTrack" class="carousel-track flex gap-6">
-              <!-- Sponsor cards -->
-              <div class="min-w-[280px] bg-[color:var(--card)] rounded-xl p-6 flex-shrink-0">
-                <div
-                  class="h-16 w-full rounded-lg bg-gradient-to-r from-white/5 to-white/10 flex items-center justify-center mb-4">
-                  <span class="font-bold text-lg gradient-accent">Sponsor Platino</span>
-                </div>
-                <p class="text-white/70">Máxima visibilidad en escenario, stand premium, charla técnica y branding en
-                  todos los materiales.</p>
-              </div>
-
-              <div class="min-w-[280px] bg-[color:var(--card)] rounded-xl p-6 flex-shrink-0">
-                <div
-                  class="h-16 w-full rounded-lg bg-gradient-to-r from-white/5 to-white/10 flex items-center justify-center mb-4">
-                  <span class="font-bold text-lg" style="color:var(--accent)">Sponsor Oro</span>
-                </div>
-                <p class="text-white/70">Branding destacado, stand corporativo y presencia en redes sociales del evento.
-                </p>
-              </div>
-
-              <div class="min-w-[280px] bg-[color:var(--card)] rounded-xl p-6 flex-shrink-0">
-                <div
-                  class="h-16 w-full rounded-lg bg-gradient-to-r from-white/5 to-white/10 flex items-center justify-center mb-4">
-                  <span class="font-bold text-lg text-white/80">Sponsor Plata</span>
-                </div>
-                <p class="text-white/70">Logo en materiales del evento, menciones durante el evento y presencia digital.
-                </p>
-              </div>
-
-              <div class="min-w-[280px] bg-[color:var(--card)] rounded-xl p-6 flex-shrink-0">
-                <div
-                  class="h-16 w-full rounded-lg bg-gradient-to-r from-white/5 to-white/10 flex items-center justify-center mb-4">
-                  <span class="font-bold text-lg" style="color:var(--accent-2)">Comunidad</span>
-                </div>
-                <p class="text-white/70">Apoyo local, difusión en redes y reconocimiento como parte de la comunidad
-                  tech.</p>
-              </div>
-
-              <!-- Duplicate for looping -->
-              <div class="min-w-[280px] bg-[color:var(--card)] rounded-xl p-6 flex-shrink-0">
-                <div
-                  class="h-16 w-full rounded-lg bg-gradient-to-r from-white/5 to-white/10 flex items-center justify-center mb-4">
-                  <span class="font-bold text-lg gradient-accent">Sponsor Platino</span>
-                </div>
-                <p class="text-white/70">Máxima visibilidad en escenario, stand premium, charla técnica y branding en
-                  todos los materiales.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Carousel controls -->
-          <button id="prevBtn" aria-label="Anterior"
-            class="absolute left-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 transition-colors">
-            <i class='bx bx-chevron-left text-2xl'></i>
-          </button>
-          <button id="nextBtn" aria-label="Siguiente"
-            class="absolute right-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 transition-colors">
-            <i class='bx bx-chevron-right text-2xl'></i>
-          </button>
+        <!-- CARD 3 -->
+        <div class="bg-[color:var(--card)] rounded-xl p-4 flex items-center justify-center min-w-[180px] h-28">
+          <img src="/img/sponsor/jetbrains.png" class="h-full object-contain" alt="Sponsor 3">
         </div>
 
-        <div class="text-center mt-8">
-          <button
-            class="px-6 py-3 rounded-md bg-[color:var(--accent)] hover:brightness-95 text-black font-semibold flex items-center justify-center gap-2 mx-auto">
-            <i class='bx bx-briefcase-alt'></i> Ser Sponsor
-          </button>
+        <!-- CARD 4 -->
+        <div class="bg-[color:var(--card)] rounded-xl p-4 flex items-center justify-center min-w-[180px] h-28">
+          <img src="/img/sponsor/Google_2015_logo.svg.png" class="h-full object-contain" alt="Sponsor 4">
         </div>
+
+        <!-- Duplicate to make infinite effect -->
+        <div class="bg-[color:var(--card)] rounded-xl p-4 flex items-center justify-center min-w-[180px] h-28">
+          <img src="/img/sponsor/DevfestGDGSantaCruz_1.png" class="h-full object-contain" alt="Sponsor 1">
+        </div>
+
       </div>
-    </section>
+    </div>
 
-    <!-- Schedule Section with Timeline -->
-    <section id="schedule" class="py-16">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold mb-4">Agenda del Evento</h2>
-          <p class="text-lg text-white/70 max-w-2xl mx-auto">Consulta las charlas, talleres y actividades programadas
-            para el DevFest Santa Cruz 2025.</p>
-        </div>
 
-        <!-- Schedule Tabs -->
-        <div class="flex border-b border-white/10 mb-8">
-          <button class="px-4 py-3 border-b-2 border-[color:var(--accent)] text-[color:var(--accent)] font-medium">Día
-            1</button>
-          <button class="px-4 py-3 text-white/60 hover:text-white font-medium">Día 2</button>
-        </div>
+  </div>
+</section>
 
-        <!-- Timeline -->
-        <div class="timeline">
-          <!-- Item 1 -->
-          <div class="timeline-item">
-            <div class="bg-[color:var(--card)] rounded-xl p-5 shadow-lg ring-1 ring-black/30">
-              <div class="flex items-center gap-2 mb-2">
-                <div class="px-3 py-1 rounded-full bg-[color:var(--accent)] text-black text-sm font-medium">09:00 -
-                  10:00</div>
-              </div>
-              <h3 class="font-bold text-lg mb-1">Registro y Bienvenida</h3>
-              <p class="text-white/70">Registro de participantes, entrega de credenciales y bienvenida al evento.</p>
-            </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="timeline-item">
-            <div class="bg-[color:var(--card)] rounded-xl p-5 shadow-lg ring-1 ring-black/30">
-              <div class="flex items-center gap-2 mb-2">
-                <div class="px-3 py-1 rounded-full bg-[color:var(--accent-2)] text-black text-sm font-medium">10:00 -
-                  11:00</div>
-              </div>
-              <h3 class="font-bold text-lg mb-1">Keynote: El Futuro del Desarrollo Web</h3>
-              <p class="text-white/70 mb-2">Una visión sobre las tendencias y tecnologías que darán forma al
-                desarrollo web en los próximos años.</p>
-              <div class="flex items-center gap-2 text-sm text-white/60">
-                <i class='bx bx-user'></i>
-                <span>Andrea Pérez</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="timeline-item">
-            <div class="bg-[color:var(--card)] rounded-xl p-5 shadow-lg ring-1 ring-black/30">
-              <div class="flex items-center gap-2 mb-2">
-                <div class="px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium">11:15 - 12:15</div>
-              </div>
-              <h3 class="font-bold text-lg mb-1">Serverless para Startups</h3>
-              <p class="text-white/70 mb-2">Cómo las arquitecturas serverless pueden acelerar el desarrollo y
-                reducir costos para startups.</p>
-              <div class="flex items-center gap-2 text-sm text-white/60">
-                <i class='bx bx-user'></i>
-                <span>José Rojas</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-8">
-          <button
-            class="px-6 py-3 rounded-md bg-white/5 hover:bg-white/10 font-medium flex items-center justify-center gap-2 mx-auto">
-            <i class='bx bx-download'></i> Descargar Agenda Completa
-          </button>
-        </div>
-      </div>
-    </section>
 
     <!-- SECCIÓN DE TALLER -->
     <section id="taller" class="relative py-24 overflow-hidden text-white">
@@ -923,7 +802,7 @@ target="_blank" rel="noopener noreferrer">
           <a href="https://forms.gle/KH11gcabaKLr1hey7" target="_blank"
             class="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[color:var(--accent)] text-black font-semibold hover:brightness-95 transition shadow-lg hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]">
             <i class='bx bx-calendar-event text-xl'></i>
-            Inscribirme ahora
+            Agotado
           </a>
         </div>
 
