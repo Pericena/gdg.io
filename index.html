@@ -1,518 +1,691 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>DevFest Santa Cruz 2025 — Innovación, código y comunidad</title>
+    <meta
+      name="description"
+      content="El evento tecnológico más esperado de Santa Cruz. Únete a la comunidad de desarrolladores el 29 de noviembre de 2025."
+    />
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DevFest Santa Cruz 2025 — Innovación, código y comunidad</title>
-  <meta name="description"
-    content="El evento tecnológico más esperado de Santa Cruz. Únete a la comunidad de desarrolladores el 29 de noviembre de 2025.">
+    <!-- Tailwind CDN (Play) -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Tailwind CDN (Play) -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Boxicons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- Boxicons -->
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  <style>
-    /* Custom small tweaks */
-    :root {
-      --accent: #f6a21b;
-      /* naranja */
-      --accent-2: #1da73a;
-      /* verde */
-      --bg: #232425;
-      /* fondo oscuro */
-      --card: #2a2b2c;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-
-    .gradient-accent {
-      background: linear-gradient(90deg, rgba(246, 162, 27, 1) 0%, rgba(29, 167, 58, 1) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .gradient-bg {
-      background: linear-gradient(90deg, rgba(246, 162, 27, 0.1) 0%, rgba(29, 167, 58, 0.1) 100%);
-    }
-
-    /* tiny carousel transition tweak */
-    .carousel-track {
-      transition: transform .45s cubic-bezier(.2, .9, .3, 1);
-    }
-
-    /* Smooth scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Custom animations */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
+    <style>
+      /* Custom small tweaks */
+      :root {
+        --accent: #f6a21b;
+        /* naranja */
+        --accent-2: #1da73a;
+        /* verde */
+        --bg: #232425;
+        /* fondo oscuro */
+        --card: #2a2b2c;
       }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      body {
+        font-family: "Inter", sans-serif;
       }
-    }
 
-    .fade-in {
-      animation: fadeIn 0.8s ease-out forwards;
-    }
+      .gradient-accent {
+        background: linear-gradient(
+          90deg,
+          rgba(246, 162, 27, 1) 0%,
+          rgba(29, 167, 58, 1) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
 
-    /* Sticky header */
-    .sticky-header {
-      transition: all 0.3s ease;
-    }
+      .gradient-bg {
+        background: linear-gradient(
+          90deg,
+          rgba(246, 162, 27, 0.1) 0%,
+          rgba(29, 167, 58, 0.1) 100%
+        );
+      }
 
-    .sticky-header.scrolled {
-      background-color: rgba(35, 36, 37, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
+      /* tiny carousel transition tweak */
+      .carousel-track {
+        transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1);
+      }
 
-    /* Mobile menu */
-    .mobile-menu {
-      transition: all 0.3s ease;
-      transform: translateX(100%);
-    }
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
 
-    .mobile-menu.open {
-      transform: translateX(0);
-    }
+      /* Custom animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
 
-    /* Floating button */
-    .floating-button {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 40;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: linear-gradient(90deg, rgba(246, 162, 27, 1) 0%, rgba(29, 167, 58, 1) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-    .floating-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
-    }
+      .fade-in {
+        animation: fadeIn 0.8s ease-out forwards;
+      }
 
-    /* Banner styles */
-    .banner {
-      background: linear-gradient(rgba(35, 36, 37, 0.8), rgba(35, 36, 37, 0.8)),
-        url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-      background-size: cover;
-      background-position: center;
-    }
+      /* Sticky header */
+      .sticky-header {
+        transition: all 0.3s ease;
+      }
 
-    /* Gallery styles */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-    }
+      .sticky-header.scrolled {
+        background-color: rgba(35, 36, 37, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
 
-    .gallery-item {
-      border-radius: 12px;
-      overflow: hidden;
-      height: 200px;
-      background-size: cover;
-      background-position: center;
-      transition: transform 0.3s ease;
-    }
+      /* Mobile menu */
+      .mobile-menu {
+        transition: all 0.3s ease;
+        transform: translateX(100%);
+      }
 
-    .gallery-item:hover {
-      transform: scale(1.05);
-    }
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
 
-    /* Avatar carousel */
-    .avatar-carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 16px;
-    }
+      /* Floating button */
+      .floating-button {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 40;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(
+          90deg,
+          rgba(246, 162, 27, 1) 0%,
+          rgba(29, 167, 58, 1) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
 
-    .avatar-carousel::-webkit-scrollbar {
-      display: none;
-    }
+      .floating-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+      }
 
-    .avatar-item {
-      flex: 0 0 auto;
-      width: 280px;
-      margin-right: 16px;
-      scroll-snap-align: start;
-    }
+      /* Banner styles */
+      .banner {
+        background: linear-gradient(
+            rgba(35, 36, 37, 0.8),
+            rgba(35, 36, 37, 0.8)
+          ),
+          url("https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
+        background-size: cover;
+        background-position: center;
+      }
 
-    /* Timeline styles */
-    .timeline {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-    }
+      /* Gallery styles */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+      }
 
-    .timeline::after {
-      content: '';
-      position: absolute;
-      width: 4px;
-      background-color: var(--accent);
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      margin-left: -2px;
-    }
+      .gallery-item {
+        border-radius: 12px;
+        overflow: hidden;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.3s ease;
+      }
 
-    .timeline-item {
-      padding: 10px 40px;
-      position: relative;
-      width: 50%;
-      box-sizing: border-box;
-    }
+      .gallery-item:hover {
+        transform: scale(1.05);
+      }
 
-    .timeline-item:nth-child(odd) {
-      left: 0;
-    }
+      /* Avatar carousel */
+      .avatar-carousel {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 16px;
+      }
 
-    .timeline-item:nth-child(even) {
-      left: 50%;
-    }
+      .avatar-carousel::-webkit-scrollbar {
+        display: none;
+      }
 
-    .timeline-item::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: var(--accent);
-      border-radius: 50%;
-      top: 15px;
-      z-index: 1;
-    }
+      .avatar-item {
+        flex: 0 0 auto;
+        width: 280px;
+        margin-right: 16px;
+        scroll-snap-align: start;
+      }
 
-    .timeline-item:nth-child(odd)::after {
-      right: -10px;
-    }
+      /* Timeline styles */
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
 
-    .timeline-item:nth-child(even)::after {
-      left: -10px;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
       .timeline::after {
-        left: 31px;
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: var(--accent);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -2px;
       }
 
       .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+        box-sizing: border-box;
       }
 
-      .timeline-item:nth-child(even) {
+      .timeline-item:nth-child(odd) {
         left: 0;
       }
 
-      .timeline-item:nth-child(odd)::after,
-      .timeline-item:nth-child(even)::after {
-        left: 21px;
+      .timeline-item:nth-child(even) {
+        left: 50%;
       }
-    }
 
-    /* Carousel image styles */
-    .carousel-image {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transform: scale(1.05);
-      transition: opacity 1.5s ease-in-out, transform 8s ease;
-    }
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: var(--accent);
+        border-radius: 50%;
+        top: 15px;
+        z-index: 1;
+      }
 
-    .carousel-image.active {
-      opacity: 1;
-      transform: scale(1.12);
-    }
+      .timeline-item:nth-child(odd)::after {
+        right: -10px;
+      }
 
-    /* Speaker card styles */
-    .speaker-card {
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
+      .timeline-item:nth-child(even)::after {
+        left: -10px;
+      }
 
-    .speaker-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    }
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .timeline::after {
+          left: 31px;
+        }
 
-    .speaker-image {
-      transition: all 0.3s ease;
-    }
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
 
-    .speaker-card:hover .speaker-image {
-      transform: scale(1.05);
-    }
+        .timeline-item:nth-child(even) {
+          left: 0;
+        }
 
-    .speaker-social {
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all 0.3s ease;
-    }
+        .timeline-item:nth-child(odd)::after,
+        .timeline-item:nth-child(even)::after {
+          left: 21px;
+        }
+      }
 
-    .speaker-card:hover .speaker-social {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
-</head>
+      /* Carousel image styles */
+      .carousel-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transform: scale(1.05);
+        transition: opacity 1.5s ease-in-out, transform 8s ease;
+      }
 
-<body class="bg-[color:var(--bg)] text-gray-200 antialiased leading-relaxed">
+      .carousel-image.active {
+        opacity: 1;
+        transform: scale(1.12);
+      }
 
-  <!-- Sticky Header -->
-  <header class="sticky-header fixed top-0 left-0 right-0 z-50 py-4">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between">
-        <!-- Logo -->
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 ring-1 ring-white/6">
-            <i class='bx bx-code text-xl' style="color:var(--accent)"></i>
-          </div>
-          <div>
-            <h1 class="text-xl font-extrabold gradient-accent">DevFest <span class="text-white">Santa Cruz</span></h1>
-          </div>
-        </div>
+      /* Speaker card styles */
+      .speaker-card {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center gap-6">
-          <a href="#hero" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Inicio</a>
-          <a href="#about" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Acerca de</a>
-          <a href="#speakers"
-            class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Speakers</a>
-          <a href="#packages"
-            class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Paquetes</a>
-          <a href="#sponsors"
-            class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Sponsors</a>
-          <a href="#taller" class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Taller</a>
-          <a href="#location"
-            class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors">Ubicación</a>
-        </nav>
+      .speaker-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
 
-        <!-- CTA Buttons -->
-        <div class="flex items-center gap-3">
-          <button id="registerBtn"
-            class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-md bg-[color:var(--accent)] hover:brightness-95 text-black font-semibold transition-all">
-            <i class='bx bx-calendar-event'></i> Inscribirse
-          </button>
+      .speaker-image {
+        transition: all 0.3s ease;
+      }
 
-          <!-- Mobile menu button -->
-          <button id="mobileMenuBtn" class="md:hidden p-2 bg-white/5 rounded-md">
-            <i class='bx bx-menu text-xl'></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </header>
+      .speaker-card:hover .speaker-image {
+        transform: scale(1.05);
+      }
 
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="mobile-menu fixed inset-0 z-40 bg-[color:var(--bg)] md:hidden">
-    <div class="flex flex-col h-full">
-      <div class="flex justify-between items-center p-4 border-b border-white/10">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 ring-1 ring-white/6">
-            <i class='bx bx-code text-xl' style="color:var(--accent)"></i>
-          </div>
-          <div>
-            <h1 class="text-xl font-extrabold gradient-accent">DevFest <span class="text-white">Santa Cruz</span></h1>
-          </div>
-        </div>
-        <button id="closeMobileMenu" class="p-2">
-          <i class='bx bx-x text-2xl'></i>
-        </button>
-      </div>
+      .speaker-social {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+      }
 
-      <nav class="flex flex-col p-4 gap-4 flex-1">
-        <a href="#hero" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Inicio</a>
-        <a href="#about" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Acerca de</a>
-        <a href="#speakers" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Speakers</a>
-        <a href="#packages" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Paquetes</a>
-        <a href="#sponsors" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Sponsors</a>
-        <a href="#taller" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Taller</a>
-        <a href="#location" class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">Ubicación</a>
+      .speaker-card:hover .speaker-social {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
 
-        <div class="mt-auto pt-4 border-t border-white/10">
-          <a class="w-full py-3 rounded-md bg-[color:var(--accent)] text-black font-semibold flex items-center justify-center gap-2"
-            href="https://gdg.community.dev/events/details/google-gdg-santa-cruz-presents-devfest-santa-cruz-2025/"
-            target="_blank" rel="noopener noreferrer">
-            <i class='bx bx-calendar-event'></i> Inscribirse
-          </a>
-        </div>
-      </nav>
-    </div>
-  </div>
-
-  <!-- Main Content -->
-  <main>
-    <!-- Hero Section with Banner -->
-    <section id="hero" class="banner pt-24 pb-12 relative overflow-hidden text-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <!-- Hero Content -->
-          <div class="fade-in relative z-10">
+  <body class="bg-[color:var(--bg)] text-gray-200 antialiased leading-relaxed">
+    <!-- Sticky Header -->
+    <header class="sticky-header fixed top-0 left-0 right-0 z-50 py-4">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <div class="flex items-center gap-3">
             <div
-              class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-sm mb-6 border border-white/10 shadow-sm">
-              <span class="w-2 h-2 rounded-full bg-[color:var(--accent)] animate-pulse"></span>
-              <span>29 Noviembre 2025 — Universidad Privada Domingo Savio</span>
+              class="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 ring-1 ring-white/6"
+            >
+              <i class="bx bx-code text-xl" style="color: var(--accent)"></i>
             </div>
+            <div>
+              <h1 class="text-xl font-extrabold gradient-accent">
+                DevFest <span class="text-white">Santa Cruz</span>
+              </h1>
+            </div>
+          </div>
 
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight">
-              <span class="gradient-accent">DevFest</span> Santa Cruz 2025
-            </h2>
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex items-center gap-6">
+            <a
+              href="#hero"
+              class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors"
+              >Inicio</a
+            >
+            <a
+              href="#about"
+              class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors"
+              >Acerca de</a
+            >
+            <a
+              href="#speakers"
+              class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors"
+              >Speakers</a
+            >
+            <a
+              href="#packages"
+              class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors"
+              >Paquetes</a
+            >
+            <a
+              href="#sponsors"
+              class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors"
+              >Sponsors</a
+            >
+            <a
+              href="#taller"
+              class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors"
+              >Taller</a
+            >
+            <a
+              href="#location"
+              class="text-sm font-medium hover:text-[color:var(--accent)] transition-colors"
+              >Ubicación</a
+            >
+          </nav>
 
-            <p class="text-lg md:text-xs text-white/80 mb-8 leading-relaxed max-w-lg">
-              Innovación, código y comunidad en un solo lugar.
-              Vive la experiencia tecnológica más grande del año impulsada por <b>Google Developers Group</b>.
-            </p>
+          <!-- CTA Buttons -->
+          <div class="flex items-center gap-3">
+            <button
+              id="registerBtn"
+              class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-md bg-[color:var(--accent)] hover:brightness-95 text-black font-semibold transition-all"
+            >
+              <i class="bx bx-calendar-event"></i> Inscribirse
+            </button>
 
-            <!-- Countdown -->
-            <div class="mb-8">
-              <p class="text-sm text-white/70 mb-3 uppercase tracking-wide">El evento comienza en:</p>
-              <div id="countdown" class="flex gap-3">
-                <div class="text-center px-4 py-3 bg-white/10 rounded-lg backdrop-blur-sm shadow-sm">
-                  <div id="days" class="text-2xl font-bold">00</div>
-                  <div class="text-xs text-white/60">Días</div>
-                </div>
-                <div class="text-center px-4 py-3 bg-white/10 rounded-lg backdrop-blur-sm shadow-sm">
-                  <div id="hours" class="text-2xl font-bold">00</div>
-                  <div class="text-xs text-white/60">Horas</div>
-                </div>
-                <div class="text-center px-4 py-3 bg-white/10 rounded-lg backdrop-blur-sm shadow-sm">
-                  <div id="minutes" class="text-2xl font-bold">00</div>
-                  <div class="text-xs text-white/60">Min</div>
-                </div>
-                <div class="text-center px-4 py-3 bg-white/10 rounded-lg backdrop-blur-sm shadow-sm">
-                  <div id="seconds" class="text-2xl font-bold">00</div>
-                  <div class="text-xs text-white/60">Seg</div>
+            <!-- Mobile menu button -->
+            <button
+              id="mobileMenuBtn"
+              class="md:hidden p-2 bg-white/5 rounded-md"
+            >
+              <i class="bx bx-menu text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobileMenu"
+      class="mobile-menu fixed inset-0 z-40 bg-[color:var(--bg)] md:hidden"
+    >
+      <div class="flex flex-col h-full">
+        <div
+          class="flex justify-between items-center p-4 border-b border-white/10"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 ring-1 ring-white/6"
+            >
+              <i class="bx bx-code text-xl" style="color: var(--accent)"></i>
+            </div>
+            <div>
+              <h1 class="text-xl font-extrabold gradient-accent">
+                DevFest <span class="text-white">Santa Cruz</span>
+              </h1>
+            </div>
+          </div>
+          <button id="closeMobileMenu" class="p-2">
+            <i class="bx bx-x text-2xl"></i>
+          </button>
+        </div>
+
+        <nav class="flex flex-col p-4 gap-4 flex-1">
+          <a
+            href="#hero"
+            class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+            >Inicio</a
+          >
+          <a
+            href="#about"
+            class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+            >Acerca de</a
+          >
+          <a
+            href="#speakers"
+            class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+            >Speakers</a
+          >
+          <a
+            href="#packages"
+            class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+            >Paquetes</a
+          >
+          <a
+            href="#sponsors"
+            class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+            >Sponsors</a
+          >
+          <a
+            href="#taller"
+            class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+            >Taller</a
+          >
+          <a
+            href="#location"
+            class="py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+            >Ubicación</a
+          >
+
+          <div class="mt-auto pt-4 border-t border-white/10">
+            <a
+              class="w-full py-3 rounded-md bg-[color:var(--accent)] text-black font-semibold flex items-center justify-center gap-2"
+              href="https://gdg.community.dev/events/details/google-gdg-santa-cruz-presents-devfest-santa-cruz-2025/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="bx bx-calendar-event"></i> Inscribirse
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section with Banner -->
+      <section
+        id="hero"
+        class="banner pt-24 pb-12 relative overflow-hidden text-white"
+      >
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <!-- Hero Content -->
+            <div class="fade-in relative z-10">
+              <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-sm mb-6 border border-white/10 shadow-sm"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-[color:var(--accent)] animate-pulse"
+                ></span>
+                <span
+                  >29 Noviembre 2025 — Universidad Privada Domingo Savio</span
+                >
+              </div>
+
+              <h2
+                class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight"
+              >
+                <span class="gradient-accent">DevFest</span> Santa Cruz 2025
+              </h2>
+
+              <p
+                class="text-lg md:text-xs text-white/80 mb-8 leading-relaxed max-w-lg"
+              >
+                Innovación, código y comunidad en un solo lugar. Vive la
+                experiencia tecnológica más grande del año impulsada por
+                <b>Google Developers Group</b>.
+              </p>
+
+              <!-- Countdown -->
+              <div class="mb-8">
+                <p class="text-sm text-white/70 mb-3 uppercase tracking-wide">
+                  El evento comienza en:
+                </p>
+                <div id="countdown" class="flex gap-3">
+                  <div
+                    class="text-center px-4 py-3 bg-white/10 rounded-lg backdrop-blur-sm shadow-sm"
+                  >
+                    <div id="days" class="text-2xl font-bold">00</div>
+                    <div class="text-xs text-white/60">Días</div>
+                  </div>
+                  <div
+                    class="text-center px-4 py-3 bg-white/10 rounded-lg backdrop-blur-sm shadow-sm"
+                  >
+                    <div id="hours" class="text-2xl font-bold">00</div>
+                    <div class="text-xs text-white/60">Horas</div>
+                  </div>
+                  <div
+                    class="text-center px-4 py-3 bg-white/10 rounded-lg backdrop-blur-sm shadow-sm"
+                  >
+                    <div id="minutes" class="text-2xl font-bold">00</div>
+                    <div class="text-xs text-white/60">Min</div>
+                  </div>
+                  <div
+                    class="text-center px-4 py-3 bg-white/10 rounded-lg backdrop-blur-sm shadow-sm"
+                  >
+                    <div id="seconds" class="text-2xl font-bold">00</div>
+                    <div class="text-xs text-white/60">Seg</div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4">
+              <!-- CTA Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4">
+                <a
+                  class="px-6 py-3 rounded-md bg-[color:var(--accent)] hover:brightness-90 text-black font-semibold flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+                  href="https://gdg.community.dev/events/details/google-gdg-santa-cruz-presents-devfest-santa-cruz-2025/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="bx bx-calendar-event text-xl"></i> Inscribirse ahora
+                </a>
 
-<a class="px-6 py-3 rounded-md bg-[color:var(--accent)] hover:brightness-90 text-black font-semibold flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]" 
-href="https://gdg.community.dev/events/details/google-gdg-santa-cruz-presents-devfest-santa-cruz-2025/" 
-target="_blank" rel="noopener noreferrer">
-                <i class='bx bx-calendar-event text-xl'></i> Inscribirse ahora
-</a>
-
-              <a href="#about"
-                class="px-6 py-3 rounded-md bg-white/10 hover:bg-white/20 font-medium flex items-center justify-center gap-2 transition-all border border-white/10 backdrop-blur-sm">
-                <i class='bx bx-info-circle text-xl'></i> Más información
-              </a>
+                <a
+                  href="#about"
+                  class="px-6 py-3 rounded-md bg-white/10 hover:bg-white/20 font-medium flex items-center justify-center gap-2 transition-all border border-white/10 backdrop-blur-sm"
+                >
+                  <i class="bx bx-info-circle text-xl"></i> Más información
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Carrusel de fondo -->
-      <div class="absolute inset-0 w-full h-full overflow-hidden">
-        <div id="banner-carousel" class="relative w-full h-full">
-          <!-- 10+ imágenes -->
-          <img src="/img/banner0.jpg" class="carousel-image active" alt="Banner 1">
-          <img src="/img/banner1.jpg" class="carousel-image" alt="Banner 2">
-          <img src="/img/banner2.jpg" class="carousel-image" alt="Banner 3">
-          <img src="/img/banner3.jpg" class="carousel-image" alt="Banner 4">
-          <img src="/img/banner4.jpg" class="carousel-image" alt="Banner 5">
-          <img src="/img/banner5.jpg" class="carousel-image" alt="Banner 6">
-        </div>
-
-        <!-- Degradado oscuro -->
-        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
-
-        <!-- SVG decorativos -->
-        <svg class="absolute top-10 right-10 w-40 opacity-10" viewBox="0 0 100 100" fill="none">
-          <path d="M10 10h80v80H10z" stroke="white" stroke-width="2" stroke-dasharray="4 3" />
-        </svg>
-        <svg class="absolute bottom-12 left-10 w-32 opacity-10 text-[color:var(--accent)]" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="3" stroke-dasharray="6 4" fill="none" />
-        </svg>
-      </div>
-
-      <!-- Fondos de color difuminado -->
-      <div class="absolute -top-10 -left-10 w-60 h-60 rounded-full bg-[color:var(--accent)] opacity-25 blur-3xl"></div>
-      <div class="absolute -bottom-20 -right-10 w-60 h-60 rounded-full bg-[color:var(--accent-2)] opacity-20 blur-3xl">
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold mb-4">Acerca del DevFest</h2>
-          <p class="text-lg text-white/70 max-w-2xl mx-auto">El DevFest (Developer Festival) es un evento organizado por
-            la comunidad para desarrolladores, creadores y entusiastas de la tecnología.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Card 1 -->
-          <div class="bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
-            <div class="w-12 h-12 rounded-lg bg-[color:var(--accent)] flex items-center justify-center mb-4">
-              <i class='bx bx-group text-2xl text-black'></i>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Comunidad</h3>
-            <p class="text-white/70">Conecta con desarrolladores locales, comparte conocimientos y expande tu red
-              profesional.</p>
+        <!-- Carrusel de fondo -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden">
+          <div id="banner-carousel" class="relative w-full h-full">
+            <!-- 10+ imágenes -->
+            <img
+              src="/img/banner0.jpg"
+              class="carousel-image active"
+              alt="Banner 1"
+            />
+            <img src="/img/banner1.jpg" class="carousel-image" alt="Banner 2" />
+            <img src="/img/banner2.jpg" class="carousel-image" alt="Banner 3" />
+            <img src="/img/banner3.jpg" class="carousel-image" alt="Banner 4" />
+            <img src="/img/banner4.jpg" class="carousel-image" alt="Banner 5" />
+            <img src="/img/banner5.jpg" class="carousel-image" alt="Banner 6" />
           </div>
 
-          <!-- Card 2 -->
-          <div class="bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
-            <div class="w-12 h-12 rounded-lg bg-[color:var(--accent-2)] flex items-center justify-center mb-4">
-              <i class='bx bx-bulb text-2xl text-black'></i>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Innovación</h3>
-            <p class="text-white/70">Descubre las últimas tendencias tecnológicas y herramientas que están transformando
-              la industria.</p>
+          <!-- Degradado oscuro -->
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"
+          ></div>
+
+          <!-- SVG decorativos -->
+          <svg
+            class="absolute top-10 right-10 w-40 opacity-10"
+            viewBox="0 0 100 100"
+            fill="none"
+          >
+            <path
+              d="M10 10h80v80H10z"
+              stroke="white"
+              stroke-width="2"
+              stroke-dasharray="4 3"
+            />
+          </svg>
+          <svg
+            class="absolute bottom-12 left-10 w-32 opacity-10 text-[color:var(--accent)]"
+            viewBox="0 0 100 100"
+          >
+            <circle
+              cx="50"
+              cy="50"
+              r="45"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-dasharray="6 4"
+              fill="none"
+            />
+          </svg>
+        </div>
+
+        <!-- Fondos de color difuminado -->
+        <div
+          class="absolute -top-10 -left-10 w-60 h-60 rounded-full bg-[color:var(--accent)] opacity-25 blur-3xl"
+        ></div>
+        <div
+          class="absolute -bottom-20 -right-10 w-60 h-60 rounded-full bg-[color:var(--accent-2)] opacity-20 blur-3xl"
+        ></div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Acerca del DevFest</h2>
+            <p class="text-lg text-white/70 max-w-2xl mx-auto">
+              El DevFest (Developer Festival) es un evento organizado por la
+              comunidad para desarrolladores, creadores y entusiastas de la
+              tecnología.
+            </p>
           </div>
 
-          <!-- Card 3 -->
-          <div class="bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30">
-            <div class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4">
-              <i class='bx bx-code-alt text-2xl' style="color:var(--accent)"></i>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div
+              class="bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30"
+            >
+              <div
+                class="w-12 h-12 rounded-lg bg-[color:var(--accent)] flex items-center justify-center mb-4"
+              >
+                <i class="bx bx-group text-2xl text-black"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Comunidad</h3>
+              <p class="text-white/70">
+                Conecta con desarrolladores locales, comparte conocimientos y
+                expande tu red profesional.
+              </p>
             </div>
-            <h3 class="text-xl font-bold mb-2">Aprendizaje</h3>
-            <p class="text-white/70">Aprende de expertos con charlas técnicas, talleres prácticos y sesiones de
-              networking.</p>
+
+            <!-- Card 2 -->
+            <div
+              class="bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30"
+            >
+              <div
+                class="w-12 h-12 rounded-lg bg-[color:var(--accent-2)] flex items-center justify-center mb-4"
+              >
+                <i class="bx bx-bulb text-2xl text-black"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Innovación</h3>
+              <p class="text-white/70">
+                Descubre las últimas tendencias tecnológicas y herramientas que
+                están transformando la industria.
+              </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="bg-[color:var(--card)] rounded-2xl p-6 shadow-lg ring-1 ring-black/30"
+            >
+              <div
+                class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4"
+              >
+                <i
+                  class="bx bx-code-alt text-2xl"
+                  style="color: var(--accent)"
+                ></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Aprendizaje</h3>
+              <p class="text-white/70">
+                Aprende de expertos con charlas técnicas, talleres prácticos y
+                sesiones de networking.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Speakers Section with Avatar Carousel -->
-    <!-- <section id="speakers" class="py-16 bg-white/5">
+      <!-- Speakers Section with Avatar Carousel -->
+      <!-- <section id="speakers" class="py-16 bg-white/5">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold mb-4">Nuestros Speakers</h2>
@@ -621,584 +794,834 @@ target="_blank" rel="noopener noreferrer">
       </div>
     </section> -->
 
-    <!-- Gallery Section -->
-    <section id="packages" class="py-8 md:py-16">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8 md:mb-12">
-          <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4">Paquetes DevFest</h2>
-          <p class="text-base md:text-lg text-white/70 max-w-2xl mx-auto">Selecciona el paquete que mejor se adapte a
-            tus
-            necesidades y únete a la comunidad de desarrolladores.</p>
-        </div>
+      <!-- Gallery Section -->
+      <section id="packages" class="py-8 md:py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-8 md:mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4">
+              Paquetes DevFest
+            </h2>
+            <p class="text-base md:text-lg text-white/70 max-w-2xl mx-auto">
+              Selecciona el paquete que mejor se adapte a tus necesidades y
+              únete a la comunidad de desarrolladores.
+            </p>
+          </div>
 
-        <div class="packages-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-          <!-- Paquete Básico -->
           <div
-            class="package-card bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 flex flex-col h-full">
-            <!-- Imagen del paquete -->
-            <div class="h-100 md:h-100 bg-cover bg-center flex items-center justify-center p-4">
-              <img src="./img/PaqueteYesca4x5_30.png" alt="Paquete Básico" class="w-full h-full object-contain">
-            </div>
-            <div class="p-4 md:p-6 flex-grow flex flex-col">
-              <div class="flex justify-between items-start mb-3 md:mb-4">
-                <h3 class="text-lg md:text-xl font-bold">Combo</h3>
-                <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-2 py-1 rounded-full">Yesca</span>
+            class="packages-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8"
+          >
+            <!-- Paquete Básico -->
+            <div
+              class="package-card bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 flex flex-col h-full"
+            >
+              <!-- Imagen del paquete -->
+              <div
+                class="h-100 md:h-100 bg-cover bg-center flex items-center justify-center p-4"
+              >
+                <img
+                  src="./img/PaqueteYesca4x5_30.png"
+                  alt="Paquete Básico"
+                  class="w-full h-full object-contain"
+                />
               </div>
-              <div class="mb-4 md:mb-6">
-                <div class="flex items-baseline">
-                  <span class="text-2xl md:text-3xl font-bold">40 Bs</span>
-                  <!-- <span class="text-white/50 ml-2 line-through text-sm md:text-base">30 Bs</span> -->
+              <div class="p-4 md:p-6 flex-grow flex flex-col">
+                <div class="flex justify-between items-start mb-3 md:mb-4">
+                  <h3 class="text-lg md:text-xl font-bold">Combo</h3>
+                  <span
+                    class="bg-blue-500/20 text-blue-300 text-xs font-medium px-2 py-1 rounded-full"
+                    >Yesca</span
+                  >
+                </div>
+                <div class="mb-4 md:mb-6">
+                  <div class="flex items-baseline">
+                    <span class="text-2xl md:text-3xl font-bold">40 Bs</span>
+                    <!-- <span class="text-white/50 ml-2 line-through text-sm md:text-base">30 Bs</span> -->
+                  </div>
+                </div>
+
+                <div
+                  class="w-full py-2 md:py-3 rounded-lg bg-[#EA9A1A] hover:bg-[#d48a15] font-medium transition-colors flex items-center justify-center gap-2"
+                >
+                  <a href="https://forms.gle/e1BcTzDVivmqhANc7">
+                    <i class="bx bx-cart-alt text-lg"></i>
+                    <span>Comprar Ahora</span>
+                  </a>
                 </div>
               </div>
+            </div>
 
+            <!-- Paquete Profesional -->
+            <div
+              class="package-card bg-white/5 rounded-xl overflow-hidden border-2 border-blue-500/70 relative hover:scale-105 transition-all duration-300 flex flex-col h-full"
+            >
+              <!-- Imagen del paquete -->
               <div
-                class="w-full py-2 md:py-3 rounded-lg bg-[#EA9A1A] hover:bg-[#d48a15] font-medium transition-colors flex items-center justify-center gap-2">
-                <a href="https://forms.gle/e1BcTzDVivmqhANc7">
-                  <i class='bx bx-cart-alt text-lg'></i>
-                  <span>Comprar Ahora</span>
-                </a>
+                class="h-100 md:h-100 bg-cover bg-center flex items-center justify-center p-4"
+              >
+                <img
+                  src="./img/PaqueteChirapa4x5_60.png"
+                  alt="Paquete Profesional"
+                  class="w-full h-full object-contain"
+                />
               </div>
-            </div>
-          </div>
+              <div class="p-4 md:p-6 pt-6 md:pt-8 flex-grow flex flex-col">
+                <div class="flex justify-between items-start mb-3 md:mb-4">
+                  <h3 class="text-lg md:text-xl font-bold">Combo</h3>
+                  <span
+                    class="bg-purple-500/20 text-purple-300 text-xs font-medium px-2 py-1 rounded-full"
+                    >Chiripa</span
+                  >
+                </div>
+                <div class="mb-4 md:mb-6">
+                  <div class="flex items-baseline">
+                    <span class="text-2xl md:text-3xl font-bold">70 Bs</span>
+                    <!-- <span class="text-white/50 ml-2 line-through text-sm md:text-base">70 Bs</span> -->
+                  </div>
+                </div>
 
-          <!-- Paquete Profesional -->
-          <div
-            class="package-card bg-white/5 rounded-xl overflow-hidden border-2 border-blue-500/70 relative hover:scale-105 transition-all duration-300 flex flex-col h-full">
-            <!-- Imagen del paquete -->
-            <div class="h-100 md:h-100 bg-cover bg-center flex items-center justify-center p-4">
-              <img src="./img/PaqueteChirapa4x5_60.png" alt="Paquete Profesional" class="w-full h-full object-contain">
-            </div>
-            <div class="p-4 md:p-6 pt-6 md:pt-8 flex-grow flex flex-col">
-              <div class="flex justify-between items-start mb-3 md:mb-4">
-                <h3 class="text-lg md:text-xl font-bold">Combo</h3>
-                <span class="bg-purple-500/20 text-purple-300 text-xs font-medium px-2 py-1 rounded-full">Chiripa</span>
-              </div>
-              <div class="mb-4 md:mb-6">
-                <div class="flex items-baseline">
-                  <span class="text-2xl md:text-3xl font-bold">70 Bs</span>
-                  <!-- <span class="text-white/50 ml-2 line-through text-sm md:text-base">70 Bs</span> -->
+                <div
+                  class="w-full py-2 md:py-3 rounded-lg bg-[#EA9A1A] hover:bg-[#d48a15] font-medium transition-colors flex items-center justify-center gap-2"
+                >
+                  <a href="https://forms.gle/udRkGyAwV2kK6mnb7">
+                    <i class="bx bx-cart-alt text-lg"></i>
+                    <span>Comprar Ahora</span>
+                  </a>
                 </div>
               </div>
+            </div>
 
+            <!-- Paquete Premium -->
+            <div
+              class="package-card bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:border-yellow-500/50 transition-all duration-300 hover:scale-105 flex flex-col h-full"
+            >
+              <!-- Imagen del paquete -->
               <div
-                class="w-full py-2 md:py-3 rounded-lg bg-[#EA9A1A] hover:bg-[#d48a15] font-medium transition-colors flex items-center justify-center gap-2">
-                <a href="https://forms.gle/udRkGyAwV2kK6mnb7">
-                  <i class='bx bx-cart-alt text-lg'></i>
-                  <span>Comprar Ahora</span>
-                </a>
+                class="h-100 md:h-100 bg-cover bg-center flex items-center justify-center p-4"
+              >
+                <img
+                  src="./img/PaqueteMocasinero4x5_170.png"
+                  alt="Paquete Premium"
+                  class="w-full h-full object-contain"
+                />
               </div>
-            </div>
-          </div>
+              <div class="p-4 md:p-6 flex-grow flex flex-col">
+                <div class="flex justify-between items-start mb-3 md:mb-4">
+                  <h3 class="text-lg md:text-xl font-bold">Combo</h3>
+                  <span
+                    class="bg-yellow-500/20 text-yellow-300 text-xs font-medium px-2 py-1 rounded-full"
+                    >Mocasinero</span
+                  >
+                </div>
+                <div class="mb-4 md:mb-6">
+                  <div class="flex items-baseline">
+                    <span class="text-2xl md:text-3xl font-bold">200 Bs</span>
+                    <!-- <span class="text-white/50 ml-2 line-through text-sm md:text-base">200 Bs</span> -->
+                  </div>
+                </div>
 
-          <!-- Paquete Premium -->
-          <div
-            class="package-card bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:border-yellow-500/50 transition-all duration-300 hover:scale-105 flex flex-col h-full">
-            <!-- Imagen del paquete -->
-            <div class="h-100 md:h-100 bg-cover bg-center flex items-center justify-center p-4">
-              <img src="./img/PaqueteMocasinero4x5_170.png" alt="Paquete Premium" class="w-full h-full object-contain">
-            </div>
-            <div class="p-4 md:p-6 flex-grow flex flex-col">
-              <div class="flex justify-between items-start mb-3 md:mb-4">
-                <h3 class="text-lg md:text-xl font-bold">Combo</h3>
-                <span
-                  class="bg-yellow-500/20 text-yellow-300 text-xs font-medium px-2 py-1 rounded-full">Mocasinero</span>
-              </div>
-              <div class="mb-4 md:mb-6">
-                <div class="flex items-baseline">
-                  <span class="text-2xl md:text-3xl font-bold">185 Bs</span>
-                  <span class="text-white/50 ml-2 line-through text-sm md:text-base">200 Bs</span>
+                <div
+                  class="w-full py-2 md:py-3 rounded-lg bg-[#EA9A1A] hover:bg-[#d48a15] font-medium transition-colors flex items-center justify-center gap-2"
+                >
+                  <a href="https://forms.gle/P55VoQ9H1TYMD4kj6">
+                    <i class="bx bx-cart-alt text-lg"></i>
+                    <span>Comprar Ahora</span>
+                  </a>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <!-- Sponsors Section -->
+      <section id="sponsors" class="py-16 bg-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Title -->
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4 text-white">
+              Nuestros Sponsors
+            </h2>
+            <p class="text-lg text-white/70 max-w-2xl mx-auto">
+              Gracias a todas las empresas que hacen posible este evento.
+            </p>
+          </div>
+
+          <!-- Infinite Carousel -->
+          <div class="relative w-full overflow-hidden">
+            <div id="infiniteCarousel" class="flex gap-10 animate-slide">
+              <!-- CARD 1 -->
               <div
-                class="w-full py-2 md:py-3 rounded-lg bg-[#EA9A1A] hover:bg-[#d48a15] font-medium transition-colors flex items-center justify-center gap-2">
-                <a href="https://forms.gle/P55VoQ9H1TYMD4kj6">
-                  <i class='bx bx-cart-alt text-lg'></i>
-                  <span>Comprar Ahora</span>
-                </a>
+                class="bg-[color:var(--card)] rounded-xl p-4 flex items-center justify-center min-w-[180px] h-28"
+              >
+                <img
+                  src="/img/sponsor/delve_white.png"
+                  class="h-full object-contain"
+                  alt="Sponsor 1"
+                />
+              </div>
+
+              <!-- CARD 2 -->
+              <div
+                class="bg-[color:var(--card)] rounded-xl p-4 flex items-center justify-center min-w-[180px] h-28"
+              >
+                <img
+                  src="/img/sponsor/DHRNaranja.png"
+                  class="h-full object-contain"
+                  alt="Sponsor 2"
+                />
+              </div>
+
+              <!-- CARD 3 -->
+              <div
+                class="bg-[color:var(--card)] rounded-xl p-4 flex items-center justify-center min-w-[180px] h-28"
+              >
+                <img
+                  src="/img/sponsor/jetbrains.png"
+                  class="h-full object-contain"
+                  alt="Sponsor 3"
+                />
+              </div>
+
+              <!-- CARD 4 -->
+              <div
+                class="bg-[color:var(--card)] rounded-xl p-4 flex items-center justify-center min-w-[180px] h-28"
+              >
+                <img
+                  src="/img/sponsor/Google_2015_logo.svg.png"
+                  class="h-full object-contain"
+                  alt="Sponsor 4"
+                />
+              </div>
+
+              <!-- Duplicate to make infinite effect -->
+              <div
+                class="bg-[color:var(--card)] rounded-xl p-4 flex items-center justify-center min-w-[180px] h-28"
+              >
+                <img
+                  src="/img/sponsor/DevfestGDGSantaCruz_1.png"
+                  class="h-full object-contain"
+                  alt="Sponsor 1"
+                />
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+      <!-- SECCIÓN DE TALLER -->
+      <section id="taller" class="relative py-24 overflow-hidden text-white">
+        <div
+          class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+        >
+          <!-- Texto del taller -->
+          <div class="fade-in space-y-6">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-sm shadow"
+            >
+              <span
+                class="w-2 h-2 rounded-full bg-[color:var(--accent)] animate-pulse"
+              ></span>
+              <span>Taller DevFest Santa Cruz 2025</span>
+            </div>
 
+            <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+              <span class="gradient-accent">Crea tu sistema multi-agente</span
+              ><br />
+              con Google ADK
+            </h2>
 
-<!-- Sponsors Section -->
-<section id="sponsors" class="py-16 bg-white/5">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <!-- Title -->
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold mb-4 text-white">Nuestros Sponsors</h2>
-      <p class="text-lg text-white/70 max-w-2xl mx-auto">
-        Gracias a todas las empresas que hacen posible este evento.
-      </p>
-    </div>
-
-
-    <!-- Infinite Carousel -->
-    <div class="relative w-full overflow-hidden">
-      <div id="infiniteCarousel" class="flex gap-10 animate-slide">
-
-        <!-- CARD 1 -->
-        <div class="bg-[color:var(--card)] rounded-xl p-4 flex items-center justify-center min-w-[180px] h-28">
-          <img src="/img/sponsor/delve_white.png" class="h-full object-contain" alt="Sponsor 1">
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="bg-[color:var(--card)] rounded-xl p-4 flex items-center justify-center min-w-[180px] h-28">
-          <img src="/img/sponsor/DHRNaranja.png" class="h-full object-contain" alt="Sponsor 2">
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="bg-[color:var(--card)] rounded-xl p-4 flex items-center justify-center min-w-[180px] h-28">
-          <img src="/img/sponsor/jetbrains.png" class="h-full object-contain" alt="Sponsor 3">
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="bg-[color:var(--card)] rounded-xl p-4 flex items-center justify-center min-w-[180px] h-28">
-          <img src="/img/sponsor/Google_2015_logo.svg.png" class="h-full object-contain" alt="Sponsor 4">
-        </div>
-
-        <!-- Duplicate to make infinite effect -->
-        <div class="bg-[color:var(--card)] rounded-xl p-4 flex items-center justify-center min-w-[180px] h-28">
-          <img src="/img/sponsor/DevfestGDGSantaCruz_1.png" class="h-full object-contain" alt="Sponsor 1">
-        </div>
-
-      </div>
-    </div>
-
-
-  </div>
-</section>
-
-
-    <!-- SECCIÓN DE TALLER -->
-    <section id="taller" class="relative py-24 overflow-hidden text-white">
-      <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-        <!-- Texto del taller -->
-        <div class="fade-in space-y-6">
-          <div
-            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-sm shadow">
-            <span class="w-2 h-2 rounded-full bg-[color:var(--accent)] animate-pulse"></span>
-            <span>Taller DevFest Santa Cruz 2025</span>
-          </div>
-
-          <h2 class="text-4xl md:text-5xl font-bold leading-tight">
-            <span class="gradient-accent">Crea tu sistema multi-agente</span><br />
-            con Google ADK
-          </h2>
-
-          <p class="text-white/80 text-lg leading-relaxed max-w-md">
-            Participa en este taller exclusivo donde aprenderás a construir agentes inteligentes colaborativos usando
-            las
-            herramientas de Google.
-            ¡Lleva tu desarrollo al siguiente nivel!
-          </p>
-
-          <a href="https://forms.gle/KH11gcabaKLr1hey7" target="_blank"
-            class="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[color:var(--accent)] text-black font-semibold hover:brightness-95 transition shadow-lg hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-            <i class='bx bx-calendar-event text-xl'></i>
-            Agotado
-          </a>
-        </div>
-
-        <!-- Imagen del taller -->
-        <div class="fade-in relative group">
-          <div
-            class="rounded-2xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-md shadow-lg transition-transform duration-500 group-hover:scale-[1.03] group-hover:brightness-110">
-            <img src="/img/agente.jpg" alt="Taller Google ADK"
-              class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105" />
-          </div>
-
-          <!-- Badges decorativos -->
-          <span
-            class="absolute top-4 left-4 bg-[color:var(--accent)] text-black text-xs font-bold px-3 py-1 rounded-full shadow-md">
-            DISPONIBLE
-          </span>
-          <div
-            class="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-[color:var(--accent-2)] opacity-25 blur-3xl">
-          </div>
-          <div class="absolute -top-6 -left-6 w-28 h-28 rounded-full bg-[color:var(--accent)] opacity-25 blur-3xl">
-          </div>
-        </div>
-      </div>
-
-      <!-- SVG decorativo de fondo -->
-      <svg class="absolute top-0 right-0 w-72 opacity-10" viewBox="0 0 200 200">
-        <path fill="url(#grad2)"
-          d="M40,-60C50,-50,60,-40,70,-20C80,0,80,20,70,40C60,60,40,80,20,80C0,80,-20,60,-40,40C-60,20,-80,0,-70,-20C-60,-40,-40,-60,-20,-70C0,-80,20,-70,40,-60Z"
-          transform="translate(100 100)" />
-        <defs>
-          <linearGradient id="grad2" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0%" stop-color="var(--accent)" />
-            <stop offset="100%" stop-color="var(--accent-2)" />
-          </linearGradient>
-        </defs>
-      </svg>
-    </section>
-
-    <!-- Location Section -->
-    <section id="location" class="py-16 bg-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-          <!-- Información de ubicación -->
-          <div>
-            <h2 class="text-3xl font-bold mb-4 text-white">Ubicación</h2>
-            <p class="text-lg text-white/70 mb-8 leading-relaxed">
-              El DevFest Santa Cruz 2025 se llevará a cabo en las instalaciones de la
-              <span class="text-white font-semibold">Universidad Privada Domingo Savio</span>,
-              un espacio moderno y equipado para eventos tecnológicos.
+            <p class="text-white/80 text-lg leading-relaxed max-w-md">
+              Participa en este taller exclusivo donde aprenderás a construir
+              agentes inteligentes colaborativos usando las herramientas de
+              Google. ¡Lleva tu desarrollo al siguiente nivel!
             </p>
 
-            <div class="space-y-5">
-              <!-- Dirección -->
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                  <i class='bx bx-map text-2xl' style="color:var(--accent)"></i>
-                </div>
-                <div>
-                  <h3 class="font-bold mb-1 text-white">Dirección</h3>
-                  <p class="text-white/70">Av. Beni entre 2do y 3er anillo, Santa Cruz de la Sierra, Bolivia</p>
-                </div>
-              </div>
-
-              <!-- Fecha y hora -->
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                  <i class='bx bx-time text-2xl' style="color:var(--accent-2)"></i>
-                </div>
-                <div>
-                  <h3 class="font-bold mb-1 text-white">Fecha y Hora</h3>
-                  <p class="text-white/70">29 de Noviembre, 2025 — 9:00 AM a 6:00 PM</p>
-                </div>
-              </div>
-
-              <!-- Organiza -->
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                  <i class='bx bx-group text-2xl' style="color:var(--accent)"></i>
-                </div>
-                <div>
-                  <h3 class="font-bold mb-1 text-white">Organiza</h3>
-                  <p class="text-white/70">Google Developer Group — Santa Cruz</p>
-                </div>
-              </div>
-            </div>
+            <a
+              href="https://forms.gle/KH11gcabaKLr1hey7"
+              target="_blank"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[color:var(--accent)] text-black font-semibold hover:brightness-95 transition shadow-lg hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+            >
+              <i class="bx bx-calendar-event text-xl"></i>
+              Agotado
+            </a>
           </div>
 
-          <!-- Mapa Google -->
-          <div class="bg-[color:var(--card)] rounded-2xl p-4 shadow-lg ring-1 ring-black/30">
-            <div class="overflow-hidden rounded-xl aspect-video">
-              <iframe class="w-full h-full rounded-xl border-0" loading="lazy" allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.616466358995!2d-63.16463788542465!3d-17.776579983881047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e9119ac95e15%3A0x63021f5b9db3bc36!2sUniversidad%20Privada%20Domingo%20Savio!5e0!3m2!1ses!2sbo!4v1698954184751!5m2!1ses!2sbo">
-              </iframe>
+          <!-- Imagen del taller -->
+          <div class="fade-in relative group">
+            <div
+              class="rounded-2xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-md shadow-lg transition-transform duration-500 group-hover:scale-[1.03] group-hover:brightness-110"
+            >
+              <img
+                src="/img/agente.jpg"
+                alt="Taller Google ADK"
+                class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
-          </div>
 
+            <!-- Badges decorativos -->
+            <span
+              class="absolute top-4 left-4 bg-[color:var(--accent)] text-black text-xs font-bold px-3 py-1 rounded-full shadow-md"
+            >
+              DISPONIBLE
+            </span>
+            <div
+              class="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-[color:var(--accent-2)] opacity-25 blur-3xl"
+            ></div>
+            <div
+              class="absolute -top-6 -left-6 w-28 h-28 rounded-full bg-[color:var(--accent)] opacity-25 blur-3xl"
+            ></div>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="py-16 gradient-bg">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-bold mb-4">¿Listo para ser parte del DevFest?</h2>
-        <p class="text-lg text-white/70 mb-8 max-w-2xl mx-auto">No te pierdas la oportunidad de conectar con la
-          comunidad tech, aprender de expertos y descubrir las últimas tendencias tecnológicas.</p>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-black/20 py-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <!-- Brand -->
-        <div class="md:col-span-2">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 ring-1 ring-white/6">
-              <i class='bx bx-code text-xl' style="color:var(--accent)"></i>
+        <div
+          class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+        >
+          <!-- Texto del taller -->
+          <div class="fade-in space-y-6">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-sm shadow"
+            >
+              <span
+                class="w-2 h-2 rounded-full bg-[color:var(--accent)] animate-pulse"
+              ></span>
+              <span>Taller DevFest Santa Cruz 2025</span>
             </div>
+
+            <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+              <span class="gradient-accent"
+                >Automatización Sin Límites: Introducción</span
+              ><br />
+              Práctica a n8n
+            </h2>
+
+            <p class="text-white/80 text-lg leading-relaxed max-w-md">
+              En este taller aprenderás a utilizar n8n, una herramienta de
+              automatización poderosa y flexible que te permitirá crear flujos
+              sin necesidad de programar. Veremos qué es n8n, qué puedes hacer
+              con él, cómo crear tu cuenta y aprovechar la prueba gratuita.
+              También aprenderás a ejecutar n8n localmente mediante NPX (o npm).
+            </p>
+
+            <a
+              href="https://forms.gle/1CFZXEM2UBgawfu86"
+              target="_blank"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[color:var(--accent)] text-black font-semibold hover:brightness-95 transition shadow-lg hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+            >
+              <i class="bx bx-calendar-event text-xl"></i>
+              Inscribirse
+            </a>
+          </div>
+
+          <!-- Imagen del taller -->
+          <div class="fade-in relative group">
+            <div
+              class="rounded-2xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-md shadow-lg transition-transform duration-500 group-hover:scale-[1.03] group-hover:brightness-110"
+            >
+              <img
+                src="/img/n8n.jpg"
+                alt="Taller Google ADK"
+                class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            <!-- Badges decorativos -->
+            <span
+              class="absolute top-4 left-4 bg-[color:var(--accent)] text-black text-xs font-bold px-3 py-1 rounded-full shadow-md"
+            >
+              DISPONIBLE
+            </span>
+            <div
+              class="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-[color:var(--accent-2)] opacity-25 blur-3xl"
+            ></div>
+            <div
+              class="absolute -top-6 -left-6 w-28 h-28 rounded-full bg-[color:var(--accent)] opacity-25 blur-3xl"
+            ></div>
+          </div>
+        </div>
+
+        <!-- SVG decorativo de fondo -->
+        <svg
+          class="absolute top-0 right-0 w-72 opacity-10"
+          viewBox="0 0 200 200"
+        >
+          <path
+            fill="url(#grad2)"
+            d="M40,-60C50,-50,60,-40,70,-20C80,0,80,20,70,40C60,60,40,80,20,80C0,80,-20,60,-40,40C-60,20,-80,0,-70,-20C-60,-40,-40,-60,-20,-70C0,-80,20,-70,40,-60Z"
+            transform="translate(100 100)"
+          />
+          <defs>
+            <linearGradient id="grad2" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="var(--accent)" />
+              <stop offset="100%" stop-color="var(--accent-2)" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </section>
+
+      <!-- Location Section -->
+      <section id="location" class="py-16 bg-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Información de ubicación -->
             <div>
-              <h3 class="text-xl font-extrabold gradient-accent">DevFest <span class="text-white">Santa Cruz</span></h3>
+              <h2 class="text-3xl font-bold mb-4 text-white">Ubicación</h2>
+              <p class="text-lg text-white/70 mb-8 leading-relaxed">
+                El DevFest Santa Cruz 2025 se llevará a cabo en las
+                instalaciones de la
+                <span class="text-white font-semibold"
+                  >Universidad Privada Domingo Savio</span
+                >, un espacio moderno y equipado para eventos tecnológicos.
+              </p>
+
+              <div class="space-y-5">
+                <!-- Dirección -->
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"
+                  >
+                    <i
+                      class="bx bx-map text-2xl"
+                      style="color: var(--accent)"
+                    ></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold mb-1 text-white">Dirección</h3>
+                    <p class="text-white/70">
+                      Av. Beni entre 2do y 3er anillo, Santa Cruz de la Sierra,
+                      Bolivia
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Fecha y hora -->
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"
+                  >
+                    <i
+                      class="bx bx-time text-2xl"
+                      style="color: var(--accent-2)"
+                    ></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold mb-1 text-white">Fecha y Hora</h3>
+                    <p class="text-white/70">
+                      29 de Noviembre, 2025 — 9:00 AM a 6:00 PM
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Organiza -->
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"
+                  >
+                    <i
+                      class="bx bx-group text-2xl"
+                      style="color: var(--accent)"
+                    ></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold mb-1 text-white">Organiza</h3>
+                    <p class="text-white/70">
+                      Google Developer Group — Santa Cruz
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mapa Google -->
+            <div
+              class="bg-[color:var(--card)] rounded-2xl p-4 shadow-lg ring-1 ring-black/30"
+            >
+              <div class="overflow-hidden rounded-xl aspect-video">
+                <iframe
+                  class="w-full h-full rounded-xl border-0"
+                  loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.616466358995!2d-63.16463788542465!3d-17.776579983881047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e9119ac95e15%3A0x63021f5b9db3bc36!2sUniversidad%20Privada%20Domingo%20Savio!5e0!3m2!1ses!2sbo!4v1698954184751!5m2!1ses!2sbo"
+                >
+                </iframe>
+              </div>
             </div>
           </div>
-          <p class="text-white/70 mb-4">El evento tecnológico más esperado de Santa Cruz, organizado por la comunidad
-            para la comunidad.</p>
-          <div class="flex gap-4">
-            <a href="#"
-              class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
-              <i class='bx bxl-twitter'></i>
-            </a>
-            <a href="#"
-              class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
-              <i class='bx bxl-facebook'></i>
-            </a>
-            <a href="#"
-              class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
-              <i class='bx bxl-instagram'></i>
-            </a>
-            <a href="#"
-              class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
-              <i class='bx bxl-linkedin'></i>
-            </a>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="py-16 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl font-bold mb-4">
+            ¿Listo para ser parte del DevFest?
+          </h2>
+          <p class="text-lg text-white/70 mb-8 max-w-2xl mx-auto">
+            No te pierdas la oportunidad de conectar con la comunidad tech,
+            aprender de expertos y descubrir las últimas tendencias
+            tecnológicas.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/20 py-8">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Brand -->
+          <div class="md:col-span-2">
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 ring-1 ring-white/6"
+              >
+                <i class="bx bx-code text-xl" style="color: var(--accent)"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-extrabold gradient-accent">
+                  DevFest <span class="text-white">Santa Cruz</span>
+                </h3>
+              </div>
+            </div>
+            <p class="text-white/70 mb-4">
+              El evento tecnológico más esperado de Santa Cruz, organizado por
+              la comunidad para la comunidad.
+            </p>
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors"
+              >
+                <i class="bx bxl-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors"
+              >
+                <i class="bx bxl-facebook"></i>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors"
+              >
+                <i class="bx bxl-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors"
+              >
+                <i class="bx bxl-linkedin"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Links -->
+          <div>
+            <h4 class="font-bold mb-4">Enlaces rápidos</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#about"
+                  class="text-white/70 hover:text-white transition-colors"
+                  >Acerca de</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#speakers"
+                  class="text-white/70 hover:text-white transition-colors"
+                  >Speakers</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#packages"
+                  class="text-white/70 hover:text-white transition-colors"
+                  >Paquetes</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#sponsors"
+                  class="text-white/70 hover:text-white transition-colors"
+                  >Sponsors</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#schedule"
+                  class="text-white/70 hover:text-white transition-colors"
+                  >Agenda</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#location"
+                  class="text-white/70 hover:text-white transition-colors"
+                  >Ubicación</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h4 class="font-bold mb-4">Contacto</h4>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-white/70">
+                <i class="bx bx-envelope"></i>
+                <span>info@devfestsantacruz.bo</span>
+              </li>
+              <li class="flex items-center gap-2 text-white/70">
+                <i class="bx bx-world"></i>
+                <span>devfestsantacruz.bo</span>
+              </li>
+              <li class="flex items-center gap-2 text-white/70">
+                <i class="bx bxl-meetup"></i>
+                <span>GDG Santa Cruz</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- Links -->
-        <div>
-          <h4 class="font-bold mb-4">Enlaces rápidos</h4>
-          <ul class="space-y-2">
-            <li><a href="#about" class="text-white/70 hover:text-white transition-colors">Acerca de</a></li>
-            <li><a href="#speakers" class="text-white/70 hover:text-white transition-colors">Speakers</a></li>
-            <li><a href="#packages" class="text-white/70 hover:text-white transition-colors">Paquetes</a></li>
-            <li><a href="#sponsors" class="text-white/70 hover:text-white transition-colors">Sponsors</a></li>
-            <li><a href="#schedule" class="text-white/70 hover:text-white transition-colors">Agenda</a></li>
-            <li><a href="#location" class="text-white/70 hover:text-white transition-colors">Ubicación</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact -->
-        <div>
-          <h4 class="font-bold mb-4">Contacto</h4>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2 text-white/70">
-              <i class='bx bx-envelope'></i>
-              <span>info@devfestsantacruz.bo</span>
-            </li>
-            <li class="flex items-center gap-2 text-white/70">
-              <i class='bx bx-world'></i>
-              <span>devfestsantacruz.bo</span>
-            </li>
-            <li class="flex items-center gap-2 text-white/70">
-              <i class='bx bxl-meetup'></i>
-              <span>GDG Santa Cruz</span>
-            </li>
-          </ul>
+        <div
+          class="border-t border-white/10 mt-8 pt-6 text-center text-sm text-white/60"
+        >
+          <p>
+            © 2025 DevFest Santa Cruz. Organizado por Google Developer Group —
+            Santa Cruz. Todos los derechos reservados.
+          </p>
         </div>
       </div>
+    </footer>
 
-      <div class="border-t border-white/10 mt-8 pt-6 text-center text-sm text-white/60">
-        <p>© 2025 DevFest Santa Cruz. Organizado por Google Developer Group — Santa Cruz. Todos los derechos reservados.
-        </p>
+    <!-- Floating Button -->
+    <div class="floating-button" id="scrollToTop">
+      <i class="bx bx-chevron-up text-2xl text-black"></i>
+    </div>
+
+    <!-- Modal QR -->
+    <div
+      id="qrModal"
+      class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4 z-50"
+    >
+      <div class="bg-[color:var(--card)] p-6 rounded-xl max-w-sm w-full">
+        <div class="flex justify-between items-center mb-4">
+          <h4 class="font-bold text-lg">QR de registro</h4>
+          <button id="closeQr" class="text-white/60 hover:text-white">
+            <i class="bx bx-x text-2xl"></i>
+          </button>
+        </div>
+        <div class="mt-3 flex flex-col items-center justify-center">
+          <div
+            class="w-56 h-56 bg-white rounded-md flex items-center justify-center mb-4"
+          >
+            <!-- Placeholder QR: replace with real QR URL -->
+            <svg width="180" height="180" viewBox="0 0 24 24" fill="none">
+              <rect x="1" y="1" width="6" height="6" fill="black" />
+              <rect x="17" y="1" width="6" height="6" fill="black" />
+              <rect x="1" y="17" width="6" height="6" fill="black" />
+              <rect x="10" y="10" width="2" height="2" fill="black" />
+              <rect x="13" y="10" width="2" height="2" fill="black" />
+            </svg>
+          </div>
+          <p class="text-sm text-white/70 text-center">
+            Escanea este código QR para acceder al formulario de registro.
+          </p>
+        </div>
       </div>
     </div>
-  </footer>
 
-  <!-- Floating Button -->
-  <div class="floating-button" id="scrollToTop">
-    <i class='bx bx-chevron-up text-2xl text-black'></i>
-  </div>
-
-  <!-- Modal QR -->
-  <div id="qrModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4 z-50">
-    <div class="bg-[color:var(--card)] p-6 rounded-xl max-w-sm w-full">
-      <div class="flex justify-between items-center mb-4">
-        <h4 class="font-bold text-lg">QR de registro</h4>
-        <button id="closeQr" class="text-white/60 hover:text-white">
-          <i class='bx bx-x text-2xl'></i>
-        </button>
-      </div>
-      <div class="mt-3 flex flex-col items-center justify-center">
-        <div class="w-56 h-56 bg-white rounded-md flex items-center justify-center mb-4">
-          <!-- Placeholder QR: replace with real QR URL -->
-          <svg width="180" height="180" viewBox="0 0 24 24" fill="none">
-            <rect x="1" y="1" width="6" height="6" fill="black" />
-            <rect x="17" y="1" width="6" height="6" fill="black" />
-            <rect x="1" y="17" width="6" height="6" fill="black" />
-            <rect x="10" y="10" width="2" height="2" fill="black" />
-            <rect x="13" y="10" width="2" height="2" fill="black" />
-          </svg>
-        </div>
-        <p class="text-sm text-white/70 text-center">Escanea este código QR para acceder al formulario de registro.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script>
-    /* =======================
+    <!-- Scripts -->
+    <script>
+      /* =======================
        Sticky Header
        ======================= */
-    window.addEventListener('scroll', function () {
-      const header = document.querySelector('.sticky-header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector(".sticky-header");
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
 
-    /* =======================
+      /* =======================
        Mobile Menu
        ======================= */
-    document.getElementById('mobileMenuBtn').addEventListener('click', function () {
-      document.getElementById('mobileMenu').classList.add('open');
-    });
+      document
+        .getElementById("mobileMenuBtn")
+        .addEventListener("click", function () {
+          document.getElementById("mobileMenu").classList.add("open");
+        });
 
-    document.getElementById('closeMobileMenu').addEventListener('click', function () {
-      document.getElementById('mobileMenu').classList.remove('open');
-    });
+      document
+        .getElementById("closeMobileMenu")
+        .addEventListener("click", function () {
+          document.getElementById("mobileMenu").classList.remove("open");
+        });
 
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('#mobileMenu a').forEach(link => {
-      link.addEventListener('click', function () {
-        document.getElementById('mobileMenu').classList.remove('open');
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll("#mobileMenu a").forEach((link) => {
+        link.addEventListener("click", function () {
+          document.getElementById("mobileMenu").classList.remove("open");
+        });
       });
-    });
 
-    /* =======================
+      /* =======================
        Countdown
        ======================= */
-    (function () {
-      // Target date: Nov 29, 2025 at 09:00 local time
-      const target = new Date('2025-11-29T09:00:00');
-      const $ = id => document.getElementById(id);
+      (function () {
+        // Target date: Nov 29, 2025 at 09:00 local time
+        const target = new Date("2025-11-29T09:00:00");
+        const $ = (id) => document.getElementById(id);
 
-      function updateCountdown() {
-        const now = new Date();
-        let diff = Math.max(0, target - now);
-        const sec = Math.floor(diff / 1000) % 60;
-        const min = Math.floor(diff / (1000 * 60)) % 60;
-        const hr = Math.floor(diff / (1000 * 60 * 60)) % 24;
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        $('days').textContent = String(days).padStart(2, '0');
-        $('hours').textContent = String(hr).padStart(2, '0');
-        $('minutes').textContent = String(min).padStart(2, '0');
-        $('seconds').textContent = String(sec).padStart(2, '0');
-      }
+        function updateCountdown() {
+          const now = new Date();
+          let diff = Math.max(0, target - now);
+          const sec = Math.floor(diff / 1000) % 60;
+          const min = Math.floor(diff / (1000 * 60)) % 60;
+          const hr = Math.floor(diff / (1000 * 60 * 60)) % 24;
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          $("days").textContent = String(days).padStart(2, "0");
+          $("hours").textContent = String(hr).padStart(2, "0");
+          $("minutes").textContent = String(min).padStart(2, "0");
+          $("seconds").textContent = String(sec).padStart(2, "0");
+        }
 
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    })();
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      })();
 
-    /* =======================
+      /* =======================
        Carousel (simple)
        ======================= */
-    (function () {
-      const track = document.getElementById('carouselTrack');
-      const prev = document.getElementById('prevBtn');
-      const next = document.getElementById('nextBtn');
+      (function () {
+        const track = document.getElementById("carouselTrack");
+        const prev = document.getElementById("prevBtn");
+        const next = document.getElementById("nextBtn");
 
-      // visible width and item width
-      let idx = 0;
-      const items = track.children;
-      const itemWidth = items[0].getBoundingClientRect().width + 24; // card + gap
-      const visibleCount = Math.floor((track.parentElement.clientWidth) / itemWidth) || 1;
+        // visible width and item width
+        let idx = 0;
+        const items = track.children;
+        const itemWidth = items[0].getBoundingClientRect().width + 24; // card + gap
+        const visibleCount =
+          Math.floor(track.parentElement.clientWidth / itemWidth) || 1;
 
-      function update() {
-        const x = -idx * itemWidth;
-        track.style.transform = 'translateX(' + x + 'px)';
-      }
+        function update() {
+          const x = -idx * itemWidth;
+          track.style.transform = "translateX(" + x + "px)";
+        }
 
-      prev.addEventListener('click', () => {
-        idx = Math.max(0, idx - 1);
-        update();
-      });
+        prev.addEventListener("click", () => {
+          idx = Math.max(0, idx - 1);
+          update();
+        });
 
-      next.addEventListener('click', () => {
-        idx = Math.min(items.length - visibleCount, idx + 1);
-        update();
-      });
+        next.addEventListener("click", () => {
+          idx = Math.min(items.length - visibleCount, idx + 1);
+          update();
+        });
 
-      // auto slide
-      let auto = setInterval(() => {
-        idx = (idx + 1) % Math.max(1, items.length - visibleCount + 1);
-        update();
-      }, 3500);
-
-      // pause on hover
-      track.parentElement.addEventListener('mouseenter', () => clearInterval(auto));
-      track.parentElement.addEventListener('mouseleave', () => {
-        auto = setInterval(() => {
+        // auto slide
+        let auto = setInterval(() => {
           idx = (idx + 1) % Math.max(1, items.length - visibleCount + 1);
           update();
         }, 3500);
-      });
 
-      // responsive resize recalculation
-      window.addEventListener('resize', () => {
-        // recalc visibleCount (simple approach: reset idx to 0)
-        idx = 0;
-        track.style.transition = 'none';
-        update();
-        setTimeout(() => track.style.transition = '', 100);
-      });
-    })();
+        // pause on hover
+        track.parentElement.addEventListener("mouseenter", () =>
+          clearInterval(auto)
+        );
+        track.parentElement.addEventListener("mouseleave", () => {
+          auto = setInterval(() => {
+            idx = (idx + 1) % Math.max(1, items.length - visibleCount + 1);
+            update();
+          }, 3500);
+        });
 
-    /* =======================
+        // responsive resize recalculation
+        window.addEventListener("resize", () => {
+          // recalc visibleCount (simple approach: reset idx to 0)
+          idx = 0;
+          track.style.transition = "none";
+          update();
+          setTimeout(() => (track.style.transition = ""), 100);
+        });
+      })();
+
+      /* =======================
        Banner Carousel
        ======================= */
-    (function () {
-      const images = document.querySelectorAll('#banner-carousel .carousel-image');
-      let index = 0;
+      (function () {
+        const images = document.querySelectorAll(
+          "#banner-carousel .carousel-image"
+        );
+        let index = 0;
 
-      function showNextImage() {
-        images[index].classList.remove('active');
-        index = (index + 1) % images.length;
-        images[index].classList.add('active');
-      }
+        function showNextImage() {
+          images[index].classList.remove("active");
+          index = (index + 1) % images.length;
+          images[index].classList.add("active");
+        }
 
-      setInterval(showNextImage, 5000);
-    })();
+        setInterval(showNextImage, 5000);
+      })();
 
-    /* =======================
+      /* =======================
        Small interactions
        ======================= */
-    document.getElementById('openQr').addEventListener('click', () => {
-      document.getElementById('qrModal').classList.remove('hidden');
-    });
-    document.getElementById('closeQr').addEventListener('click', () => {
-      document.getElementById('qrModal').classList.add('hidden');
-    });
-
-    // Register CTA smooth scroll
-    document.querySelectorAll('#registerBtn, .register-cta').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelector('#location').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById("openQr").addEventListener("click", () => {
+        document.getElementById("qrModal").classList.remove("hidden");
       });
-    });
+      document.getElementById("closeQr").addEventListener("click", () => {
+        document.getElementById("qrModal").classList.add("hidden");
+      });
 
-    // Floating button scroll to top
-    document.getElementById('scrollToTop').addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+      // Register CTA smooth scroll
+      document
+        .querySelectorAll("#registerBtn, .register-cta")
+        .forEach((btn) => {
+          btn.addEventListener("click", () => {
+            document
+              .querySelector("#location")
+              .scrollIntoView({ behavior: "smooth" });
+          });
+        });
 
-    // Show/hide floating button based on scroll position
-    window.addEventListener('scroll', function () {
-      const floatingButton = document.getElementById('scrollToTop');
-      if (window.scrollY > 300) {
-        floatingButton.style.display = 'flex';
-      } else {
-        floatingButton.style.display = 'none';
-      }
-    });
+      // Floating button scroll to top
+      document.getElementById("scrollToTop").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
 
-    // Add fade-in animation to elements when they come into view
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
+      // Show/hide floating button based on scroll position
+      window.addEventListener("scroll", function () {
+        const floatingButton = document.getElementById("scrollToTop");
+        if (window.scrollY > 300) {
+          floatingButton.style.display = "flex";
+        } else {
+          floatingButton.style.display = "none";
         }
       });
-    }, observerOptions);
 
-    // Observe elements with the fade-in class
-    document.querySelectorAll('.fade-in').forEach(el => {
-      observer.observe(el);
-    });
-  </script>
-</body>
+      // Add fade-in animation to elements when they come into view
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
 
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in");
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements with the fade-in class
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
 </html>
